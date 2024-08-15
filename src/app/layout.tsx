@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Alumni_Sans } from "next/font/google";
 import "./globals.css";
-import { NavLinks } from "./components/NavLinks";
+import  NavBar  from "./components/NavBar";
+import Burger from "./components/Burger";
+import { useState } from "react";
 
 const alumni = Alumni_Sans({ subsets: ["cyrillic"] });
 
@@ -17,8 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${alumni.className} flex justify-center flex-col bg-black`}>
-        <NavLinks />
+      <body className={`${alumni.className} flex justify-center flex-col bg-black text-white`}>
+        <NavBar/>
+        
         {children}
       </body>
     </html>

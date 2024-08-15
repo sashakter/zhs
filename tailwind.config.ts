@@ -27,6 +27,9 @@ const config: Config = {
         "black": "#0D0C0C",
         "white": "#F7F7F7",
         "yellow": "#C6986D",
+      },
+      dropShadow: {
+        "2xl": '0 0 10px rgb(194 153 113 / 0.25)'
       }
     },
   },

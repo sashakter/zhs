@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "semi": false,
+  "singleQuote": true,
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended", "stylelint-config-prettier", "prettier"]
 }
