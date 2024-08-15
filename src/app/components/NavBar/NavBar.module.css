@@ -1,0 +1,26 @@
+@keyframes shimmer {
+    0% {
+      background-position: -100%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
+  
+  .shimmerBorder {
+    position: relative;
+  }
+  
+  .shimmerBorder::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    /*Thisdefinestheheightofthe'border'*/background: linear-gradient(90deg, #C6986D 0%, #ededed 50%, #C6986D 100%);
+    background-size: 200%;
+    animation: shimmer 10s infinite;
+    -webkit-animation: shimmer 10s infinite;
+}
+  

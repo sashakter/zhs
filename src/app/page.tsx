@@ -1,4 +1,11 @@
+import HeaderVideo from "./components/HeaderVideo/HeaderVideo";
 
-export default function Page() {
-  return <h1>Main Page</h1>;
-}
+const Page: React.FC = () => {
+  return (
+    <>
+      <HeaderVideo />
+    </>
+  );
+};
+
+export default Page;
