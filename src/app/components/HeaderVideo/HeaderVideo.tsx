@@ -38,7 +38,7 @@ const HeaderVideo: React.FC = () => {
         ref={videoRef}
         loop
         muted
-        playsInline
+        autoPlay
         className={css.videoBackground}
       >
         {isVideoVisible && (
