@@ -42,11 +42,11 @@ const HeaderVideo: React.FC = () => {
         className={css.videoBackground}
       >
         {isVideoVisible && (
-          <source src="/background-video-exmpl.mp4" type="video/mp4" />
+          <source className=" max-[1024px]:block" src="/background-video-exmpl.mp4" type="video/mp4" />
         )}
-        {isVideoVisible && (
-          <source src="/background-video-exmpl.webm" type="video/webm" />
-        )}
+        
+          <source className="lg:hidden" src="/background-video-exmpl.webm" type="video/webm" />
+        
         {/* Provide fallback text or images for unsupported browsers */}
         Your browser does not support the video tag.
       </video>
