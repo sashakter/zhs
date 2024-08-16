@@ -22,7 +22,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  color: white; /* Example: Text over the video */
+  color: white; 
   display: flex;
   width: 100%;
   height: 100vh;
@@ -35,4 +35,9 @@
 
 .textOverlay {
   font-size: 3rem;
+}
+@media (max-width: 1024px) {
+  .videoBackground {
+    display: none; /* Hide video on mobile */
+  }
 }

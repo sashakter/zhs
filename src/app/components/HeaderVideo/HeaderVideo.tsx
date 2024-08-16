@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import css from "./HeaderVideo.module.css";
+import Image from "next/image";
+
 const HeaderVideo: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -38,18 +40,19 @@ const HeaderVideo: React.FC = () => {
         ref={videoRef}
         loop
         muted
-        autoPlay
+        playsInline
         className={css.videoBackground}
       >
-        {isVideoVisible && (
-          <source className=" max-[1024px]:block" src="/background-video-exmpl.mp4" type="video/mp4" />
-        )}
-        
-          <source className="lg:hidden" src="/background-video-exmpl.webm" type="video/webm" />
-        
-        {/* Provide fallback text or images for unsupported browsers */}
-        Your browser does not support the video tag.
+        {isVideoVisible && <source src="/bg-video.mp4" type="video/mp4" />}
+        {isVideoVisible && <source src="/bg-video.webm" type="video/webm" />}
       </video>
+      <Image
+        className="block lg:hidden"
+        src="/bg-photo.jpg"
+        alt="bg-photo"
+        layout="fill"
+        objectFit="cover"
+      />
       <div className={css.contentOverlay}>
         <h1 className={css.textOverlay}>Welcome to Our Site</h1>
       </div>
