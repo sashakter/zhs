@@ -41,8 +41,13 @@ const HeaderVideo: React.FC = () => {
         playsInline
         className={css.videoBackground}
       >
-        <source src="/background-video-exmpl.mp4" type="video/webm" />
-        <source src="/background-video-exmpl.webm" type="video/mp4" />
+        {isVideoVisible && (
+          <source src="/background-video-exmpl.mp4" type="video/mp4" />
+        )}
+        {isVideoVisible && (
+          <source src="/background-video-exmpl.webm" type="video/webm" />
+        )}
+        {/* Provide fallback text or images for unsupported browsers */}
         Your browser does not support the video tag.
       </video>
       <div className={css.contentOverlay}>
