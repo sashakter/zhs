@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import css from './HeaderVideo.module.css'
+import css from "./HeaderVideo.module.css";
 const HeaderVideo: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -11,14 +11,14 @@ const HeaderVideo: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVideoVisible(true); 
+            setIsVideoVisible(true);
             if (videoRef.current) {
-              videoRef.current.play(); 
+              videoRef.current.play();
             }
           }
         });
       },
-      { threshold: 0.1 } 
+      { threshold: 0.1 }
     );
 
     if (videoRef.current) {
@@ -41,10 +41,8 @@ const HeaderVideo: React.FC = () => {
         playsInline
         className={css.videoBackground}
       >
-        {isVideoVisible && (
-          <source src="/background-video-exmpl.mp4" type="video/mp4" />
-        )}
-        {/* Provide fallback text or images for unsupported browsers */}
+        <source src="/background-video-exmpl.mp4" type="video/webm" />
+        <source src="/background-video-exmpl.webm" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={css.contentOverlay}>
