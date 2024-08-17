@@ -25,6 +25,9 @@ const Chooser: React.FC = () => {
           spaceBetween={0}
           pagination={{ clickable: true }}
           modules={[Pagination, Autoplay]}
+          effect="fade"
+          speed={800}
+          fadeEffect={{ crossFade: true }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             640: {
