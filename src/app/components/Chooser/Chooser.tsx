@@ -1,13 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import Title from './Title'
+import Title from '../Title'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Pagination, Autoplay } from 'swiper/modules'
 import { useMediaQuery } from 'react-responsive'
+import css from './Chooser.module.css'
 
 const Chooser: React.FC = () => {
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' })
@@ -23,7 +24,10 @@ const Chooser: React.FC = () => {
       {isMobileOrTablet ? (
         <Swiper
           spaceBetween={0}
-          pagination={{ clickable: true }}
+          pagination={{
+            clickable: true,
+            bulletActiveClass: css.swiperCustomBulletActive,
+          }}
           modules={[Pagination, Autoplay]}
           effect="fade"
           speed={800}
