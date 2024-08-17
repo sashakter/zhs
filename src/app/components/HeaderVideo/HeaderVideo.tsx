@@ -1,38 +1,38 @@
-"use client";
+'use client'
 
-import React, { useEffect, useRef, useState } from "react";
-import css from "./HeaderVideo.module.css";
-import Image from "next/image";
+import React, { useEffect, useRef, useState } from 'react'
+import css from './HeaderVideo.module.css'
+import Image from 'next/image'
 
 const HeaderVideo: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isVideoVisible, setIsVideoVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVideoVisible(true);
+            setIsVideoVisible(true)
             if (videoRef.current) {
-              videoRef.current.play();
+              videoRef.current.play()
             }
           }
-        });
+        })
       },
-      { threshold: 0.1 }
-    );
+      { threshold: 0.1 },
+    )
 
     if (videoRef.current) {
-      observer.observe(videoRef.current);
+      observer.observe(videoRef.current)
     }
 
     return () => {
       if (videoRef.current) {
-        observer.unobserve(videoRef.current);
+        observer.unobserve(videoRef.current)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   return (
     <div className={css.videoBackgroundContainer}>
@@ -47,17 +47,16 @@ const HeaderVideo: React.FC = () => {
         {isVideoVisible && <source src="/bg-video.webm" type="video/webm" />}
       </video>
       <Image
-        className="block lg:hidden"
+        className="block object-cover lg:hidden"
         src="/bg-photo.jpg"
         alt="bg-photo"
-        layout="fill"
-        objectFit="cover"
+        fill
       />
       <div className={css.contentOverlay}>
         <h1 className={css.textOverlay}>Welcome to Our Site</h1>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderVideo;
+export default HeaderVideo

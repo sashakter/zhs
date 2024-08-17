@@ -1,5 +1,8 @@
-import AboutCompany from "./components/AboutCompany";
-import HeaderVideo from "./components/HeaderVideo/HeaderVideo";
+import dynamic from 'next/dynamic'
+import AboutCompany from './components/AboutCompany'
+import HeaderVideo from './components/HeaderVideo/HeaderVideo'
+
+const Chooser = dynamic(() => import('./components/Chooser'), { ssr: false })
 
 const Page: React.FC = () => {
   return (
@@ -8,10 +11,13 @@ const Page: React.FC = () => {
         <HeaderVideo />
       </header>
       <main>
-        <AboutCompany/>
+        <AboutCompany />
+        <div>
+          <Chooser />
+        </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page
