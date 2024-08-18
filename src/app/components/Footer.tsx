@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative flex flex-col gap-10 pb-3 pt-10">
+    <footer className="relative flex flex-col gap-10 px-5 pb-3 pt-10">
       <div className="absolute inset-0 z-0">
         <Image
           src={'/footer-bg.png'}
