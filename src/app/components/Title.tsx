@@ -5,6 +5,7 @@ import { CSSProperties } from 'react'
 
 interface TitleProps {
   title: string
+  titleColor?: string
   addClass?: string
   style?: CSSProperties
   earColor?: string
@@ -24,7 +25,9 @@ const Title: React.FC<TitleProps> = ({
       <div>
         <EarTitle color={earColor} />
       </div>
-      <h1 className="text-4xl uppercase sm:text-[40px] lg:text-5xl">{title}</h1>
+      <h1 className={`text-4xl uppercase sm:text-[40px] lg:text-5xl`}>
+        {title}
+      </h1>
       <div className="rotate-180">
         <EarTitle color={earColor} />
       </div>

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import AboutCompany from './components/AboutCompany'
 import HeaderVideo from './components/HeaderVideo/HeaderVideo'
+import Benefits from './components/Benefits'
 
 const Chooser = dynamic(() => import('./components/Chooser/Chooser'), {
   ssr: false,
@@ -17,6 +18,7 @@ const Page: React.FC = () => {
         <div>
           <Chooser />
         </div>
+        <Benefits />
       </main>
     </>
   )
