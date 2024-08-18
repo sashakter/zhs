@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import Title from './Title'
-import EarLine from '../EarLine'
-
 const Benefits: React.FC = () => {
   return (
     <div className="relative px-4 py-10 text-black">
