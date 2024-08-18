@@ -18,7 +18,7 @@ const Benefits: React.FC = () => {
       <div className="absolute inset-0 z-0 bg-[#fff] opacity-90"></div>
       <div className="relative flex flex-col">
         <Title title="переваги" earColor="#000000" />
-        <div className="flex flex-wrap items-start justify-center gap-14 text-center uppercase">
+        <div className="flex flex-wrap items-start justify-around gap-14 text-center uppercase">
           <div className="flex max-w-sm flex-col items-center justify-center gap-14">
             <h2 className="text-3xl font-medium">Висока якість продукції</h2>
             <p className="text-2xl lg:min-h-[192px]">
