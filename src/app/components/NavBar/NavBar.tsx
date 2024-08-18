@@ -8,6 +8,7 @@ import Burger from '../Burger'
 import LanguageSelector from '../LanguageSelector'
 import css from './NavBar.module.css'
 import MenuButton from '../MenuButton'
+import Ear from '../Ear'
 
 const NavBar: React.FC = () => {
   const pathname = usePathname()
@@ -48,6 +49,7 @@ const NavBar: React.FC = () => {
           className="top-1 mx-auto drop-shadow-2xl max-[1023px]:w-20 lg:absolute lg:w-[290px]"
           alt="logo"
           style={{ left: 'calc(50% - 145px)' }}
+          priority={true}
           width={1000}
           height={1000}
         />

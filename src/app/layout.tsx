@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Alumni_Sans } from 'next/font/google'
 import './globals.css'
 import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer'
 
 const alumni = Alumni_Sans({ subsets: ['cyrillic'] })
 
@@ -18,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body
-        className={`${alumni.className} flex justify-center flex-col bg-black text-white`}
+        className={`${alumni.className} flex flex-col justify-center bg-black text-white`}
       >
         <NavBar />
-
         {children}
+        <Footer />
       </body>
     </html>
   )

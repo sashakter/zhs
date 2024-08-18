@@ -112,6 +112,7 @@ const Chooser: React.FC = () => {
             <Image
               className="relative -bottom-1/4 mx-auto"
               src={'/gold.png'}
+              priority={true}
               alt="gold"
               width={244}
               height={800}
