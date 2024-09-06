@@ -28,14 +28,14 @@ const NavBar: React.FC = () => {
         <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
           Головна
         </Link>
-        <Image src={'/ear.svg'} alt="ear" width={20} height={20} />
+        <span>|</span>
         <Link
           className={`link ${pathname === '/products' ? 'active' : ''}`}
           href="/products"
         >
           Продукція
         </Link>
-        <Image src={'/ear.svg'} alt="ear" width={20} height={20} />
+        <span>|</span>
         <Link
           className={`link ${pathname === '/partners' ? 'active' : ''}`}
           href="/partners"
@@ -62,14 +62,14 @@ const NavBar: React.FC = () => {
           >
             Новини
           </Link>
-          <Image src={'/ear.svg'} alt="ear" width={20} height={20} />
+          <span>|</span>
           <Link
             className={`link ${pathname === '/contacts' ? 'active' : ''}`}
             href="/contacts"
           >
             Контакти
           </Link>
-          <Image src={'/ear.svg'} alt="ear" width={20} height={20} />
+          <span>|</span>
           <Link
             className={`link ${pathname === '/export' ? 'active' : ''}`}
             href="/export"
