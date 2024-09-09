@@ -15,18 +15,18 @@ const config: Config = {
       },
       textColor: {
         white: '#F7F7F7',
-        black: '#0D0C0C',
-        yellow: '#C6986D',
+        black: '#212121',
+        yellow: '#FFE197',
       },
       backgroundColor: {
-        black: '#0D0C0C',
+        black: '#212121',
         white: '#F7F7F7',
-        yellow: '#C6986D',
+        yellow: '#FFE197',
       },
       borderColor: {
-        black: '#0D0C0C',
+        black: '#212121',
         white: '#F7F7F7',
-        yellow: '#C6986D',
+        yellow: '#FFE197',
       },
       dropShadow: {
         '2xl': '0 0 10px rgb(194 153 113 / 0.25)',

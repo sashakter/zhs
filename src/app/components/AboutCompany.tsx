@@ -1,95 +1,79 @@
-import Image from 'next/image'
-import Title from './Title'
+import React from 'react'
+import Image from 'next/image' // Assuming you're using Next.js
+import Title from './Title' // Adjust the import path
 
 const AboutCompany: React.FC = () => {
   return (
-    <div className="relative py-10">
-      <div className="absolute inset-0 z-0">
+    <div
+      className="relative flex flex-col items-center bg-white p-8 text-black"
+      style={{ contain: 'paint' }}
+    >
+      {/* Background Image 1 */}
+      <div className="absolute -left-[50%] top-0 z-0 h-96 w-96 opacity-10">
         <Image
-          src={'/about-com-bg.jpg'}
-          alt="background photo"
-          fill={true}
-          className="object-cover"
-          quality={50}
+          src="/bg-image-about.png" // Replace with your image path
+          alt="Background 1"
+          layout="fill"
+          objectFit="contain"
+          className="object-contain object-left"
         />
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 z-0 bg-[#000] opacity-90"></div>
-      <div className="container relative z-10 mx-auto p-4 md:p-6 lg:p-8">
-        <Title title="ПРО КОМПАНІЮ" addClass="" />
-        <div className="flex flex-col items-center justify-around lg:flex-row">
-          <Image
-            src={'/companyLogo.png'}
-            alt="company logo"
-            width={350}
-            height={350}
-          />
-          <Image
-            src={'/EarLine.svg'}
-            className="w-8 max-lg:rotate-90 max-md:w-4"
-            alt="ear line"
-            width={344}
-            height={26}
-          />
-          <div className="flex flex-col items-center lg:items-start">
-            <ul className="flex max-w-md list-none flex-col gap-5 text-2xl">
-              <li className="flex items-center gap-5">
-                <Image
-                  className="shadow-sm"
-                  src={'/ear.svg'}
-                  alt="ear"
-                  width={24}
-                  height={24}
-                />
-                Високі показники кількісної та якісної дистрибуції.
-              </li>
-              <li className="flex items-center gap-5">
-                <Image
-                  className="shadow-sm"
-                  src={'/ear.svg'}
-                  alt="ear"
-                  width={24}
-                  height={24}
-                />
-                Унікальне позиціонування кожної торгової марки.
-              </li>
-              <li className="flex items-center gap-5">
-                <Image
-                  className="shadow-sm"
-                  src={'/ear.svg'}
-                  alt="ear"
-                  width={24}
-                  height={24}
-                />
-                Стабільно висока якість.
-              </li>
-              <li className="flex items-center gap-5">
-                <Image
-                  className="shadow-sm"
-                  src={'/ear.svg'}
-                  alt="ear"
-                  width={24}
-                  height={24}
-                />
-                Компанія на ринку алкоголю України з 2002 року.
-              </li>
-              <li className="flex items-center gap-5">
-                <Image
-                  className="shadow-sm"
-                  src={'/ear.svg'}
-                  alt="ear"
-                  width={24}
-                  height={24}
-                />
-                Різноманітна лінійка смаків, що включає в себе горілки класичні,
-                горілки особливі, солодкі та гіркі настоянки.
-              </li>
-              <li></li>
-            </ul>
-            <button className="rounded-lg bg-white px-5 py-2 text-2xl uppercase text-black">
-              дізнатися більше
-            </button>
+      {/* Background Image 2 */}
+      <div className="absolute -right-[50%] bottom-0 z-0 h-96 w-96 opacity-10">
+        <Image
+          src="/bg-image-about.png" // Replace with your image path
+          alt="Background 2"
+          layout="fill"
+          objectFit="contain"
+          className="object-right"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center">
+        <Title title="ПРО КОМПАНІЮ" />
+
+        <div className="mt-16 flex flex-col items-center gap-10">
+          <div className="flex flex-col items-center text-center">
+            <Image src="/star.svg" alt="Icon 1" width={50} height={50} />
+            <p className="mt-4 text-lg font-semibold">
+              Унікальне позиціонування кожної торгової марки.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <Image src="/quality.svg" alt="Icon 2" width={50} height={50} />
+            <p className="mt-4 text-lg font-semibold">
+              Високі показники кількісної та якісної дистрибуції.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src="/arrow-double.svg"
+              alt="Icon 3"
+              width={50}
+              height={50}
+            />
+            <p className="mt-4 text-lg font-semibold">
+              Стабільно висока якість
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <p className="text-6xl font-thin">20+</p>
+            <p className="mt-4 text-lg font-semibold">
+              Компанія на ринку алкоголю України з 2002 року.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <Image src="/way.svg" alt="Icon 4" width={50} height={50} />
+            <p className="mt-4 text-lg font-semibold">
+              Різноманітна лінійка смаків, що включає в себе горілки класичні,
+              горілки особливі, солодкі та гіркі настоянки.
+            </p>
           </div>
         </div>
       </div>

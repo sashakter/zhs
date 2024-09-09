@@ -3,6 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
+import { Outfit } from 'next/font/google'
+
+const outfit = Outfit({ subsets: ['latin'] })
 
 const HeaderVideo: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -53,7 +56,11 @@ const HeaderVideo: React.FC = () => {
         fill
       />
       <div className={css.contentOverlay}>
-        <h1 className={css.textOverlay}>Welcome to Our Site</h1>
+        <h1
+          className={`${(css.textOverlay, outfit.className)} text-4xl font-medium uppercase`}
+        >
+          alcotrade <span className="font-normal">ua</span>
+        </h1>
       </div>
     </div>
   )
