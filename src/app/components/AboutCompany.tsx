@@ -9,7 +9,7 @@ const AboutCompany: React.FC = () => {
       style={{ contain: 'paint' }}
     >
       {/* Background Image 1 */}
-      <div className="absolute -left-[50%] top-0 z-0 h-96 w-96 opacity-10">
+      <div className="absolute -left-[50%] top-0 z-0 h-96 w-96 opacity-10 lg:left-1/2">
         <Image
           src="/bg-image-about.png" // Replace with your image path
           alt="Background 1"
@@ -34,22 +34,22 @@ const AboutCompany: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center justify-center">
         <Title title="ПРО КОМПАНІЮ" />
 
-        <div className="mt-16 flex flex-col items-center gap-10">
-          <div className="flex flex-col items-center text-center">
+        <div className="mt-16 flex flex-row flex-wrap items-center justify-center gap-10">
+          <div className="flex max-w-64 flex-col items-center text-center lg:min-w-80">
             <Image src="/star.svg" alt="Icon 1" width={50} height={50} />
             <p className="mt-4 text-lg font-semibold">
               Унікальне позиціонування кожної торгової марки.
             </p>
           </div>
 
-          <div className="flex flex-col items-center text-center">
+          <div className="flex max-w-64 flex-col items-center text-center lg:min-w-80">
             <Image src="/quality.svg" alt="Icon 2" width={50} height={50} />
             <p className="mt-4 text-lg font-semibold">
               Високі показники кількісної та якісної дистрибуції.
             </p>
           </div>
 
-          <div className="flex flex-col items-center text-center">
+          <div className="flex max-w-64 flex-col items-center text-center lg:min-w-80">
             <Image
               src="/arrow-double.svg"
               alt="Icon 3"
@@ -61,14 +61,14 @@ const AboutCompany: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col items-center text-center">
+          <div className="flex max-w-64 flex-col items-center text-center lg:min-w-80">
             <p className="text-6xl font-thin">20+</p>
             <p className="mt-4 text-lg font-semibold">
               Компанія на ринку алкоголю України з 2002 року.
             </p>
           </div>
 
-          <div className="flex flex-col items-center text-center">
+          <div className="flex max-w-64 flex-col items-center text-center lg:min-w-80">
             <Image src="/way.svg" alt="Icon 4" width={50} height={50} />
             <p className="mt-4 text-lg font-semibold">
               Різноманітна лінійка смаків, що включає в себе горілки класичні,

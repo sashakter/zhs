@@ -73,7 +73,7 @@ const Capacities: React.FC = () => {
       <Title title="ПОТУЖНОСТІ" />
 
       {/* List of Sections */}
-      <div className="relative z-40 mt-16 space-y-4">
+      <div className="relative z-40 mt-16 flex max-w-md flex-col items-center justify-center space-y-4">
         {sections.map((section, index) => (
           <div key={section.id} className="border-b border-gray-600 pb-2">
             {/* Section Title */}

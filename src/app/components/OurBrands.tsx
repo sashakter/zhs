@@ -4,7 +4,7 @@ import Title from './Title' // Adjust the import path
 
 const OurBrands: React.FC = () => {
   return (
-    <div className="relative flex h-screen items-center justify-center bg-black text-white">
+    <div className="relative flex h-screen items-center justify-center bg-black text-white lg:h-auto lg:items-start lg:py-10">
       {/* Background Image */}
       <Image
         src="/bg-image-brands.jpg" // Replace with your background image path
@@ -14,7 +14,7 @@ const OurBrands: React.FC = () => {
       />
 
       {/* Overlay to darken the background */}
-      <div className="absolute inset-0 bg-[#000] opacity-90"></div>
+      <div className="absolute inset-0 bg-black opacity-90"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center">

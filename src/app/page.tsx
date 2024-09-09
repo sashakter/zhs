@@ -5,6 +5,7 @@ import Benefits from './components/Benefits'
 import News from './components/News'
 import OurBrands from './components/OurBrands'
 import Capacities from './components/Capacities'
+import Partners from './components/Benefits'
 
 const Chooser = dynamic(() => import('./components/Chooser/Chooser'), {
   ssr: false,
@@ -22,9 +23,9 @@ const Page: React.FC = () => {
         {/* <div>
           <Chooser />
         </div> */}
-        {/* <Benefits /> */}
+        <Partners />
         <Capacities />
-        <News />
+        {/* <News /> */}
       </main>
     </>
   )

@@ -15,20 +15,20 @@ const Footer: React.FC = () => {
         />
       </div>
       <div className="absolute inset-0 z-0 bg-[#000] opacity-90"></div>
-      <h3 className="relative text-center text-xl uppercase md:text-2xl lg:text-4xl">
+      <h3 className="relative text-center text-xl font-semibold uppercase md:text-2xl lg:text-3xl">
         <span className="text-yellow">СПОЖИВАЙТЕ ВІДПОВІДАЛЬНО!</span> НЕ
         ДІЛІТЬСЯ ЦИМ КОНТЕНТОМ З ОСОБАМИ, ЯКІ НЕ ДОСЯГЛИ 18 РОКІВ
       </h3>
       <div className="relative flex flex-col items-center justify-around gap-10 p-4 lg:flex-row lg:flex-wrap">
-        <div className="flex flex-col items-center gap-10 lg:items-start">
-          <h2 className="text-center text-5xl uppercase">
-            ТМ &quot;ЖИТНЯ СЛЬОЗА&quot;
+        <div className="flex flex-col items-center gap-10 font-thin lg:items-start">
+          <h2 className="text-center text-4xl">
+            ТОВ &quot;АлкоТрейд Україна&quot;
           </h2>
           <ContactBar />
-          <a href="tel:+380677066847" className="text-3xl">
+          <a href="tel:+380677066847" className="text-2xl">
             +380(67)-706-68-47
           </a>
-          <a href="mailto:Sv-kompani@ukr.net" className="text-3xl uppercase">
+          <a href="mailto:Sv-kompani@ukr.net" className="text-2xl uppercase">
             Sv-kompani@ukr.net
           </a>
           <div className="flex items-center gap-8">
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-2 text-2xl uppercase lg:items-start">
+        <div className="flex flex-col items-center gap-2 text-2xl font-thin uppercase lg:items-start">
           <Link href={'/products'}>продукція</Link>
           <Link href={'/partnership'}>партнерство</Link>
           <Link href={'/export'}>експорт</Link>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
           <Link href={'/policies'}>політика конфіденційності</Link>
         </div>
         <Image
-          src={'/logoColored.png'}
+          src={'/alcotrade-logo.svg'}
           className="max-w-300 max-h-200 mx-auto drop-shadow-2xl lg:mx-0"
           alt="logo"
           priority={true}
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
         />
       </div>
       <h3 className="relative text-center text-xl uppercase">
-        ПП &quot;ОЛЕКСАНДРІЯ ПРЕМІУМ&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
+        тов &quot;алкотрейд Україна&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
       </h3>
     </footer>
   )

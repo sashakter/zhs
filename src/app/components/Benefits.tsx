@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Title from './Title'
-const Benefits: React.FC = () => {
+const Partners: React.FC = () => {
   return (
     <div className="relative px-4 py-10 text-black lg:px-20">
       <div className="absolute inset-0 z-0">
@@ -16,60 +16,31 @@ const Benefits: React.FC = () => {
 
       {/* Overlay */}
       <div className="absolute inset-0 z-0 bg-[#fff] opacity-90"></div>
-      <div className="relative flex flex-col">
-        <Title title="переваги" earColor="#000000" />
-        <div className="flex flex-wrap items-start justify-around gap-14 text-center uppercase lg:gap-0">
-          <div className="flex max-w-sm flex-col items-center justify-center gap-14">
-            <h2 className="text-3xl font-medium">Висока якість продукції</h2>
-            <p className="text-2xl lg:min-h-[192px]">
-              Завдяки впровадженню новітніх авторських рецептур, використанню
-              натуральних інгредієнтів та суворому контролю якості на всіх
-              етапах виробництва, наша продукція славиться своїм приємним
-              смаком, ароматом, м&apos;якістю та легкістю.
+      <div className="relative flex flex-col items-center justify-center gap-14">
+        <Title title="партнери" />
+        <div className="flex flex-wrap items-center justify-center gap-10 text-center">
+          <div className="">
+            <p>
+              Завод співпрацює з дистриб&#39;юторами по всій Україні і планує
+              вихід на міжнародний ринок. Основні клієнти включають:{' '}
             </p>
-            <Image
-              src={'/earLineB.svg'}
-              quality={100}
-              alt="earLine"
-              width={140}
-              height={10}
-              className="relative lg:-right-1/4"
-            />
+            <ul className="font-semibold">
+              <li>ПП &quot;АЛКОГРУПА ПЛЮС&quot; </li>
+              <li>ПП &quot;ГУРТОВА БАЗА&quot;</li>
+              <li>ТОВ &quot;АЛКОБАЗА&quot;</li>
+              <li>ТОВ &quot;КЛЕВЕР ЮА&quot;</li>
+              <li>ТОВ &quot;КЛЕВЕР ЮА&quot;</li>
+            </ul>
           </div>
-
-          <div className="flex max-w-sm flex-col items-center justify-center gap-14">
-            <h2 className="text-3xl font-medium">Міжнародні стандарти</h2>
-            <p className="text-2xl lg:min-h-[192px]">
-              Ми працюємо відповідно до міжнародних стандартів ISO 9001:2015 та
-              ISO 22000:2018, що гарантує високу якість і безпечність нашої
-              продукції.
-            </p>
-            <Image
-              src={'/earLineB.svg'}
-              quality={100}
-              alt="earLine"
-              width={140}
-              height={10}
-              className="relative lg:-right-1/4"
-            />
-          </div>
-
-          <div className="flex max-w-sm flex-col items-center justify-center gap-14">
-            <h2 className="text-3xl font-medium">Масштабна реконструкція:</h2>
-            <p className="text-2xl lg:min-h-[192px]">
-              За останні роки на нашому заводі проведено масштабну
-              реконструкцію, яка включає будівництво нових цехів і складів,
-              встановлення сучасного обладнання та впровадження нових технологій
-              виробництва.
-            </p>
-            <Image
-              src={'/earLineB.svg'}
-              quality={100}
-              alt="earLine"
-              width={140}
-              height={10}
-              className="relative lg:-right-1/4"
-            />
+          <div>
+            <p>Постачальники:</p>
+            <ul className="font-semibold">
+              <li>ТОВ &quot;СПІРІТУС ВИШНЯКИ&quot;</li>
+              <li>ТОВ &quot;УОЛЛ-СТРИТ&quot;</li>
+              <li>ТОВ &quot;МАЛИНІВСЬКИЙ СКЛОЗАВОД&quot;</li>
+              <li>ТОВ &quot;СКЛЯННИЙ АЛЬЯНС&quot;</li>
+              <li>ТОВ ТД &quot;ОСТОВ-БАРДС&quot;</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -77,4 +48,4 @@ const Benefits: React.FC = () => {
   )
 }
 
-export default Benefits
+export default Partners
