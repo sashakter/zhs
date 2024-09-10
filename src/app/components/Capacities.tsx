@@ -59,18 +59,22 @@ const Capacities: React.FC = () => {
 
   return (
     <div className="relative flex flex-col items-center bg-black px-4 py-8 text-white md:px-16">
-      <Image
-        src="/waves.jpg" // Replace with your background image path
-        alt="Background"
-        layout="fill"
-        className="object-cover opacity-100"
-      />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/waves.jpg" // Replace with your background image path
+          alt="Background"
+          fill={true}
+          className="object-cover opacity-100"
+        />
+      </div>
 
       {/* Overlay to darken the background */}
-      <div className="absolute inset-0 bg-black opacity-90"></div>
+      <div className="absolute inset-0 z-10 bg-black opacity-90"></div>
 
       {/* Title Component */}
-      <Title title="ПОТУЖНОСТІ" />
+      <div className="relative z-20">
+        <Title title="ПОТУЖНОСТІ" />
+      </div>
 
       {/* List of Sections */}
       <div className="relative z-40 mt-16 flex max-w-md flex-col items-center justify-center space-y-4">
@@ -103,7 +107,9 @@ const Capacities: React.FC = () => {
 
             {/* Smooth Transition for the Description */}
             <div
-              ref={(el) => (contentRefs.current[index] = el)}
+              ref={(el) => {
+                contentRefs.current[index] = el
+              }}
               style={{
                 maxHeight:
                   openSection === section.id
