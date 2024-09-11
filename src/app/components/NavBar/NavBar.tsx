@@ -21,7 +21,7 @@ const NavBar: React.FC = () => {
   }, [burger])
   return (
     <nav
-      className={`relative z-40 flex w-full items-center justify-between bg-black px-6 py-4 text-xl uppercase text-white lg:px-4 lg:py-14 xl:px-12 2xl:text-2xl ${css.shimmerBorder}`}
+      className={`relative z-40 flex w-full items-center justify-between bg-black px-6 py-4 text-xl uppercase text-white lg:px-4 lg:py-10 xl:px-12 2xl:text-2xl ${css.shimmerBorder}`}
     >
       <div className="hidden justify-start gap-2 lg:flex xl:gap-6">
         <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">

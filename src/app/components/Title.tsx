@@ -1,6 +1,4 @@
 'use client'
-
-import EarTitle from './EarTitle'
 import { CSSProperties } from 'react'
 
 interface TitleProps {

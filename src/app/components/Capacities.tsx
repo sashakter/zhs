@@ -54,35 +54,35 @@ const Capacities: React.FC = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center bg-black px-4 py-8 text-white md:px-16">
+    <div className="relative flex h-screen flex-col items-center bg-black px-4 py-8 text-white md:px-16">
       <div className="absolute inset-0 z-0">
         <Marquee autoFill={true}>
           <Image
             src={`/bg-cap-image3.jpg`} // Adjust with your image paths
             alt={`bg-image`}
             width={300}
-            height={450}
-            className="min-h-[450px] object-cover object-center"
+            height={150}
+            className="h-screen w-[600px] object-cover object-center"
           />
           <Image
             src={`/bg-cap-image1.jpg`} // Adjust with your image paths
             alt={`bg-image`}
             width={300}
-            height={450}
-            className="min-h-[450px] object-cover object-center"
+            height={150}
+            className="h-screen w-[600px] object-cover object-center"
           />
           <Image
             src={`/bg-cap-image2.jpg`} // Adjust with your image paths
             alt={`bg-image`}
             width={300}
-            height={450}
-            className="object-cover"
+            height={150}
+            className="h-screen w-[600px] object-cover"
           />
         </Marquee>
       </div>
 
       {/* Overlay to darken the background */}
-      <div className="absolute inset-0 z-10 bg-black opacity-90"></div>
+      <div className="absolute inset-0 z-10 bg-white opacity-85"></div>
 
       {/* Title Component */}
       <div className="relative z-20">
@@ -90,13 +90,13 @@ const Capacities: React.FC = () => {
       </div>
 
       {/* List of Sections */}
-      <div className="relative z-40 mt-16 flex max-w-md flex-col items-center justify-center space-y-4">
+      <div className="relative z-40 mt-28 flex max-w-md flex-col items-center justify-center space-y-4">
         {sections.map((section, index) => (
-          <div key={section.id} className="border-b border-gray-600 pb-2">
+          <div key={section.id} className="border-b border-black pb-2">
             {/* Section Title */}
             <button
               onClick={() => handleToggle(section.id)}
-              className="flex w-full items-center justify-between text-left text-lg focus:outline-none"
+              className="flex w-full items-center justify-between text-left text-lg text-black focus:outline-none lg:text-2xl"
             >
               {section.title}
               {openSection === section.id ? (
@@ -105,7 +105,7 @@ const Capacities: React.FC = () => {
                   alt="arrow"
                   width={24}
                   height={24}
-                  className="rotate-90 transition-all"
+                  className="rotate-90 transition-all lg:w-8"
                 />
               ) : (
                 <Image
@@ -113,7 +113,7 @@ const Capacities: React.FC = () => {
                   alt="arrow"
                   width={24}
                   height={24}
-                  className="rotate-0 transition-all"
+                  className="rotate-0 transition-all lg:w-8"
                 />
               )}
             </button>
@@ -121,7 +121,7 @@ const Capacities: React.FC = () => {
             {/* Smooth Transition for the Description */}
             <div
               ref={(el) => {
-                contentRefs.current[index] = el
+                contentRefs.current[index] = el // Сохраняем элемент в ref, но ничего не возвращаем
               }}
               style={{
                 maxHeight:
@@ -133,7 +133,7 @@ const Capacities: React.FC = () => {
                 'transition-max-height overflow-hidden duration-500 ease-in-out',
               )}
             >
-              <div className="mt-2 p-2 text-sm text-white">
+              <div className="mt-2 p-1 text-sm text-black lg:mt-4 lg:text-lg">
                 {section.description}
               </div>
             </div>
