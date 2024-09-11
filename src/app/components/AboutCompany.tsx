@@ -5,7 +5,7 @@ import Title from './Title' // Adjust the import path
 const AboutCompany: React.FC = () => {
   return (
     <div
-      className="relative flex h-screen flex-col items-center bg-white p-8 text-black"
+      className="relative flex flex-col items-center bg-white p-8 text-black lg:h-screen"
       style={{ contain: 'paint' }}
     >
       {/* Background Image 1 */}
