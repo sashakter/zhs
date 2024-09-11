@@ -1,8 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Ear from './Ear'
-import EarTitle from './EarTitle'
 
 const ContactBar: React.FC = () => {
   return (
