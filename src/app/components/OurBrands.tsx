@@ -24,8 +24,8 @@ const OurBrands: React.FC = () => {
 
         {/* Brand Logo */}
         <Link
-          href={'/zhytnya-slyoza'}
-          className="my-10 flex items-center justify-center"
+          href={'/zhytnya-slyoza#content'}
+          className="flex items-center justify-center py-10"
         >
           <Image
             src="/logoColored.png" // Replace with your brand logo path
