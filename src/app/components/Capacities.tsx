@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Title from './Title'
 import clsx from 'clsx'
 import Image from 'next/image'
+import Marquee from 'react-fast-marquee'
 
 interface Section {
   id: number
@@ -12,13 +13,8 @@ interface Section {
 }
 
 const Capacities: React.FC = () => {
-  // State to track the open section
   const [openSection, setOpenSection] = useState<number | null>(null)
-
-  // Refs to store each section's content height
   const contentRefs = useRef<Array<HTMLDivElement | null>>([]) // Correctly typed as an array of HTMLDivElement or null
-
-  // Sections data
   const sections: Section[] = [
     {
       id: 1,
@@ -60,12 +56,29 @@ const Capacities: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center bg-black px-4 py-8 text-white md:px-16">
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/waves.jpg" // Replace with your background image path
-          alt="Background"
-          fill={true}
-          className="object-cover opacity-100"
-        />
+        <Marquee autoFill={true}>
+          <Image
+            src={`/bg-cap-image3.jpg`} // Adjust with your image paths
+            alt={`bg-image`}
+            width={300}
+            height={450}
+            className="min-h-[450px] object-cover object-center"
+          />
+          <Image
+            src={`/bg-cap-image1.jpg`} // Adjust with your image paths
+            alt={`bg-image`}
+            width={300}
+            height={450}
+            className="min-h-[450px] object-cover object-center"
+          />
+          <Image
+            src={`/bg-cap-image2.jpg`} // Adjust with your image paths
+            alt={`bg-image`}
+            width={300}
+            height={450}
+            className="object-cover"
+          />
+        </Marquee>
       </div>
 
       {/* Overlay to darken the background */}

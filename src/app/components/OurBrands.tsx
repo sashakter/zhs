@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image' // Assuming you're using Next.js
 import Title from './Title' // Adjust the import path
+import Link from 'next/link'
 
 const OurBrands: React.FC = () => {
   return (
@@ -22,7 +23,10 @@ const OurBrands: React.FC = () => {
         <Title title="НАШІ БРЕНДИ" />
 
         {/* Brand Logo */}
-        <div className="my-10 flex items-center justify-center">
+        <Link
+          href={'/zhytnya-slyoza'}
+          className="my-10 flex items-center justify-center"
+        >
           <Image
             src="/logoColored.png" // Replace with your brand logo path
             alt="Житня Сльоза"
@@ -30,7 +34,7 @@ const OurBrands: React.FC = () => {
             height={200}
             className="drop-shadow-2xl"
           />
-        </div>
+        </Link>
 
         {/* Brand Caption */}
         <p className="text-xl font-thin">ТМ “ЖИТНЯ СЛЬОЗА”</p>

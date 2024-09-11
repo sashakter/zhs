@@ -7,7 +7,7 @@ import OurBrands from './components/OurBrands'
 import Capacities from './components/Capacities'
 import Partners from './components/Benefits'
 
-const Chooser = dynamic(() => import('./components/Chooser/Chooser'), {
+const Chooser = dynamic(() => import('./components/zhytnya-slyoza/page'), {
   ssr: false,
 })
 
@@ -20,9 +20,6 @@ const Page: React.FC = () => {
       <main>
         <AboutCompany />
         <OurBrands />
-        {/* <div>
-          <Chooser />
-        </div> */}
         <Partners />
         <Capacities />
         {/* <News /> */}

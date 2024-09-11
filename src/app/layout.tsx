@@ -4,6 +4,7 @@ import './globals.css'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer'
 import AgeVerificationModal from './components/AgeVerificationModal'
+import Head from 'next/head'
 
 const rubik = Rubik({ subsets: ['cyrillic', 'latin'] })
 const outfit = Outfit({ subsets: ['latin'] })
@@ -11,6 +12,7 @@ const outfit = Outfit({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Alcotrade UA',
   description: 'Alcohol company',
+  icons: '/favicon.svg',
 }
 
 export default function RootLayout({
