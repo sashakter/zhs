@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Title from './Title'
-import EarLineB from './EarLineB'
 
 const News: React.FC = () => {
   return (
@@ -21,7 +20,6 @@ const News: React.FC = () => {
         <Title title="новини" earColor="#fff" />
         <div className="flex flex-col-reverse flex-wrap gap-24 lg:flex-row">
           <div className="flex flex-col gap-6">
-            <EarLineB fill="#fff" />
             <p className="text-3xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               facilisis aliquam magna, eget consectetur magna bibendum quis.
