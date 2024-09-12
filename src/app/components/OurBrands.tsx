@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const OurBrands: React.FC = () => {
   return (
-    <div className="relative flex h-screen items-center justify-center bg-black text-white">
+    <div className="relative flex items-center justify-center bg-black text-white lg:h-screen">
       {/* Background Image */}
       <Image
         src="/bg-image-brands.jpg" // Replace with your background image path

@@ -54,7 +54,7 @@ const Capacities: React.FC = () => {
   }
 
   return (
-    <div className="relative flex h-screen flex-col items-center bg-black px-4 py-8 text-white md:px-16">
+    <div className="relative flex flex-col items-center bg-black px-4 py-8 text-white md:px-16 lg:h-screen">
       <div className="absolute inset-0 z-0">
         <Marquee autoFill={true}>
           <Image
@@ -90,7 +90,7 @@ const Capacities: React.FC = () => {
       </div>
 
       {/* List of Sections */}
-      <div className="relative z-40 mt-28 flex max-w-md flex-col items-center justify-center space-y-4">
+      <div className="relative z-40 mt-14 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
         {sections.map((section, index) => (
           <div key={section.id} className="border-b border-black pb-2">
             {/* Section Title */}

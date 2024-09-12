@@ -17,7 +17,7 @@ const AgeVerificationModal: React.FC = () => {
   }
 
   const handleNo = () => {
-    window.close() // This will attempt to close the window. It might not work in all browsers.
+    window.close()
   }
 
   if (!isVisible) {

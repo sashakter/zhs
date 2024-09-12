@@ -1,34 +1,39 @@
 import React from 'react'
 import Image from 'next/image' // Assuming you're using Next.js
 import Title from './Title' // Adjust the import path
+import Marquee from 'react-fast-marquee'
 
 const AboutCompany: React.FC = () => {
   return (
-    <div
-      className="relative flex flex-col items-center bg-white p-8 text-black lg:h-screen"
-      style={{ contain: 'paint' }}
-    >
-      {/* Background Image 1 */}
-      <div className="absolute -left-[50%] top-0 z-0 h-96 w-96 opacity-10 lg:left-1/2">
-        <Image
-          src="/bg-image-about.png" // Replace with your image path
-          alt="Background 1"
-          layout="fill"
-          objectFit="contain"
-          className="object-contain object-left"
-        />
+    <div className="relative flex h-auto flex-col items-center bg-white p-8 text-black contain-paint lg:h-screen">
+      <div className="absolute inset-0 z-0 h-full max-lg:hidden">
+        <Marquee autoFill={true} direction="right">
+          <Image
+            src={`/bg-about-img3.jpg`} // Adjust with your image paths
+            alt={`bg-image`}
+            width={300}
+            height={150}
+            className="h-full w-[600px] object-cover object-center lg:h-screen"
+          />
+          <Image
+            src={`/bg-about-img1.jpg`} // Adjust with your image paths
+            alt={`bg-image`}
+            width={300}
+            height={150}
+            className="w-[600px] object-cover object-center lg:h-screen"
+          />
+          <Image
+            src={`/bg-about-img2.jpg`} // Adjust with your image paths
+            alt={`bg-image`}
+            width={300}
+            height={150}
+            className="w-[600px] object-cover lg:h-screen"
+          />
+        </Marquee>
       </div>
 
-      {/* Background Image 2 */}
-      <div className="absolute -right-[50%] bottom-0 z-0 h-96 w-96 opacity-10">
-        <Image
-          src="/bg-image-about.png" // Replace with your image path
-          alt="Background 2"
-          layout="fill"
-          objectFit="contain"
-          className="object-right"
-        />
-      </div>
+      {/* Overlay to darken the background */}
+      <div className="absolute inset-0 z-10 bg-white opacity-85"></div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center lg:gap-14">

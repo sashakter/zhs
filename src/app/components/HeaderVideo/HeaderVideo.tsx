@@ -46,8 +46,12 @@ const HeaderVideo: React.FC = () => {
         playsInline
         className={css.videoBackground}
       >
-        {isVideoVisible && <source src="/bg-video.mp4" type="video/mp4" />}
-        {isVideoVisible && <source src="/bg-video.webm" type="video/webm" />}
+        {isVideoVisible && (
+          <source src="/bg-video-header.mp4" type="video/mp4" />
+        )}
+        {isVideoVisible && (
+          <source src="/bg-video-header.webm" type="video/webm" />
+        )}
       </video>
       <Image
         className="block object-cover lg:hidden"
