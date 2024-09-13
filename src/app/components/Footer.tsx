@@ -28,8 +28,11 @@ const Footer: React.FC = () => {
           <a href="tel:+380677066847" className="text-2xl">
             +380(67)-706-68-47
           </a>
-          <a href="mailto:Sv-kompani@ukr.net" className="text-2xl uppercase">
-            Sv-kompani@ukr.net
+          <a
+            href="mailto:office@alcotrade.com.ua"
+            className="text-2xl uppercase"
+          >
+            office@alcotrade.com.ua
           </a>
           <div className="flex items-center gap-8">
             <a href="https://instagram.com">

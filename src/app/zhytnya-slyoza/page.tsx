@@ -10,6 +10,7 @@ import { Pagination, Autoplay } from 'swiper/modules'
 import { useMediaQuery } from 'react-responsive'
 import css from './Chooser.module.css'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function ZshPage() {
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' })
@@ -106,9 +107,10 @@ export default function ZshPage() {
         </Swiper>
       ) : (
         <div className="flex">
-          <div
+          <Link
+            href={'/zhytnya-slyoza/gold'}
             style={{ contain: 'paint' }}
-            className="relative h-[820px] w-1/4 bg-gradient-to-b from-gold-yellow-top to-gold-yellow-bottom grayscale hover:grayscale-0"
+            className="relative h-[820px] w-1/4 cursor-pointer bg-gradient-to-b from-gold-yellow-top to-gold-yellow-bottom grayscale hover:grayscale-0"
             onMouseEnter={() => setIsHoverGold(true)}
             onMouseLeave={() => setIsHoverGold(false)}
           >
@@ -121,8 +123,9 @@ export default function ZshPage() {
               width={244}
               height={800}
             />
-          </div>
-          <div
+          </Link>
+          <Link
+            href={'/zhytnya-slyoza/diamond'}
             style={{ contain: 'paint' }}
             onMouseEnter={() => setIsHoverDiamond(true)}
             onMouseLeave={() => setIsHoverDiamond(false)}
@@ -136,8 +139,9 @@ export default function ZshPage() {
               width={244}
               height={800}
             />
-          </div>
-          <div
+          </Link>
+          <Link
+            href={'/zhytnya-slyoza/vidbirna'}
             style={{ contain: 'paint' }}
             onMouseEnter={() => setIsHoverVidb(true)}
             onMouseLeave={() => setIsHoverVidb(false)}
@@ -151,8 +155,9 @@ export default function ZshPage() {
               width={244}
               height={800}
             />
-          </div>
-          <div
+          </Link>
+          <Link
+            href={'/zhytnya-slyoza/perceva'}
             style={{ contain: 'paint' }}
             onMouseEnter={() => setIsHoverPerc(true)}
             onMouseLeave={() => setIsHoverPerc(false)}
@@ -166,7 +171,7 @@ export default function ZshPage() {
               width={244}
               height={800}
             />
-          </div>
+          </Link>
         </div>
       )}
     </div>

@@ -82,11 +82,11 @@ const Capacities: React.FC = () => {
       </div>
 
       {/* Overlay to darken the background */}
-      <div className="absolute inset-0 z-10 bg-white opacity-85"></div>
+      <div className="absolute inset-0 z-10 bg-white opacity-65"></div>
 
       {/* Title Component */}
       <div className="relative z-20">
-        <Title title="ПОТУЖНОСТІ" />
+        <Title title="ПОТУЖНОСТІ" earColor="#000" addClass="text-black" />
       </div>
 
       {/* List of Sections */}
