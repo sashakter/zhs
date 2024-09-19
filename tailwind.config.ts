@@ -40,6 +40,7 @@ const config: Config = {
         'vidbir-bottom': '#252522',
         'perceva-top': '#C5AD4C',
         'perceva-bottom': '#D44647',
+        'custom-cream': '#F0E9E3',
       },
     },
   },

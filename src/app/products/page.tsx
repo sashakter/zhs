@@ -1,3 +1,9 @@
+import Page from '../zhytnya-slyoza/page'
+
 export default function AboutPage() {
-  return <h1>About</h1>
+  return (
+    <div>
+      <Page />
+    </div>
+  )
 }

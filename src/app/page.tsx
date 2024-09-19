@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import AboutCompany from './components/AboutCompany'
+import AboutCompany from './components/AboutCompany/AboutCompany'
 import HeaderVideo from './components/HeaderVideo/HeaderVideo'
 import Benefits from './components/Partners'
 import News from './components/News'
