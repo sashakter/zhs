@@ -33,7 +33,7 @@ const NavBar: React.FC = () => {
           height={1000}
         />
       </Link>
-      <div className="xl: flex items-center pr-14 gap-10 xl:justify-between">
+      <div className="xl: flex items-center gap-10 pr-14 xl:justify-between">
         <div className="hidden gap-2 lg:flex xl:gap-6">
           <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
             Головна
@@ -67,12 +67,11 @@ const NavBar: React.FC = () => {
             Контакти
           </Link>
         </div>
-        <button className="lg:hidden" onClick={() => setBurger(!burger)}>
-          <MenuButton />
-        </button>
       </div>
       <LanguageSelector />
-
+      <button className="pl-3 lg:hidden" onClick={() => setBurger(!burger)}>
+        <MenuButton />
+      </button>
       {burger && <Burger setBurger={setBurger} />}
     </nav>
   )
