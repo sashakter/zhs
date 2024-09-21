@@ -48,6 +48,9 @@ const Partners: React.FC = () => {
             </div>
           </div>
         </div>
+        <button className="bg-custom-black rounded-sm border border-white px-5 py-2 font-medium uppercase text-white text-2xl hover:duration-700 hover:bg-white hover:text-black">
+          Зв'язатись з нами
+        </button>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
 import { Outfit } from 'next/font/google'
+import Vyshyvanka from '../Vyshyvanka'
 
 const outfit = Outfit({ subsets: ['latin'] })
 
@@ -59,12 +60,24 @@ const HeaderVideo: React.FC = () => {
         alt="bg-photo"
         fill
       />
-      <div className={css.contentOverlay}>
-        <h1
-          className={`${(css.textOverlay, outfit.className)} text-4xl font-medium uppercase`}
-        >
-          alcotrade <span className="font-normal">ua</span>
-        </h1>
+      <div
+        className={`${css.contentOverlay} relative flex flex-col pt-52 items-center justify-between`}
+      >
+        <div className="z-10 flex flex-col items-center gap-10">
+          <h1
+            className={`${(css.textOverlay, outfit.className)} text-4xl font-medium uppercase`}
+          >
+            alcotrade <span className="font-normal">ua</span>
+          </h1>
+          <p className="text-center text-3xl">
+            Надійний партнер у світі алкогольної продукції.
+            <br /> Співпраця, що гарантує успіх!
+          </p>
+          <button className="bg-white rounded-sm border border-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
+            Зв'язатись з нами
+          </button>
+        </div>
+          <Vyshyvanka direction="right" />
       </div>
     </div>
   )

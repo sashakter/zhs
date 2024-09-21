@@ -12,6 +12,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        news: "url('/hokey.jpg')",
       },
       textColor: {
         white: '#F7F7F7',
@@ -40,7 +41,8 @@ const config: Config = {
         'vidbir-bottom': '#252522',
         'perceva-top': '#C5AD4C',
         'perceva-bottom': '#D44647',
-        'custom-cream': '#F0E9E3',
+        'custom-pink': '#474646',
+        'custom-black': '#434343',
       },
     },
   },

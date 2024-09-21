@@ -58,17 +58,17 @@ const Capacities: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <Marquee autoFill={true}>
           <Image
-            src={`/bg-cap-image3.jpg`} // Adjust with your image paths
+            src={`/zavod.jpg`} // Adjust with your image paths
             alt={`bg-image`}
-            width={300}
-            height={150}
+            width={1368}
+            height={768}
             className="h-screen w-[600px] object-cover object-center"
           />
           <Image
-            src={`/bg-cap-image1.jpg`} // Adjust with your image paths
+            src={`/factory.jpg`} // Adjust with your image paths
             alt={`bg-image`}
-            width={300}
-            height={150}
+            width={1120}
+            height={1120}
             className="h-screen w-[600px] object-cover object-center"
           />
           <Image
