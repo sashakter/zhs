@@ -21,7 +21,7 @@ const NavBar: React.FC = () => {
   }, [burger])
   return (
     <nav
-      className={`relative z-40 flex w-full items-center justify-between bg-black px-6 py-4 text-xl uppercase text-white lg:px-4 lg:py-10 xl:px-12 2xl:text-2xl ${css.shimmerBorder}`}
+      className={`absolute inset-0 z-40 flex w-full items-center h-28 justify-between px-6 py-6 text-xl uppercase text-white lg:px-4 lg:py-10 xl:px-12 2xl:text-2xl`}
     >
       <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
         <Image
@@ -35,33 +35,33 @@ const NavBar: React.FC = () => {
       </Link>
       <div className="xl: flex items-center gap-10 pr-14 xl:justify-between">
         <div className="hidden gap-2 lg:flex xl:gap-6">
-          <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
+          <Link className={`link ${pathname === '/' ? 'active' : ''} px-2 py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200`} href="/">
             Головна
           </Link>
-          <span>|</span>
+          <Image src={'/ear.svg'} alt='Ear image' width={20} height={20}/>
           <Link
-            className={`link ${pathname === '/products' ? 'active' : ''}`}
+            className={`link ${pathname === '/products' ? 'active' : ''} px-2 py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200`}
             href="/products"
           >
             Продукція
           </Link>
-          <span>|</span>
+          <Image src={'/ear.svg'} alt='Ear image' width={20} height={20}/>
           <Link
-            className={`link ${pathname === '/partners' ? 'active' : ''}`}
+            className={`link ${pathname === '/partners' ? 'active' : ''} px-2 py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200`}
             href="/partners"
           >
             Партнерство
           </Link>
-          <span>|</span>
+          <Image src={'/ear.svg'} alt='Ear image' width={20} height={20}/>
           <Link
-            className={`link ${pathname === '/news' ? 'active' : ''}`}
+            className={`link ${pathname === '/news' ? 'active' : ''} px-2 py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200`}
             href="/news"
           >
             Новини
           </Link>
-          <span>|</span>
+          <Image src={'/ear.svg'} alt='Ear image' width={20} height={20}/>
           <Link
-            className={`link ${pathname === '/contacts' ? 'active' : ''}`}
+            className={`link ${pathname === '/contacts' ? 'active' : ''} px-2 py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200`}
             href="/contacts"
           >
             Контакти

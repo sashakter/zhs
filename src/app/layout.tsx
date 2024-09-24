@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Rubik, Outfit } from 'next/font/google'
+import { Playfair_Display, Outfit } from 'next/font/google'
 import './globals.css'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer'
 import AgeVerificationModal from './components/AgeVerificationModal'
 import { ReactLenis } from '@studio-freight/react-lenis'
-const rubik = Rubik({ subsets: ['cyrillic', 'latin'] })
+const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
 
 export const metadata: Metadata = {
   title: 'Alcotrade UA',
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="uk" className="scroll-smooth">
       <body
-        className={`${rubik.className} flex flex-col justify-center bg-black text-white`}
+        className={`${playfair.className} flex flex-col justify-center text-white`}
       >
         <div>
           <AgeVerificationModal />

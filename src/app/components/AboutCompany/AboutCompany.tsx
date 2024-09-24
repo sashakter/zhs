@@ -1,6 +1,14 @@
+'use client'
 import React from 'react'
 import Title from '../Title' // Adjust the import path
 import css from '../AboutCompany/AboutCompany.module.css'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Keyboard } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/keyboard'
+
 import { SlCursor } from 'react-icons/sl'
 import { SlChart } from 'react-icons/sl'
 import { SlGraph } from 'react-icons/sl'
@@ -9,17 +17,39 @@ import { SlBadge } from 'react-icons/sl'
 
 const AboutCompany: React.FC = () => {
   return (
-    <div className="relative flex flex-col items-center bg-gradient-to-b from-custom-black to-black p-14 text-black contain-paint">
-      <div className="absolute inset-0 z-10 bg-black/90 opacity-65"></div>
+    <div className="bg-about relative flex flex-col items-center bg-cover bg-no-repeat p-14 pt-[800px] text-black grayscale contain-paint">
+      <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-white lg:gap-6 mb-24">
-        <Title title="ПРО КОМПАНІЮ" earColor="#ffff" />
-
-        <div className="mt-16 flex max-w-[1040px] flex-wrap items-center justify-center gap-10 uppercase">
-          <div className="flex flex-wrap items-center justify-center gap-10">
+      <div className="relative z-10 mb-24 flex flex-col items-center justify-center text-black lg:gap-6">
+        <Title title="ПРО КОМПАНІЮ" earColor="#000" />
+        <Swiper
+          className="w-full mt-16 flex items-center justify-center uppercase"
+          modules={[Navigation, Keyboard]}
+          slidesPerView={'auto'}
+          breakpoints={{
+            375: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1440: {
+              slidesPerView: 3,
+            },
+          }}
+          loop={false}
+          navigation
+          keyboard={{
+            enabled: true,
+            onlyInViewport: false,
+          }}
+          grabCursor={true}
+          speed={800}
+        >
+          <SwiperSlide>
             <div
-              className={`${css.partlist} bg-custom-pink flex min-h-[263px] max-w-64 flex-col items-center justify-center rounded-xl px-4 py-4 text-left lg:min-w-80`}
+              className={`${css.partlist} rounded-xl bg-custom-pink text-left`}
             >
               <SlCursor size={50} />
               <p className="mt-4 text-center text-lg font-semibold">
@@ -31,9 +61,10 @@ const AboutCompany: React.FC = () => {
                 вирізняється своєю якістю, смаком та історією.
               </p>
             </div>
-
+          </SwiperSlide>
+          <SwiperSlide>
             <div
-              className={`${css.partlist} bg-custom-pink flex min-h-[263px] max-w-64 flex-col items-center justify-center rounded-xl px-4 py-4 text-left lg:min-w-80`}
+              className={`${css.partlist} rounded-xl bg-custom-pink text-left`}
             >
               <SlChart size={50} />
               <p className="mt-4 text-center text-lg font-semibold">
@@ -45,9 +76,10 @@ const AboutCompany: React.FC = () => {
                 наші напої завжди доступні для кожного споживача.
               </p>
             </div>
-
+          </SwiperSlide>
+          <SwiperSlide>
             <div
-              className={`${css.partlist} bg-custom-pink flex min-h-[263px] max-w-64 flex-col items-center justify-center rounded-xl px-4 py-4 text-left lg:min-w-80`}
+              className={`${css.partlist} rounded-xl bg-custom-pink text-left`}
             >
               <SlGraph size={50} />
               <p className="mt-4 text-center text-lg font-semibold">
@@ -60,10 +92,10 @@ const AboutCompany: React.FC = () => {
                 виробництва.
               </p>
             </div>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-10">
+          </SwiperSlide>
+          <SwiperSlide>
             <div
-              className={`${css.partlist} bg-custom-pink flex min-h-[263px] max-w-64 flex-col items-center justify-center rounded-xl px-4 py-4 text-left lg:min-w-80`}
+              className={`${css.partlist} rounded-xl bg-custom-pink text-left`}
             >
               <p className="text-6xl font-thin">20+</p>
               <p className="mt-4 text-center text-lg font-semibold">
@@ -76,9 +108,10 @@ const AboutCompany: React.FC = () => {
                 клієнтів.
               </p>
             </div>
-
+          </SwiperSlide>
+          <SwiperSlide>
             <div
-              className={`${css.partlist} bg-custom-pink flex min-h-[263px] max-w-64 flex-col items-center justify-center rounded-xl px-4 py-4 text-left lg:min-w-80`}
+              className={`${css.partlist} rounded-xl bg-custom-pink text-left`}
             >
               <SlGrid size={50} />
               <p className="mt-4 text-center text-lg font-semibold">
@@ -90,9 +123,10 @@ const AboutCompany: React.FC = () => {
                 знайти ідеальний напій для будь-якого приводу.
               </p>
             </div>
-
+          </SwiperSlide>
+          <SwiperSlide className='w-80 !important'>
             <div
-              className={`${css.partlist} bg-custom-pink flex min-h-[263px] max-w-64 flex-col items-center justify-center rounded-xl px-4 py-4 text-left lg:min-w-80`}
+              className={`${css.partlist} rounded-xl bg-custom-pink text-left`}
             >
               <SlBadge size={50} />
               <p className="mt-4 text-center text-lg font-semibold">
@@ -104,8 +138,8 @@ const AboutCompany: React.FC = () => {
                 новий продукт відображає наше прагнення до досконалості.
               </p>
             </div>
-          </div>
-        </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   )

@@ -3,10 +3,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
-import { Outfit } from 'next/font/google'
-import Vyshyvanka from '../Vyshyvanka'
+import { Outfit, Viaoda_Libre } from 'next/font/google'
 
 const outfit = Outfit({ subsets: ['latin'] })
+const viaodaLibre = Viaoda_Libre({ subsets: ['cyrillic'], weight: ['400'] })
 
 const HeaderVideo: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -45,7 +45,7 @@ const HeaderVideo: React.FC = () => {
         loop
         muted
         playsInline
-        className={css.videoBackground}
+        className={`${css.videoBackground} rotate-90`}
       >
         {isVideoVisible && (
           <source src="/bg-video-header.mp4" type="video/mp4" />
@@ -61,23 +61,18 @@ const HeaderVideo: React.FC = () => {
         fill
       />
       <div
-        className={`${css.contentOverlay} relative flex flex-col pt-52 items-center justify-between`}
+        className={`${css.contentOverlay} relative z-50 flex flex-col items-start pt-48`}
       >
-        <div className="z-10 flex flex-col items-center gap-10">
-          <h1
-            className={`${(css.textOverlay, outfit.className)} text-4xl font-medium uppercase`}
-          >
-            alcotrade <span className="font-normal">ua</span>
-          </h1>
-          <p className="text-center text-3xl">
-            Надійний партнер у світі алкогольної продукції.
-            <br /> Співпраця, що гарантує успіх!
+        <div className="z-10 flex flex-col items-start gap-10 pl-24">
+          <p className="text-left text-5xl font-medium uppercase leading-tight tracking-wider">
+            Надійний партнер <br /> у світі алкогольної <br /> продукції.
+            <br /> Співпраця, що гарантує
+            <br /> успіх!
           </p>
-          <button className="bg-white rounded-sm border border-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
+          <button className="rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
             Зв'язатись з нами
           </button>
         </div>
-          <Vyshyvanka direction="right" />
       </div>
     </div>
   )
