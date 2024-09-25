@@ -1,3 +1,4 @@
+import test from 'node:test'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -16,6 +17,7 @@ const config: Config = {
         pattern: "url('/pattern.png')",
         about: "url('/about.jpg')",
         aboutpart: "url('/about-part.jpg')",
+        test: "url('/test.jpg')",
       },
       textColor: {
         white: '#F7F7F7',

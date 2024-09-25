@@ -11,22 +11,16 @@
 .marquee {
   padding: 20px;
   position: absolute;
-  right: -880px;
+  scale: 1.25;
+  right: 0;
   left: 0;
   z-index: 20;
   overflow: hidden;
 }
 
-.marquee__inner {
-  display: flex;
-  column-gap: 40px;
-  row-gap: 40px;
-  transform: rotate(16deg);
-}
-
 .imagefirst {
   flex-shrink: 0;
-  margin-right: 5px;
+  margin-right: 40px;
   margin-top: 40px;
   width: 200px;
   border-radius: 14px;
@@ -34,7 +28,6 @@
   animation-name: marqueeImage;
   animation-duration: 10s;
   animation-timing-function: linear;
-  animation-iteration-count: infinite;
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
   -ms-border-radius: 14px;
@@ -51,8 +44,13 @@
   }
   to {
     transform: translateX(-180%);
+    -webkit-transform: translateX(-180%);
+    -moz-transform: translateX(-180%);
+    -ms-transform: translateX(-180%);
+    -o-transform: translateX(-180%);
   }
 }
 .running {
   animation-play-state: running;
+  animation-iteration-count: infinite;
 }

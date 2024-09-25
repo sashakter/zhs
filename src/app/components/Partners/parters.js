@@ -1,5 +1,5 @@
 function toggleAnimation(isInViewport) {
-  const images = document.querySelectorAll('.marquee__inner img')
+  const images = document.querySelectorAll('.imagefirst')
   images.forEach((image) => {
     if (isInViewport) {
       image.classList.add('running')

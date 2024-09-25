@@ -17,8 +17,8 @@ import { SlBadge } from 'react-icons/sl'
 
 const AboutCompany: React.FC = () => {
   return (
-    <div className="bg-about relative flex flex-col items-center bg-cover bg-no-repeat p-14 text-black grayscale contain-paint">
-      <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
+    <div className="bg-test relative flex flex-col items-center bg-cover bg-no-repeat p-14 text-black grayscale contain-paint">
+      <div className="absolute inset-0 z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 mb-24 flex flex-col items-center justify-center text-black lg:gap-6">
