@@ -6,6 +6,7 @@ import News from './components/News'
 import OurBrands from './components/OurBrands'
 import Capacities from './components/Capacities/Capacities'
 import Partners from './components/Partners/Partners'
+import RunningSroke from './components/RunningStroke'
 
 const Chooser = dynamic(() => import('./zhytnya-slyoza/page'), {
   ssr: false,

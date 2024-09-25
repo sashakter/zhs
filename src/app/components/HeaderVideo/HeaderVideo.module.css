@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 30;
   height: calc(100vh - 40px);
-  mask-image: url('/pattern.png');
+  mask-image: url('/test-mask.png');
   mask-repeat: repeat-x;
   mask-position: top;
   mask-size: contain;

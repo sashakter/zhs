@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image' // Assuming you're using Next.js
 import Title from './Title' // Adjust the import path
 import Link from 'next/link'
+import RunningSroke from './RunningStroke'
 
 const OurBrands: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const OurBrands: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-30"></div>
 
       {/* Content */}
-      <div className="relative mt-6 z-10 flex h-full flex-col justify-start items-center gap-20 py-10 text-center lg:gap-10 lg:pb-20">
+      <div className="relative z-10 mt-6 flex h-full flex-col items-center justify-start gap-20 py-10 text-center lg:gap-10 lg:pb-20">
         {/* Title */}
         <Title title="НАШІ БРЕНДИ" />
 
@@ -33,7 +34,7 @@ const OurBrands: React.FC = () => {
               alt="Ice Peack"
               width={500}
               height={500}
-              className="mb-6 w-52 lg:w-64 hover:duration-150 hover:drop-shadow-[0_35px_35px_rgba(135,217,255,0.25)]"
+              className="mb-6 w-52 hover:drop-shadow-[0_35px_35px_rgba(135,217,255,0.25)] hover:duration-150 lg:w-64"
             />
 
             {/* Brand Caption */}
@@ -48,7 +49,7 @@ const OurBrands: React.FC = () => {
               alt="Житня Сльоза"
               width={500}
               height={500}
-              className="mb-6 w-52 drop-shadow-2xl lg:w-64 hover:duration-150 hover:drop-shadow-[0_15px_15px_rgba(194,153,113,0.25)]"
+              className="mb-6 w-52 drop-shadow-2xl hover:drop-shadow-[0_15px_15px_rgba(194,153,113,0.25)] hover:duration-150 lg:w-64"
             />
 
             {/* Brand Caption */}
@@ -63,13 +64,14 @@ const OurBrands: React.FC = () => {
               alt="Mirka"
               width={500}
               height={500}
-              className="mb-6 w-52 lg:w-64 hover:duration-150 hover:drop-shadow-[0_15px_15px_rgba(253,61,64,0.55)]"
+              className="mb-6 w-52 hover:drop-shadow-[0_15px_15px_rgba(253,61,64,0.55)] hover:duration-150 lg:w-64"
             />
 
             {/* Brand Caption */}
             {/* <p className="text-xl font-thin lg:text-2xl">Mirka</p> */}
           </Link>
         </div>
+        <RunningSroke/>
       </div>
     </div>
   )

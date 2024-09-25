@@ -87,14 +87,15 @@ const Capacities: React.FC = () => {
     <div className="bg-about relative flex flex-col justify-between bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
       <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
       {/* Title Component */}
-      <div className="relative z-20 flex flex-row-reverse justify-between items-center">
+      <div className="relative z-20 flex flex-row-reverse items-center justify-between">
         <div className={`${css.video}`}>
+          <div className={css.overlay}></div>
           <video
             ref={videoRef}
             loop
             muted
             playsInline
-            className={`${css.videoBackground}`}
+            className={`${css.videoBackground} grayscale`}
           >
             {isVideoVisible && (
               <source src="/capacities.mp4" type="video/mp4" />

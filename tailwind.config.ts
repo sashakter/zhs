@@ -50,6 +50,8 @@ const config: Config = {
         'custom-black': '#434343',
         'custom-about': '#937F6B',
         'custom-capacities': '#1B1C1D',
+        'running-first': '#232526',
+        'running-second': '#414345',
       },
     },
   },
