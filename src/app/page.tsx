@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic'
 import AboutCompany from './components/AboutCompany/AboutCompany'
 import HeaderVideo from './components/HeaderVideo/HeaderVideo'
-import Benefits from './components/Partners'
+import Benefits from './components/Partners/Partners'
 import News from './components/News'
 import OurBrands from './components/OurBrands'
 import Capacities from './components/Capacities/Capacities'
-import Partners from './components/Partners'
+import Partners from './components/Partners/Partners'
 
 const Chooser = dynamic(() => import('./zhytnya-slyoza/page'), {
   ssr: false,

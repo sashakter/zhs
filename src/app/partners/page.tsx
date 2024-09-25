@@ -1,4 +1,4 @@
-import Partners from "../components/Partners"
+import Partners from "../components/Partners/Partners"
 
 export default function AboutPartners() {
     return (
