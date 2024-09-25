@@ -1,0 +1,22 @@
+.video {
+  width: 420px;
+  height: 100%;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 15%,
+    100% 85%,
+    100.1% 100.3%,
+    0% 100.3%,
+    0% 67.3%,
+    0% 26.3%
+  );
+}
+.videoBackground {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  object-fit: cover;
+}

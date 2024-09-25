@@ -15,8 +15,12 @@
   transform: translateY(100%);
   background-color: #2c2c2c;
   color: #f4f4fd;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 40px 32px;
+  -webkit-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partlist {
@@ -31,4 +35,12 @@
 .partlist:hover .overlay,
 .partlist:focus .overlay {
   transform: translateY(0%);
+}
+
+.imagecontainer {
+  padding: 15px;
+  width: 150px;
+  height: 100px;
+  background-color: #5a88ca;
+  clip-path: ellipse(70px 70px at 20% 20%);
 }

@@ -15,6 +15,7 @@ const config: Config = {
         news: "url('/hokey.jpg')",
         pattern: "url('/pattern.png')",
         about: "url('/about.jpg')",
+        aboutpart: "url('/about-part.jpg')",
       },
       textColor: {
         white: '#F7F7F7',
@@ -45,6 +46,8 @@ const config: Config = {
         'perceva-bottom': '#D44647',
         'custom-pink': '#474646',
         'custom-black': '#434343',
+        'custom-about': '#937F6B',
+        'custom-capacities': '#1B1C1D',
       },
     },
   },

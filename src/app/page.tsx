@@ -4,7 +4,7 @@ import HeaderVideo from './components/HeaderVideo/HeaderVideo'
 import Benefits from './components/Partners'
 import News from './components/News'
 import OurBrands from './components/OurBrands'
-import Capacities from './components/Capacities'
+import Capacities from './components/Capacities/Capacities'
 import Partners from './components/Partners'
 
 const Chooser = dynamic(() => import('./zhytnya-slyoza/page'), {

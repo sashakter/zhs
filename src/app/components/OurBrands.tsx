@@ -5,20 +5,20 @@ import Link from 'next/link'
 
 const OurBrands: React.FC = () => {
   return (
-    <div className="relative flex items-center justify-center bg-black text-white lg:h-screen">
+    <div className="relative flex items-center justify-center bg-black text-white">
       {/* Background Image */}
       <Image
-        src="/bg-image-brands.jpg" // Replace with your background image path
+        src="/brands.jpg" // Replace with your background image path
         alt="Background"
         layout="fill"
-        className="object-cover opacity-70"
+        className="object-cover object-bottom opacity-50 blur-sm"
       />
 
       {/* Overlay to darken the background */}
-      <div className="absolute inset-0 bg-black opacity-90"></div>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-start items-center gap-20 py-10 text-center lg:gap-32 lg:pb-20">
+      <div className="relative mt-6 z-10 flex h-full flex-col justify-start items-center gap-20 py-10 text-center lg:gap-10 lg:pb-20">
         {/* Title */}
         <Title title="НАШІ БРЕНДИ" />
 
@@ -33,7 +33,7 @@ const OurBrands: React.FC = () => {
               alt="Ice Peack"
               width={500}
               height={500}
-              className="mb-6 w-52 lg:w-64"
+              className="mb-6 w-52 lg:w-64 hover:duration-150 hover:drop-shadow-[0_35px_35px_rgba(135,217,255,0.25)]"
             />
 
             {/* Brand Caption */}
@@ -48,7 +48,7 @@ const OurBrands: React.FC = () => {
               alt="Житня Сльоза"
               width={500}
               height={500}
-              className="mb-6 w-52 drop-shadow-2xl lg:w-64"
+              className="mb-6 w-52 drop-shadow-2xl lg:w-64 hover:duration-150 hover:drop-shadow-[0_15px_15px_rgba(194,153,113,0.25)]"
             />
 
             {/* Brand Caption */}
@@ -63,7 +63,7 @@ const OurBrands: React.FC = () => {
               alt="Mirka"
               width={500}
               height={500}
-              className="mb-6 w-52 lg:w-64"
+              className="mb-6 w-52 lg:w-64 hover:duration-150 hover:drop-shadow-[0_15px_15px_rgba(253,61,64,0.55)]"
             />
 
             {/* Brand Caption */}
