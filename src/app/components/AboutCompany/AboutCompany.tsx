@@ -21,7 +21,7 @@ const AboutCompany: React.FC = () => {
       <div className="absolute inset-0 z-10"></div>
 
       {/* Content */}
-      <div className="relative z-20 mb-24 flex flex-col items-center justify-center text-black lg:gap-6">
+      <div className="relative z-20 mb-16 flex flex-col items-center justify-center text-black lg:gap-6">
         <Title title="ПРО КОМПАНІЮ" earColor="#000" />
         <div className="flex flex-wrap items-center mt-9 justify-center text-white gap-7">
           <div
