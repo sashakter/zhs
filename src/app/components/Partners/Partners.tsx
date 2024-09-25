@@ -15,6 +15,7 @@ const Partners: React.FC = () => {
               loop={0}
               gradient={false}
               direction='right'
+              speed={40}
             >
               <Image
                 src={'/first-partner.jpg'}
@@ -72,6 +73,7 @@ const Partners: React.FC = () => {
               loop={0}
               gradient={false}
               direction='left'
+              speed={40}
             >
               <Image
                 src={'/seven-partner.jpg'}
@@ -124,6 +126,7 @@ const Partners: React.FC = () => {
               />
             </Marquee>
             <Marquee
+              speed={40}
               style={{ transform: 'rotate(16deg)' }}
               autoFill={true}
               loop={0}

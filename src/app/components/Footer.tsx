@@ -7,14 +7,14 @@ const Footer: React.FC = () => {
     <footer className="relative flex flex-col gap-10 px-5 pb-3 pt-10">
       <div className="absolute inset-0 z-0">
         <Image
-          src={'/footer-bg.png'}
+          src={'/footer-bkg.jpg'}
           alt="background photo"
           fill={true}
           className="object-cover"
           quality={100}
         />
       </div>
-      <div className="absolute inset-0 z-0 bg-[#000] opacity-90"></div>
+      <div className="absolute inset-0 z-0 bg-[#000] opacity-80"></div>
       <h3 className="relative text-center text-xl font-semibold uppercase md:text-2xl lg:text-3xl">
         <span className="text-yellow">СПОЖИВАЙТЕ ВІДПОВІДАЛЬНО!</span> НЕ
         ДІЛІТЬСЯ ЦИМ КОНТЕНТОМ З ОСОБАМИ, ЯКІ НЕ ДОСЯГЛИ 18 РОКІВ
@@ -58,7 +58,6 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center gap-2 text-2xl font-thin uppercase lg:items-start">
           <Link href={'/products'}>продукція</Link>
           <Link href={'/partnership'}>партнерство</Link>
-          <Link href={'/export'}>експорт</Link>
           <Link href={'/license'}>ліцензія</Link>
           <Link href={'/policies'}>політика конфіденційності</Link>
         </div>
