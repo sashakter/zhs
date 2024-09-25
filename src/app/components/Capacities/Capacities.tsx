@@ -104,9 +104,6 @@ const Capacities: React.FC = () => {
             )}
           </video>
         </div>
-        <div>
-          <Image src={'/big-ear.svg'} alt='Big Ear' width={30} height={460}/>
-        </div>
         {/* List of Sections */}
         <div className="flex flex-col items-center justify-center pl-48 text-white">
           <div className="relative z-20">

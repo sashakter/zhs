@@ -1,8 +1,8 @@
 .video {
   width: 420px;
   height: 100%;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  /* border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px; */
 
   clip-path: polygon(
     0% 0%,
@@ -16,7 +16,7 @@
   );
 }
 .videoBackground {
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  /* border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px; */
   object-fit: cover;
 }

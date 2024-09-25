@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           >
             office@alcotrade.com.ua
           </a>
-          <div className="flex items-center gap-8">
+          {/* <div className="flex items-center gap-8">
             <a href="https://instagram.com">
               <Image
                 src={'/instagram.svg'}
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                 className="rounded-full border p-2"
               />
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col items-center gap-2 text-2xl font-thin uppercase lg:items-start">
           <Link href={'/products'}>продукція</Link>
