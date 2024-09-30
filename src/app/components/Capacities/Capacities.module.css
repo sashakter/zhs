@@ -1,24 +1,11 @@
 .video {
   position: relative;
-  width: 420px;
-  height: 100%;
-
-  /* border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px; */
-
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% 15%,
-    100% 85%,
-    100.1% 100.3%,
-    0% 100.3%,
-    0% 67.3%,
-    0% 26.3%
-  );
+  width: 650px;
+  mask-image: url('/flip-bottle.svg');
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
 }
 .videoBackground {
-  /* border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px; */
   object-fit: cover;
 }

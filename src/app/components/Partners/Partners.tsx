@@ -2,11 +2,13 @@ import Image from 'next/image'
 import css from './Partners.module.css'
 import Title from '../Title'
 import Marquee from 'react-fast-marquee'
+import RunningSroke from '../RunningStroke'
 const Partners: React.FC = () => {
   return (
-    <div className="relative mb-[800px] flex justify-center">
-      <div className={`${css.covers} bg-custom-capacities relative`}>
+    <div className="relative mb-[900px] flex justify-center">
+      <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
+        <RunningSroke />
         <div className={css.content}>
           <div className={css.marquee}>
             <Marquee
@@ -14,7 +16,7 @@ const Partners: React.FC = () => {
               autoFill={true}
               loop={0}
               gradient={false}
-              direction='right'
+              direction="right"
               speed={40}
             >
               <Image
@@ -72,7 +74,7 @@ const Partners: React.FC = () => {
               autoFill={true}
               loop={0}
               gradient={false}
-              direction='left'
+              direction="left"
               speed={40}
             >
               <Image
@@ -131,7 +133,7 @@ const Partners: React.FC = () => {
               autoFill={true}
               loop={0}
               gradient={false}
-              direction='right'
+              direction="right"
             >
               <Image
                 src={'/fifth-partner.jpg'}
@@ -187,7 +189,7 @@ const Partners: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute z-40 px-4 py-24 text-black lg:px-20">
+      <div className="absolute z-40 px-4 py-36 text-black lg:px-20">
         {/* Overlay */}
         <div className="relative flex flex-col items-center justify-center gap-14 text-white">
           <Title title="партнери" />
@@ -196,6 +198,7 @@ const Partners: React.FC = () => {
               Завод співпрацює з дистриб&#39;юторами по всій Україні і планує
               вихід на міжнародний ринок.
             </p>
+            <Image className="w-52" src={"/marketopt.png"} alt="Marketopt Icon" width={666} height={376}/>
             <div className="flex flex-wrap gap-20">
               <div className="flex flex-col items-center justify-center gap-2 lg:min-w-[429px] lg:gap-5">
                 <p className="max-w-80 text-center lg:max-w-96">

@@ -1,8 +1,21 @@
 import Image from 'next/image'
 import ContactBar from './ContactBar'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const Footer: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(true)
+
+  useEffect(() => {
+    if (isVisible) {
+      setIsVisible(false)
+    }
+  }, [])
+
+  if (!isVisible) {
+    return null
+  }
+
   return (
     <footer className="relative flex flex-col gap-10 px-5 pb-3 pt-10">
       <div className="absolute inset-0 z-0">
@@ -58,7 +71,9 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center gap-2 text-2xl font-thin uppercase lg:items-start">
           <Link href={'/products'}>продукція</Link>
           <Link href={'/partnership'}>партнерство</Link>
-          <Link href={'/license'}>ліцензія</Link>
+          <button type="button" className="uppercase">
+            ліцензія
+          </button>
           <Link href={'/policies'}>політика конфіденційності</Link>
         </div>
         <Image

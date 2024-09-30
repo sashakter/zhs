@@ -61,7 +61,7 @@ const OurBrands: React.FC = () => {
             className="flex flex-col items-center justify-center"
           >
             <Image
-              src={'/mirka.svg'} // Replace with your brand logo path
+              src={'/mirka.png'} // Replace with your brand logo path
               alt="Mirka"
               width={500}
               height={500}
@@ -72,7 +72,6 @@ const OurBrands: React.FC = () => {
             {/* <p className="text-xl font-thin lg:text-2xl">Mirka</p> */}
           </Link>
         </div>
-        <RunningSroke/>
       </div>
     </div>
   )

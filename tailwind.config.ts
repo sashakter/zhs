@@ -36,6 +36,7 @@ const config: Config = {
       },
       dropShadow: {
         '2xl': '0 0 10px rgb(194 153 113 / 0.25)',
+        '3xl': '0 -35px 20px rgba(255, 255, 255, 0.45)',
       },
       colors: {
         'gold-yellow-top': '#FCEABB',

@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
 import css from '../Capacities/Capacities.module.css'
+import RunningSroke from '../RunningStroke'
 
 interface Section {
   id: number
@@ -84,10 +85,10 @@ const Capacities: React.FC = () => {
   }, [])
 
   return (
-    <div className="bg-about relative flex flex-col justify-between bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
+    <div className="relative z-40 drop-shadow-3xl flex flex-col justify-between bg-about bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
       <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
       {/* Title Component */}
-      <div className="relative z-20 flex flex-row-reverse items-center justify-between">
+      <div className="relative -top-52 z-20 flex flex-row-reverse items-center justify-between">
         <div className={`${css.video}`}>
           <div className={css.overlay}></div>
           <video
