@@ -9,7 +9,6 @@ interface Licenze {
 }
 
 const Footer: React.FC = () => {
-  const [openSection, setOpenSection] = useState<number | null>(null)
   const [showLicenseInfo, setShowLicenseInfo] = useState<boolean>(false)
 
   const licenze: Licenze = {
