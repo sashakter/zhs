@@ -18,6 +18,10 @@ const config: Config = {
         about: "url('/about.jpg')",
         aboutpart: "url('/about-part.jpg')",
         test: "url('/test.jpg')",
+        productFirst: "url('/product-gold.jpg')",
+        productSecond: "url('/product-diamond.jpg')",
+        productThird: "url('/product-vidbirna.jpg')",
+        productFourth: "url('/product-perceva.jpg')",
       },
       textColor: {
         white: '#F7F7F7',

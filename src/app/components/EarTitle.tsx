@@ -5,7 +5,7 @@ interface EarProps {
 const EarTitle: React.FC<EarProps> = ({ color }) => {
   return (
     <svg
-      width="298"
+      className="w-[258px] md:w-[365px] lg:w-[228px]"
       height="17"
       viewBox="0 0 298 17"
       fill="none"

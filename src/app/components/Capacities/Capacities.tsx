@@ -85,7 +85,7 @@ const Capacities: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative z-40 drop-shadow-3xl flex flex-col justify-between bg-about bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
+    <div className="relative z-40 flex flex-col justify-between bg-about bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
       <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
       {/* Title Component */}
       <div className="relative -top-52 z-20 flex flex-row-reverse items-center justify-between">

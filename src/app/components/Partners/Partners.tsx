@@ -2,13 +2,11 @@ import Image from 'next/image'
 import css from './Partners.module.css'
 import Title from '../Title'
 import Marquee from 'react-fast-marquee'
-import RunningSroke from '../RunningStroke'
 const Partners: React.FC = () => {
   return (
     <div className="relative mb-[900px] flex justify-center">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
-        <RunningSroke />
         <div className={css.content}>
           <div className={css.marquee}>
             <Marquee

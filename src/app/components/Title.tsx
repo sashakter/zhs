@@ -33,3 +33,14 @@ const Title: React.FC<TitleProps> = ({
 }
 
 export default Title
+
+
+      // <div>
+      //   <EarTitle color={'#C6986D'} />
+      // </div>
+      // <h1 className="text-4xl uppercase sm:text-[40px] lg:text-3xl">
+      //   Обери свій смак
+      // </h1>
+      // <div className="rotate-180">
+      //   <EarTitle color={'#C6986D'} />
+      // </div>

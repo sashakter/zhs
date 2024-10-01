@@ -11,6 +11,7 @@ import { useMediaQuery } from 'react-responsive'
 import css from './Chooser.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
+import EarTitle from '../components/EarTitle'
 
 export default function ZshPage() {
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' })
@@ -20,10 +21,15 @@ export default function ZshPage() {
   const [isHoverPerc, setIsHoverPerc] = useState(false)
   return (
     <div className="relative" id="content">
-      <div className="absolute z-30 my-32 flex w-full justify-center">
-        <Title title="обери свій смак" />
+      <div className="absolute z-30 my-32 flex flex-col items-center w-full justify-center">
+          <EarTitle color={'#C6986D'} />
+        <h1 className="sm:text-2xl uppercase lg:text-2xl">
+          Обери свій смак
+        </h1>
+        <div className="rotate-180">
+          <EarTitle color={'#C6986D'} />
+        </div>
       </div>
-
       {isMobileOrTablet ? (
         <Swiper
           spaceBetween={0}
@@ -110,13 +116,13 @@ export default function ZshPage() {
           <Link
             href={'/zhytnya-slyoza/gold'}
             style={{ contain: 'paint' }}
-            className="relative h-[820px] w-1/4 cursor-pointer bg-gradient-to-b from-gold-yellow-top to-gold-yellow-bottom grayscale hover:grayscale-0"
+            className="relative h-[820px] w-1/4 cursor-pointer bg-productFirst grayscale bg-cover bg-no-repeat hover:grayscale-0"
             onMouseEnter={() => setIsHoverGold(true)}
             onMouseLeave={() => setIsHoverGold(false)}
           >
             <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
             <Image
-              className={`relative -bottom-1/4 ${isHoverGold ? '-bottom-[12%]' : ''} mx-auto duration-300`}
+              className={`relative -bottom-1/4 ${isHoverGold ? '-bottom-[12%]' : ''} mx-auto duration-700`}
               src={'/gold.png'}
               priority={true}
               alt="gold"
@@ -129,11 +135,11 @@ export default function ZshPage() {
             style={{ contain: 'paint' }}
             onMouseEnter={() => setIsHoverDiamond(true)}
             onMouseLeave={() => setIsHoverDiamond(false)}
-            className="h-[820px] w-1/4 bg-gradient-to-b from-diamond-top to-diamond-bottom grayscale hover:grayscale-0"
+            className="h-[820px] w-1/4 bg-productSecond bg-cover bg-no-repeat grayscale hover:grayscale-0"
           >
             <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
             <Image
-              className={`relative -bottom-1/4 ${isHoverDiamond ? '-bottom-[12%]' : ''} mx-auto duration-300`}
+              className={`relative -bottom-1/4 ${isHoverDiamond ? '-bottom-[12%]' : ''} mx-auto duration-700`}
               src={'/diamond.png'}
               alt="diamond"
               width={244}
@@ -145,11 +151,11 @@ export default function ZshPage() {
             style={{ contain: 'paint' }}
             onMouseEnter={() => setIsHoverVidb(true)}
             onMouseLeave={() => setIsHoverVidb(false)}
-            className="h-[820px] w-1/4 bg-gradient-to-b from-vidbir-top to-vidbir-bottom grayscale hover:grayscale-0"
+            className="h-[820px] w-1/4 bg-productThird bg-cover bg-no-repeat grayscale hover:grayscale-0"
           >
             <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
             <Image
-              className={`relative -bottom-1/4 ${isHoverVidb ? '-bottom-[12%]' : ''} mx-auto duration-300`}
+              className={`relative -bottom-1/4 ${isHoverVidb ? '-bottom-[12%]' : ''} mx-auto duration-700`}
               src={'/vidbirna.png'}
               alt="vidbirna"
               width={244}
@@ -161,11 +167,11 @@ export default function ZshPage() {
             style={{ contain: 'paint' }}
             onMouseEnter={() => setIsHoverPerc(true)}
             onMouseLeave={() => setIsHoverPerc(false)}
-            className="h-[820px] w-1/4 bg-gradient-to-b from-perceva-top to-perceva-bottom grayscale hover:grayscale-0"
+            className="h-[820px] w-1/4 bg-productFourth bg-cover bg-no-repeat grayscale hover:grayscale-0"
           >
             <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
             <Image
-              className={`relative -bottom-1/4 ${isHoverPerc ? '-bottom-[12%]' : ''} mx-auto duration-300`}
+              className={`relative -bottom-1/4 ${isHoverPerc ? '-bottom-[12%]' : ''} mx-auto duration-700`}
               src={'/perceva.png'}
               alt="perceva"
               width={244}

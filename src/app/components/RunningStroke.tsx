@@ -6,7 +6,7 @@ const RunningSroke = () => {
       loop={0}
       autoFill={true}
       speed={30}
-      className="from-running-first to-running-second bg-gradient-to-b absolute z-[9999] bottom-0 left-0 w-full"
+      className="from-running-first to-running-second bg-gradient-to-b absolute z-[9999] -bottom-7 left-0 w-full"
       >
       <Image
         className="mr-20 w-36 py-5"

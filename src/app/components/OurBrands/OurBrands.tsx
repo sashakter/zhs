@@ -72,6 +72,7 @@ const OurBrands: React.FC = () => {
             {/* <p className="text-xl font-thin lg:text-2xl">Mirka</p> */}
           </Link>
         </div>
+        <RunningSroke/>
       </div>
     </div>
   )

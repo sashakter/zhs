@@ -1,6 +1,5 @@
 'use client'
 import { Field, Form, Formik, FormikHelpers } from 'formik'
-import Title from './Title'
 import Image from 'next/image'
 
 interface ContactProps {
@@ -28,7 +27,6 @@ const Contacts: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <Title title="Контакти" />
       <div className="flex flex-col items-center justify-around gap-10">
         <div className="flex flex-col items-center gap-5 text-lg">
           <Image
