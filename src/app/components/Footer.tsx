@@ -1,26 +1,31 @@
+'use client'
 import Image from 'next/image'
 import ContactBar from './ContactBar'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+
+interface Licenze {
+  description: string
+}
 
 const Footer: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(true)
+  const [openSection, setOpenSection] = useState<number | null>(null)
+  const [showLicenseInfo, setShowLicenseInfo] = useState<boolean>(false)
 
-  useEffect(() => {
-    if (isVisible) {
-      setIsVisible(false)
-    }
-  }, [])
+  const licenze: Licenze = {
+    description: '№ 990108201900005',
+  }
 
-  if (!isVisible) {
-    return null
+  const handleLicenseClick = () => {
+    setShowLicenseInfo(!showLicenseInfo)  // Тоглити стан для відображення
   }
 
   return (
     <footer className="relative flex flex-col gap-10 px-5 pb-3 pt-10">
+      {/* <div className="absolute z-20 inset-0 bg-black opacity-90"></div> */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={'/footer-bkg.jpg'}
+          src={'/footer-bkg-2.jpg'}
           alt="background photo"
           fill={true}
           className="object-cover"
@@ -47,33 +52,22 @@ const Footer: React.FC = () => {
           >
             office@alcotrade.com.ua
           </a>
-          {/* <div className="flex items-center gap-8">
-            <a href="https://instagram.com">
-              <Image
-                src={'/instagram.svg'}
-                alt="instagram"
-                width={75}
-                height={75}
-                className="rounded-full border p-2"
-              />
-            </a>
-            <a href="https://instagram.com">
-              <Image
-                src={'/instagram.svg'}
-                alt="instagram"
-                width={75}
-                height={75}
-                className="rounded-full border p-2"
-              />
-            </a>
-          </div> */}
         </div>
         <div className="flex flex-col items-center gap-2 text-2xl font-thin uppercase lg:items-start">
           <Link href={'/products'}>продукція</Link>
-          <Link href={'/partnership'}>партнерство</Link>
-          <button type="button" className="uppercase">
+          <Link href={'/partners'}>партнерство</Link>
+          <button
+            type="button"
+            className="uppercase"
+            onClick={handleLicenseClick}
+          >
             ліцензія
           </button>
+          {showLicenseInfo && (
+            <div className="mb-4">
+              <p>{licenze.description}</p>
+            </div>
+          )}
           <Link href={'/policies'}>політика конфіденційності</Link>
         </div>
         <Image

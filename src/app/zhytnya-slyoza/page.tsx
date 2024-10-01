@@ -20,7 +20,7 @@ export default function ZshPage() {
   const [isHoverPerc, setIsHoverPerc] = useState(false)
   return (
     <div className="relative" id="content">
-      <div className="absolute z-30 my-10 flex w-full justify-center">
+      <div className="absolute z-30 my-32 flex w-full justify-center">
         <Title title="обери свій смак" />
       </div>
 
