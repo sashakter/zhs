@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
   }
 
   const handleLicenseClick = () => {
-    setShowLicenseInfo(!showLicenseInfo)  // Тоглити стан для відображення
+    setShowLicenseInfo(!showLicenseInfo) // Тоглити стан для відображення
   }
 
   return (
@@ -53,11 +53,21 @@ const Footer: React.FC = () => {
           </a>
         </div>
         <div className="flex flex-col items-center gap-6 text-2xl font-thin uppercase lg:items-start">
-          <Link className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200' href={'/products'}>продукція</Link>
-          <Link className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200' href={'/partners'}>партнерство</Link>
+          <Link
+            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            href={'/products'}
+          >
+            продукція
+          </Link>
+          <Link
+            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            href={'/partners'}
+          >
+            партнерство
+          </Link>
           <button
             type="button"
-            className="uppercase className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200'"
+            className="className='py-1 hover:after:duration-200' relative uppercase after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full"
             onClick={handleLicenseClick}
           >
             ліцензія
@@ -67,7 +77,12 @@ const Footer: React.FC = () => {
               <p>{licenze.description}</p>
             </div>
           )}
-          <Link className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200' href={'/policies'}>політика конфіденційності</Link>
+          <Link
+            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            href={'/policies'}
+          >
+            політика конфіденційності
+          </Link>
         </div>
         <Image
           src={'/alcotrade-logo.svg'}
@@ -78,9 +93,14 @@ const Footer: React.FC = () => {
           height={300}
         />
       </div>
-      <h3 className="relative text-center text-xl">
-        ТОВ &quot;АлкоТрейд Україна&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
-      </h3>
+      <div className="flex flex-col justify-center gap-6 relative items-center">
+        <h3 className="text-center text-xl">
+          ТОВ &quot;АлкоТрейд Україна&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
+        </h3>
+        <Link className='text-white relative uppercase className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-600' href="https://www.instagram.com/kalynaitgroup?igsh=eXB4Y3d5bmNja3hp&utm_source=qr">
+          Powered by Kalyna group
+        </Link>
+      </div>
     </footer>
   )
 }
