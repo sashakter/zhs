@@ -52,12 +52,12 @@ const Footer: React.FC = () => {
             office@alcotrade.com.ua
           </a>
         </div>
-        <div className="flex flex-col items-center gap-2 text-2xl font-thin uppercase lg:items-start">
-          <Link href={'/products'}>продукція</Link>
-          <Link href={'/partners'}>партнерство</Link>
+        <div className="flex flex-col items-center gap-6 text-2xl font-thin uppercase lg:items-start">
+          <Link className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200' href={'/products'}>продукція</Link>
+          <Link className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200' href={'/partners'}>партнерство</Link>
           <button
             type="button"
-            className="uppercase"
+            className="uppercase className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200'"
             onClick={handleLicenseClick}
           >
             ліцензія
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
               <p>{licenze.description}</p>
             </div>
           )}
-          <Link href={'/policies'}>політика конфіденційності</Link>
+          <Link className='py-1 relative after:w-0 after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-white hover:after:w-full hover:after:duration-200' href={'/policies'}>політика конфіденційності</Link>
         </div>
         <Image
           src={'/alcotrade-logo.svg'}
@@ -78,8 +78,8 @@ const Footer: React.FC = () => {
           height={300}
         />
       </div>
-      <h3 className="relative text-center text-xl uppercase">
-        тов &quot;алкотрейд Україна&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
+      <h3 className="relative text-center text-xl">
+        ТОВ &quot;АлкоТрейд Україна&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
       </h3>
     </footer>
   )
