@@ -1,9 +1,13 @@
 'use client'
 import { Field, Form, Formik, FormikHelpers } from 'formik'
 import Image from 'next/image'
+import { MdCall } from 'react-icons/md'
+import { MdEmail } from 'react-icons/md'
+import { MdLocationPin } from 'react-icons/md'
 
 interface ContactProps {
   name: string
+  surname: string
   email: string
   phone: string
   message: string
@@ -15,6 +19,7 @@ const Contacts: React.FC = () => {
     email: '',
     phone: '',
     message: '',
+    surname: '',
   }
 
   const handleSubmit = (
@@ -26,71 +31,89 @@ const Contacts: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10">
-      <div className="flex flex-col items-center justify-around gap-10">
-        <div className="flex flex-col items-center gap-5 text-lg">
-          <Image
-            src={'/alcotrade-logo.svg'}
-            className="top-1 drop-shadow-2xl max-[1023px]:w-20 lg:w-96 lg:px-7"
-            alt="logo"
-            priority={true}
-            width={1000}
-            height={1000}
-          />
-          <p>
-            Телефон: <a href="tel:+380(67)-706-68-47">+380(67)-706-68-47</a>
-          </p>
-          <p>
-            Пошта:{' '}
-            <a href="mailto:office@alcotrade.com.ua">office@alcotrade.com.ua</a>
-          </p>
-          <p>
-            Адреса:<a> м. Київ</a>
-          </p>
+    <div className="flex flex-col gap-10 py-24 text-black">
+      <div className="flex items-center justify-center gap-24">
+        <div className="flex flex-col items-center gap-12 text-lg">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
+            <div className="rounded-full bg-white p-2">
+              <MdCall size={40} />
+            </div>
+            <div className="flex flex-col justify-center gap-1 text-white">
+              <span className="text-2xl">Номер телефону</span>
+              <a href="tel:+380(67)-706-68-47">+380(67)-706-68-47</a>
+            </div>
+          </div>
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
+            <div className="rounded-full bg-white p-2">
+              <MdEmail size={40} />
+            </div>
+            <div className="flex flex-col justify-center gap-1 text-white">
+              <span className="text-2xl">Пошта</span>
+              <a href="mailto:office@alcotrade.com.ua">
+                office@alcotrade.com.ua
+              </a>
+            </div>
+          </div>
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
+            <div className="rounded-full bg-white p-2">
+              <MdLocationPin size={40} />
+            </div>
+            <div className="flex flex-col justify-center gap-1 text-white">
+              <span className="text-2xl">Адреса</span>
+              <a> м. Київ</a>
+            </div>
+          </div>
         </div>
-
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          <Form className="flex flex-col gap-5 xl:min-w-[375px]">
-            <Field
-              className="w-full rounded-md border border-white bg-inherit px-2 py-3"
-              name="name"
-              type="text"
-              placeholder="Ім&#39;я"
-            />
-            <Field
-              className="w-full rounded-md border border-white bg-inherit px-2 py-3"
-              name="email"
-              type="email"
-              placeholder="Пошта"
-            />
-            <Field
-              className="w-full rounded-md border border-white bg-inherit px-2 py-3"
-              name="phone"
-              type="text"
-              placeholder="Номер телефону"
-            />
-            <Field
-              className="w-full rounded-md border border-white bg-inherit px-2 py-3"
-              name="message"
-              as="textarea"
-              placeholder="Коментар"
-              columns={8}
-              rows={5}
-            />
-            <button className="rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
-              Відправити
-            </button>
-          </Form>
-        </Formik>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.837683488433!2d30.493611776097516!3d50.44412398781984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef37e4b9011%3A0x85003f5b654854f6!2z0YPQuy4g0KHQsNC60YHQsNCz0LDQvdGB0LrQvtCz0L4sIDEzOSwg0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1726918074205!5m2!1sru!2sua"
-          width="600"
-          height="450"
-          style={{ border: '0', width: '100%' }}
-          allowFullScreen={false}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <div className="rounded-lg bg-custom-contact p-9 xl:max-w-[600px]">
+          <h4 className="text-2xl text-white mb-3 uppercase">Контактна Форма</h4>
+          <p className="text-base text-white mb-6 tracking-wide">
+            Заповніть необхідну інформацію, щоб ми мали змогу надати вам швидку
+            відповідь!
+          </p>
+          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            <Form className="flex flex-col items-start gap-5">
+              <div className="flex gap-4 w-full">
+                <Field
+                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
+                  name="name"
+                  type="text"
+                  placeholder="Ім&#39;я"
+                />
+                <Field
+                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
+                  name="surname"
+                  type="text"
+                  placeholder="Прізвище"
+                />
+              </div>
+              <div className="flex gap-4 w-full">
+                <Field
+                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
+                  name="email"
+                  type="email"
+                  placeholder="Пошта"
+                />
+                <Field
+                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
+                  name="phone"
+                  type="text"
+                  placeholder="Номер телефону"
+                />
+              </div>
+              <Field
+                className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
+                name="message"
+                as="textarea"
+                placeholder="Коментар"
+                columns={8}
+                rows={5}
+              />
+              <button className="rounded-md bg-custom-contactbtn tracking-wide px-6 py-2 text-2xl font-medium text-white hover:bg-white hover:text-black hover:duration-700">
+                Надіслати
+              </button>
+            </Form>
+          </Formik>
+        </div>
       </div>
     </div>
   )

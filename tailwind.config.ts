@@ -22,6 +22,8 @@ const config: Config = {
         productSecond: "url('/product-diamond.jpg')",
         productThird: "url('/product-vidbirna.jpg')",
         productFourth: "url('/product-perceva.jpg')",
+        contactBg: "url('/contact-bg.jpg')",
+        contactBackground: "url('/contact-bkg.jpg')",
       },
       textColor: {
         white: '#F7F7F7',
@@ -57,6 +59,8 @@ const config: Config = {
         'custom-capacities': '#1B1C1D',
         'running-first': '#232526',
         'running-second': '#414345',
+        'custom-contact': '#242322',
+        'custom-contactbtn': '#BB9330',
       },
     },
   },

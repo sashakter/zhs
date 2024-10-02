@@ -21,7 +21,7 @@ const NavBar: React.FC = () => {
   }, [burger])
   return (
     <nav
-      className={`absolute inset-0 z-40 flex w-full items-center h-28 justify-between px-6 py-6 text-xl uppercase text-white lg:px-4 lg:py-10 xl:px-12 2xl:text-2xl`}
+      className={`absolute inset-0 z-50 flex w-full items-center h-28 justify-between px-6 py-6 text-xl uppercase text-white lg:px-4 lg:py-10 xl:px-12 2xl:text-2xl`}
     >
       <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
         <Image
