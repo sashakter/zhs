@@ -1,10 +1,10 @@
 'use client'
-import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik'
 import Image from 'next/image'
 import { MdCall } from 'react-icons/md'
 import { MdEmail } from 'react-icons/md'
 import { MdLocationPin } from 'react-icons/md'
-
+import * as Yup from 'yup'
 interface ContactProps {
   name: string
   surname: string
@@ -14,6 +14,13 @@ interface ContactProps {
 }
 
 const Contacts: React.FC = () => {
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Обовʼязкове поле'),
+    surname: Yup.string().min(3, 'Введіть коректні дані'),
+    email: Yup.string().required('Обовʼязкове поле'),
+    phone: Yup.string().required('Обовʼязкове поле'),
+    message: Yup.string().required('Обовʼязкове поле'),
+  })
   const initialValues = {
     name: '',
     email: '',
@@ -65,50 +72,81 @@ const Contacts: React.FC = () => {
           </div>
         </div>
         <div className="rounded-lg bg-custom-contact p-9 xl:max-w-[600px]">
-          <h4 className="text-2xl text-white mb-3 uppercase">Контактна Форма</h4>
-          <p className="text-base text-white mb-6 tracking-wide">
+          <h4 className="mb-3 text-2xl uppercase text-white">
+            Контактна Форма
+          </h4>
+          <p className="mb-6 text-base tracking-wide text-white">
             Заповніть необхідну інформацію, щоб ми мали змогу надати вам швидку
             відповідь!
           </p>
-          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          <Formik
+            validationSchema={validationSchema}
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+          >
             <Form className="flex flex-col items-start gap-5">
-              <div className="flex gap-4 w-full">
-                <Field
-                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
-                  name="name"
-                  type="text"
-                  placeholder="Ім&#39;я"
-                />
-                <Field
-                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
-                  name="surname"
-                  type="text"
-                  placeholder="Прізвище"
-                />
+              <div className="flex w-full gap-4">
+                <div>
+                  {' '}
+                  <Field
+                    className="w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
+                    name="name"
+                    type="text"
+                    placeholder="Ім&#39;я"
+                  />
+                  <ErrorMessage
+                    className="text-red"
+                    name="name"
+                    component="span"
+                  />
+                </div>
+                <div>
+                  <Field
+                    className="w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
+                    name="surname"
+                    type="text"
+                    placeholder="Прізвище"
+                  />
+                  <ErrorMessage
+                    className="text-red"
+                    name="surname"
+                    component="span"
+                  />
+                </div>
               </div>
-              <div className="flex gap-4 w-full">
-                <Field
-                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
-                  name="email"
-                  type="email"
-                  placeholder="Пошта"
-                />
-                <Field
-                  className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
-                  name="phone"
-                  type="text"
-                  placeholder="Номер телефону"
-                />
+              <div className="flex w-full gap-4">
+                <div>
+                  {' '}
+                  <Field
+                    className="w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
+                    name="email"
+                    type="email"
+                    placeholder="Пошта"
+                  />
+                  <ErrorMessage name="email" component="span" />
+                </div>
+                <div>
+                  <Field
+                    className="w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
+                    name="phone"
+                    type="text"
+                    placeholder="Номер телефону"
+                  />
+                  <ErrorMessage name="phone" component="span" />
+                </div>
               </div>
-              <Field
-                className="w-full rounded-md border border-white text-white bg-inherit px-2 py-3"
-                name="message"
-                as="textarea"
-                placeholder="Коментар"
-                columns={8}
-                rows={5}
-              />
-              <button className="rounded-md bg-custom-contactbtn tracking-wide px-6 py-2 text-2xl font-medium text-white hover:bg-white hover:text-black hover:duration-700">
+              <div>
+                <Field
+                  className="w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
+                  name="message"
+                  as="textarea"
+                  placeholder="Коментар"
+                  columns={8}
+                  rows={5}
+                />
+                <ErrorMessage name="message" component="span" />
+              </div>
+              <button className="rounded-md bg-custom-contactbtn px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700">
                 Надіслати
               </button>
             </Form>
