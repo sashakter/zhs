@@ -33,7 +33,8 @@
     "react-phone-input-2": "^2.15.1",
     "react-responsive": "^10.0.0",
     "react-sizeme": "^3.0.2",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.7",
