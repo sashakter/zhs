@@ -8,3 +8,7 @@ export const getClientById = async (clientId) => {
   const client = await clientCollection.findById(clientId);
   return client;
 };
+export const createClient = async (payload) => {
+  const postClient = await clientCollection.create(payload);
+  return postClient;
+};

@@ -1,4 +1,8 @@
-import { getAllClients, getClientById } from '../services/clients.js';
+import {
+  createClient,
+  getAllClients,
+  getClientById,
+} from '../services/clients.js';
 import createHttpError from 'http-errors';
 
 export const getAllClientsController = async (req, res, next) => {
@@ -20,5 +24,32 @@ export const getClientByIdController = async (req, res, next) => {
     status: 200,
     message: `Successfully found student with id ${clientId}!`,
     data: client,
+  });
+};
+
+export const creationClientController = async (req, res, next) => {
+  const { email, name, surname, phone, comment } = req.body;
+
+  if (!email || !name || !phone) {
+    throw createHttpError(
+      404,
+      'Name, phoneNumber and contactType are required',
+    );
+  }
+
+  const newContact = {
+    email: email || '',
+    name,
+    surname,
+    phone,
+    comment,
+  };
+
+  const postedClient = await createClient(newContact);
+
+  res.status(201).json({
+    status: 201,
+    message: 'Successfully created a client!',
+    data: postedClient,
   });
 };
