@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
   }
 
   const handleLicenseClick = () => {
-    setShowLicenseInfo(!showLicenseInfo) // Тоглити стан для відображення
+    setShowLicenseInfo(!showLicenseInfo)
   }
 
   return (

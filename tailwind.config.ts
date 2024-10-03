@@ -24,6 +24,7 @@ const config: Config = {
         productFourth: "url('/product-perceva.jpg')",
         contactBg: "url('/contact-bg.jpg')",
         contactBackground: "url('/contact-bkg.jpg')",
+        footerBkg: "url('/footer-bkg-2.jpg')",
       },
       textColor: {
         white: '#F7F7F7',
