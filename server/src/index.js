@@ -1,5 +1,9 @@
-// src/index.js
+import { initMongoDB } from './db/initMongoDB.js';
+import { serverRunning } from './serverAlcotrade.js';
 
-const message = 'Hello world'
+const bootstrap = async () => {
+  await initMongoDB();
+  serverRunning();
+};
 
-// console.log(message)
+bootstrap();
