@@ -12,6 +12,6 @@ clientsRouter.post('/clients', ctrlWrapper(creationClientController));
 
 clientsRouter.get('/clients', ctrlWrapper(getAllClientsController));
 
-clientsRouter.get('/clients/:clientsId', ctrlWrapper(getClientByIdController));
+clientsRouter.get('/clients/:clientId', ctrlWrapper(getClientByIdController));
 
 export default clientsRouter;

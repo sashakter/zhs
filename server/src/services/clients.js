@@ -5,9 +5,18 @@ export const getAllClients = async () => {
   return clients;
 };
 export const getClientById = async (clientId) => {
-  const client = await clientCollection.findById(clientId);
-  return client;
+  try {
+    const client = await clientCollection.findById(clientId);
+    if (!client) {
+      throw new Error('Client not found');
+    }
+    return client;
+  } catch (error) {
+    console.error('Error fetching client by ID:', error);
+    throw new Error('Failed to fetch client');
+  }
 };
+
 export const createClient = async (payload) => {
   const postClient = await clientCollection.create(payload);
   return postClient;

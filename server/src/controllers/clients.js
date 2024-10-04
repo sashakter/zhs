@@ -14,16 +14,16 @@ export const getAllClientsController = async (req, res, next) => {
 
 export const getClientByIdController = async (req, res, next) => {
   const { clientId } = req.params;
-  const client = await getClientById(clientId);
+  const contact = await getClientById(clientId);
 
-  if (!client) {
-    throw createHttpError(404, 'Client not found');
+  if (!contact) {
+    throw createHttpError(404, 'Contact not found');
   }
 
   res.status(200).json({
     status: 200,
-    message: `Successfully found student with id ${clientId}!`,
-    data: client,
+    message: `Successfully found contact with id ${clientId}!`,
+    data: contact,
   });
 };
 
