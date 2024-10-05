@@ -10,7 +10,7 @@ import { MdLocationPin } from 'react-icons/md'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import * as Yup from 'yup'
-import { MdDoneOutline } from "react-icons/md";
+import { MdDoneOutline } from 'react-icons/md'
 import Link from 'next/link'
 
 interface ContactProps {
@@ -19,6 +19,7 @@ interface ContactProps {
   email: string
   phone: string
   message: string
+  location: string
 }
 
 const Contacts: React.FC = () => {
@@ -28,6 +29,7 @@ const Contacts: React.FC = () => {
     phone: '',
     message: '',
     surname: '',
+    location: '',
   }
 
   const [success, setSuccess] = useState(false)
@@ -36,12 +38,14 @@ const Contacts: React.FC = () => {
     new Promise((resolve) => setTimeout(resolve, ms))
 
   const [location, setLocation] = useState('')
+  const [countryName, setCountryName] = useState('')
 
   useEffect(() => {
     const fetchLocation = async () => {
       try {
         const response = await axios.get('https://ipapi.co/json/')
         setLocation(response.data.country_code)
+        setCountryName(response.data.country_name)
       } catch (error) {
         console.log(error)
       }
@@ -64,6 +68,7 @@ const Contacts: React.FC = () => {
     values: ContactProps,
     actions: FormikHelpers<ContactProps>,
   ) => {
+    values.location = countryName
     console.log(values)
     await sleep(500)
     setSuccess(true)
@@ -117,13 +122,18 @@ const Contacts: React.FC = () => {
         </div>
         <div className="bg-custom-contact rounded-lg p-9 xl:max-w-[600px]">
           {success ? (
-            <div className="flex flex-col gap-8 min-h-[470px] min-w-[528px] items-center justify-center text-white">
+            <div className="flex min-h-[470px] min-w-[528px] flex-col items-center justify-center gap-8 text-white">
               <MdDoneOutline size={70} />
-              <span className="leading-9 tracking-wide text-center text-2xl uppercase">
+              <span className="text-center text-2xl uppercase leading-9 tracking-wide">
                 Дякуємо, ваш запит надіслано
                 <br /> Ми відповімо найближчим часом!
               </span>
-              <Link className='rounded-md px-6 py-2 border border-white text-lg font-medium tracking-wide hover:bg-white hover:text-black hover:duration-500' href='/'>Повернутися на головну</Link>
+              <Link
+                className="rounded-md border border-white px-6 py-2 text-lg font-medium tracking-wide hover:bg-white hover:text-black hover:duration-500"
+                href="/"
+              >
+                Повернутися на головну
+              </Link>
             </div>
           ) : (
             <div>
