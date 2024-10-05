@@ -14,27 +14,24 @@ export const getAllClientsController = async (req, res, next) => {
 
 export const getClientByIdController = async (req, res, next) => {
   const { clientId } = req.params;
-  const contact = await getClientById(clientId);
+  const client = await getClientById(clientId);
 
-  if (!contact) {
+  if (!client) {
     throw createHttpError(404, 'Contact not found');
   }
 
   res.status(200).json({
     status: 200,
     message: `Successfully found contact with id ${clientId}!`,
-    data: contact,
+    data: client,
   });
 };
 
 export const creationClientController = async (req, res, next) => {
-  const { email, name, surname, phone, comment } = req.body;
+  const { email, name, surname, phone, comment, location } = req.body;
 
-  if (!email || !name || !phone) {
-    throw createHttpError(
-      404,
-      'Name, phoneNumber and contactType are required',
-    );
+  if (!email || !name || !phone || !location) {
+    throw createHttpError(404, 'Email, name, phone and location are required');
   }
 
   const newContact = {
@@ -43,6 +40,7 @@ export const creationClientController = async (req, res, next) => {
     surname,
     phone,
     comment,
+    location,
   };
 
   const postedClient = await createClient(newContact);

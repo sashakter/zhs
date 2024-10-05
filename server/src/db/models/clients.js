@@ -22,6 +22,10 @@ const clientsSchema = new Schema(
       type: String,
       required: false,
     },
+    location: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
