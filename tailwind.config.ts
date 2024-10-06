@@ -62,6 +62,7 @@ const config: Config = {
         'running-second': '#414345',
         'custom-contact': '#242322',
         'custom-contactbtn': '#BB9330',
+        'custom-calendar': '#C29636',
       },
     },
   },

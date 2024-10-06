@@ -4,7 +4,7 @@ import Title from '../Title'
 import Marquee from 'react-fast-marquee'
 const Partners: React.FC = () => {
   return (
-    <div className="relative mb-[900px] flex justify-center">
+    <div className="relative mb-[1023px] flex justify-center">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
         <div className={css.content}>
@@ -196,7 +196,18 @@ const Partners: React.FC = () => {
               Завод співпрацює з дистриб&#39;юторами по всій Україні і планує
               вихід на міжнародний ринок.
             </p>
-            <Image className="w-52" src={"/marketopt.png"} alt="Marketopt Icon" width={666} height={376}/>
+            <div className="flex flex-col items-center justify-center gap-4">
+              <p>Шукайте нас на полицях в:</p>
+              <a href="https://marketopt.info/" target="_blank">
+                <Image
+                  className="w-52"
+                  src={'/marketopt.png'}
+                  alt="Marketopt Icon"
+                  width={666}
+                  height={376}
+                />
+              </a>
+            </div>
             <div className="flex flex-wrap gap-20">
               <div className="flex flex-col items-center justify-center gap-2 lg:min-w-[429px] lg:gap-5">
                 <p className="max-w-80 text-center lg:max-w-96">
