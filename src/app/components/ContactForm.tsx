@@ -12,6 +12,9 @@ import 'react-phone-input-2/lib/style.css'
 import * as Yup from 'yup'
 import { MdDoneOutline } from 'react-icons/md'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
+import { postClientsForm } from '../../redux/operation'
+import { AppDispatch } from '../../redux/store';
 
 interface ContactProps {
   name: string
@@ -31,6 +34,7 @@ const Contacts: React.FC = () => {
     surname: '',
     location: '',
   }
+   const dispatch = useDispatch<AppDispatch>();
 
   const [success, setSuccess] = useState(false)
 
@@ -64,16 +68,16 @@ const Contacts: React.FC = () => {
     message: Yup.string(),
   })
 
-  const handleSubmit = async (
-    values: ContactProps,
-    actions: FormikHelpers<ContactProps>,
-  ) => {
-    values.location = countryName
-    console.log(values)
-    await sleep(500)
-    setSuccess(true)
-    actions.resetForm()
+const handleSubmit = async (values: ContactProps, actions: FormikHelpers<ContactProps>) => {
+  values.location = countryName;
+  try {
+    await dispatch(postClientsForm(values)).unwrap();
+    setSuccess(true);
+    actions.resetForm();
+  } catch (error) {
+    console.log('Error posting form:', error);
   }
+};
 
   return (
     <div className="flex flex-col gap-10 py-24 text-black">
@@ -234,7 +238,7 @@ const Contacts: React.FC = () => {
                         component={'span'}
                       />
                     </div>
-                    <button className="bg-custom-contactbtn rounded-md px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700">
+                    <button type='submit' className="bg-custom-contactbtn rounded-md px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700">
                       Надіслати
                     </button>
                   </Form>

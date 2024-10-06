@@ -28,7 +28,7 @@ export const getClientByIdController = async (req, res, next) => {
 };
 
 export const creationClientController = async (req, res, next) => {
-  const { email, name, surname, phone, comment, location } = req.body;
+  const { email, name, surname, phone, message, location } = req.body;
 
   if (!email || !name || !phone || !location) {
     throw createHttpError(404, 'Email, name, phone and location are required');
@@ -39,7 +39,7 @@ export const creationClientController = async (req, res, next) => {
     name,
     surname,
     phone,
-    comment,
+    message,
     location,
   };
 

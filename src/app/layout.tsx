@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer'
 import AgeVerificationModal from './components/AgeVerificationModal'
 import { ReactLenis } from '@studio-freight/react-lenis'
+import StoreProvider from './StoreProvider'
 const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
 
 export const metadata: Metadata = {
@@ -29,12 +30,14 @@ export default function RootLayout({
       <body
         className={`${playfair.className} flex flex-col justify-center text-white`}
       >
-        <div>
-          <AgeVerificationModal />
-        </div>
-        <NavBar />
-        {children}
-        <Footer />
+        <StoreProvider count={0}>
+          <div>
+            <AgeVerificationModal />
+          </div>
+          <NavBar />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   )
