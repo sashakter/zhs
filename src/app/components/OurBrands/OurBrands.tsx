@@ -20,7 +20,7 @@ const OurBrands: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-30"></div>
 
       {/* Content */}
-      <div className="relative z-10 mt-56 flex h-full flex-col items-center justify-start gap-20 py-10 text-center lg:gap-10 lg:pb-20">
+      <div className="relative z-10 mt-56 flex h-full flex-col items-center justify-start gap-20 py-7 text-center lg:gap-10 lg:py-10 lg:pb-20">
         {/* Title */}
         <Title title="НАШІ БРЕНДИ" />
 
@@ -72,7 +72,7 @@ const OurBrands: React.FC = () => {
             {/* <p className="text-xl font-thin lg:text-2xl">Mirka</p> */}
           </Link>
         </div>
-        <RunningSroke/>
+        <RunningSroke />
       </div>
     </div>
   )

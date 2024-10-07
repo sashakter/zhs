@@ -85,10 +85,10 @@ const Capacities: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative z-40 flex flex-col justify-between bg-about bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
+    <div className="relative z-40 flex min-h-screen flex-col justify-between bg-about bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
       <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
       {/* Title Component */}
-      <div className="relative -top-52 z-20 flex flex-row-reverse items-center justify-between">
+      <div className="relative z-20 flex flex-col-reverse items-center justify-between lg:-top-52 lg:flex-row-reverse">
         <div className={`${css.video}`}>
           <div className={css.overlay}></div>
           <video
@@ -107,7 +107,7 @@ const Capacities: React.FC = () => {
           </video>
         </div>
         {/* List of Sections */}
-        <div className="flex flex-col items-center justify-center pl-48 text-white">
+        <div className="flex flex-col items-center justify-center px-3 py-9 text-white lg:pl-48">
           <div className="relative z-20">
             <Title title="ПОТУЖНОСТІ" earColor="#000" addClass="text-black" />
           </div>
