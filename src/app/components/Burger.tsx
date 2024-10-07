@@ -59,13 +59,6 @@ const Burger: React.FC<BurgerProps> = ({ setBurger }) => {
         >
           Контакти
         </Link>
-        <Link
-          className={`link ${pathname === '/export' ? 'active' : ''}`}
-          href="/export"
-          onClick={() => setBurger(false)}
-        >
-          Експорт
-        </Link>
       </nav>
       <div className="social">
         <a href="https://instagram.com/" target="_blanc">

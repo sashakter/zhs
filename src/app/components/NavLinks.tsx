@@ -44,13 +44,6 @@ export function NavLinks() {
         >
           Контакти
         </Link>
-        <span>|</span>
-        <Link
-          className={`link ${pathname === '/export' ? 'active' : ''}`}
-          href="/export"
-        >
-          Експорт
-        </Link>
         <span className="lg:pl-3 xl:pl-6">UA</span>
       </div>
     </nav>
