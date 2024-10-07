@@ -9,16 +9,6 @@ import { errorHandler } from './middlewares/errorHandler.js';
 
 dotenv.config();
 
-const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'https://www.alcotrade.com.ua/',
-    'https://alcotrade.com.ua/',
-  ], // Allow only this origin
-  methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
-  credentials: true, // Allow cookies if needed
-};
-
 const PORT = Number(env('PORT', '4000'));
 
 export const serverRunning = () => {
@@ -33,7 +23,7 @@ export const serverRunning = () => {
     }),
   );
 
-  app.use(cors(corsOptions));
+  app.use(cors());
 
   app.get('/', (req, res) => {
     res.json({
