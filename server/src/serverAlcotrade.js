@@ -43,6 +43,12 @@ export const serverRunning = () => {
 
   app.use(clientsRouter);
 
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin', 'https://www.alcotrade.com.ua');
+    next();
+  });
+
   app.use('*', notFoundHandler);
 
   app.use(errorHandler);
