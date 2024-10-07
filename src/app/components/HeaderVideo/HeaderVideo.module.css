@@ -1,31 +1,43 @@
-.videoBackgroundContainer {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 30;
-  height: calc(100vh - 40px);
-  mask-image: url('/test-mask.png');
-  mask-repeat: repeat-x;
-  mask-position: top;
-  mask-size: contain;
-  overflow: hidden;
+@media screen and (min-width: 320px) {
+  .videoBackgroundContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30;
+    height: 100vh;
+    mask-image: url('/test-mask.png');
+    mask-repeat: repeat-x;
+    mask-position: top;
+    mask-size: contain;
+    overflow: hidden;
+  }
+  .videoBackground {
+    position: absolute;
+    z-index: 40;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
 }
 
-.videoBackground {
-  position: absolute;
-  z-index: 40;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  object-fit: cover;
+@media screen and (min-width: 1024px) {
+  .videoBackgroundContainer {
+    height: calc(100vh - 40px);
+    mask-image: url('/test-mask.png');
+    mask-repeat: repeat-x;
+    mask-position: top;
+    mask-size: contain;
+    overflow: hidden;
+  }
 }
 
 .contentOverlay {
