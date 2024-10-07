@@ -38,9 +38,18 @@
 }
 
 .imagecontainer {
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 15px;
   width: 150px;
   height: 100px;
   background-color: #5a88ca;
-  clip-path: ellipse(70px 70px at 20% 20%);
+  clip-path: ellipse(45px 45px at 20% 20%);
+}
+
+@media screen and (min-width: 1024px) {
+  .imagecontainer {
+    clip-path: ellipse(70px 70px at 20% 20%);
+  }
 }

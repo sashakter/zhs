@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
         ДІЛІТЬСЯ ЦИМ КОНТЕНТОМ З ОСОБАМИ, ЯКІ НЕ ДОСЯГЛИ 18 РОКІВ
       </h3>
       <div className="relative flex flex-col items-center justify-around gap-10 p-4 lg:flex-row lg:flex-wrap">
-        <div className="flex flex-col items-center gap-10 font-thin lg:items-start">
+        <div className="flex flex-col items-center gap-10 font-thin max-sm:max-w-xs lg:items-start">
           <h2 className="text-center text-4xl">
             ТОВ &quot;АлкоТрейд Україна&quot;
           </h2>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
           </a>
           <a
             href="mailto:office@alcotrade.com.ua"
-            className="text-2xl uppercase"
+            className="text-lg uppercase md:text-2xl"
           >
             office@alcotrade.com.ua
           </a>
@@ -93,11 +93,14 @@ const Footer: React.FC = () => {
           height={300}
         />
       </div>
-      <div className="flex flex-col justify-center gap-6 relative items-center">
+      <div className="relative flex flex-col items-center justify-center gap-6">
         <h3 className="text-center text-xl">
           ТОВ &quot;АлкоТрейд Україна&quot; ©2024 УСІ ПРАВА ЗАХИЩЕНО
         </h3>
-        <Link className='text-white relative uppercase className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-600' href="https://www.instagram.com/kalynaitgroup?igsh=eXB4Y3d5bmNja3hp&utm_source=qr">
+        <Link
+          className='className="relative hover:after:duration-600 relative py-1 uppercase text-white after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full'
+          href="https://www.instagram.com/kalynaitgroup?igsh=eXB4Y3d5bmNja3hp&utm_source=qr"
+        >
           Powered by Kalyna group
         </Link>
       </div>

@@ -10,7 +10,7 @@ import { errorHandler } from './middlewares/errorHandler.js';
 dotenv.config();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://alcotrade.com.ua'], // Allow only this origin
+  origin: ['http://localhost:3000', 'https://www.alcotrade.com.ua/'], // Allow only this origin
   methods: 'GET,POST,PUT,DELETE', // Specify allowed methods
   credentials: true, // Allow cookies if needed
 };

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Title from '../Title' // Adjust the import path
 import css from '../AboutCompany/AboutCompany.module.css'
 
@@ -16,23 +16,31 @@ import { SlGrid } from 'react-icons/sl'
 import { SlBadge } from 'react-icons/sl'
 
 const AboutCompany: React.FC = () => {
+  const [swidth, setSwidth] = useState(0)
+  useEffect(() => {
+    if (screen.width < 768) {
+      setSwidth(25)
+    } else {
+      setSwidth(40)
+    }
+  }, [])
   return (
-    <div className="bg-test relative flex flex-col items-center bg-cover bg-no-repeat p-14 text-black grayscale contain-paint">
+    <div className="relative flex flex-col items-center bg-test bg-cover bg-no-repeat p-14 text-black grayscale contain-paint">
       <div className="absolute inset-0 z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 mb-16 flex flex-col items-center justify-center text-black lg:gap-6">
         <Title title="ПРО КОМПАНІЮ" earColor="#000" />
-        <div className="flex flex-wrap items-center mt-9 justify-center text-white gap-7">
+        <div className="relative mt-9 flex flex-wrap items-center justify-center gap-7 text-white">
           <div
-            className={`${css.partlist} flex h-60 w-[448px] rounded-xl bg-aboutpart bg-center bg-cover text-left`}
+            className={`${css.partlist} flex h-60 w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
-              <SlCursor size={40} />
+              <SlCursor size={swidth} />
             </div>
-            <div className="flex items-center justify-center pr-6 text-white uppercase tracking-wide">
-              <p className="text-center text-2xl font-semibold">
-                Унікальне позиціонування кожної торгової <br/> марки
+            <div className="flex w-full items-center justify-center px-3 uppercase tracking-wide text-white lg:px-6">
+              <p className="my-6 text-center text-2xl font-semibold">
+                Унікальне <br /> позиціонування кожної торгової марки
               </p>
               <p className={css.overlay}>
                 Ми з гордістю представляємо кожен продукт нашої компанії,
@@ -43,14 +51,14 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 w-[448px] rounded-xl bg-aboutpart bg-center bg-cover text-left`}
+            className={`${css.partlist} flex h-60 w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
-              <SlChart size={40} />
+              <SlChart size={swidth} />
             </div>
-            <div className="flex items-center justify-center pr-6 text-white uppercase tracking-wide">
-              <p className="text-center text-2xl font-semibold">
-                Високі <br/> показники кількісної та якісної дистрибуції
+            <div className="flex w-full items-center justify-center px-3 uppercase tracking-wide text-white lg:px-6">
+              <p className="my-6 text-center text-2xl font-semibold">
+                Високі <br /> показники кількісної та якісної дистрибуції
               </p>
               <p className={css.overlay}>
                 Наші дистрибуційні потужності дозволяють доставляти продукцію
@@ -61,13 +69,13 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 w-[448px] rounded-xl bg-aboutpart bg-center bg-cover text-left`}
+            className={`${css.partlist} flex h-60 w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
-              <SlGraph size={50} />
+              <SlGraph size={swidth} />
             </div>
-            <div className="flex items-center justify-center pr-6 text-white uppercase tracking-wide">
-              <p className="text-center text-2xl font-semibold">
+            <div className="flex w-full items-center justify-center px-3 uppercase tracking-wide text-white lg:px-6">
+              <p className="my-6 text-center text-2xl font-semibold">
                 Стабільно висока якість
               </p>
               <p className={css.overlay}>
@@ -79,13 +87,15 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 w-[448px] rounded-xl bg-aboutpart bg-center bg-cover text-left`}
+            className={`${css.partlist} flex h-60 w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
-              <p className="text-4xl font-thin">20<span className='text-2xl'>+</span></p>
+              <p className="text-2xl font-thin md:text-4xl">
+                20<span className="text-2xl">+</span>
+              </p>
             </div>
-            <div className="flex items-center justify-center pr-6 text-white uppercase tracking-wide">
-              <p className="text-center text-2xl font-semibold">
+            <div className="flex w-full items-center justify-center px-3 uppercase tracking-wide text-white lg:px-6">
+              <p className="my-6 text-center text-2xl font-semibold">
                 Компанія на ринку алкоголю України з 2002 року
               </p>
               <p className={css.overlay}>
@@ -98,13 +108,13 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 w-[448px] rounded-xl bg-aboutpart bg-center bg-cover text-left`}
+            className={`${css.partlist} flex h-60 w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
-              <SlGrid size={40} />
+              <SlGrid size={swidth} />
             </div>
-            <div className="flex items-center justify-center pr-6 text-white uppercase tracking-wide">
-              <p className="text-center text-2xl font-semibold">
+            <div className="flex w-full items-center justify-center px-3 uppercase tracking-wide text-white lg:px-6">
+              <p className="my-6 text-center text-2xl font-semibold">
                 Різноманітна лінійка смаків
               </p>
               <p className={css.overlay}>
@@ -116,13 +126,13 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 w-[448px] rounded-xl bg-aboutpart bg-center bg-cover text-left`}
+            className={`${css.partlist} flex h-60 w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
-              <SlBadge size={45} />
+              <SlBadge size={swidth + 5} />
             </div>
-            <div className="flex items-center justify-center pr-6 text-white uppercase tracking-wide">
-              <p className="text-center text-2xl font-semibold">
+            <div className="flex w-full items-center justify-center px-3 uppercase tracking-wide text-white lg:px-6">
+              <p className="my-6 text-center text-2xl font-semibold">
                 Інноваційне виробництво
               </p>
               <p className={css.overlay}>

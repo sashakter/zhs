@@ -62,9 +62,9 @@ const HeaderVideo: React.FC = () => {
           fill
         />
         <div
-          className={`${css.contentOverlay} relative z-50 flex flex-col items-start pt-40`}
+          className={`${css.contentOverlay} relative z-50 flex flex-col items-start pt-32 lg:pt-40`}
         >
-          <div className="z-10 flex flex-col items-start gap-10 pl-24">
+          <div className="z-10 flex flex-col items-start gap-10 pl-4 lg:pl-24">
             <p className="text-left text-4xl font-medium uppercase leading-tight tracking-wider lg:text-5xl">
               Надійний партнер <br /> у світі алкогольної <br /> продукції.
               <br /> Співпраця, що гарантує
