@@ -14,7 +14,7 @@ import { MdDoneOutline } from 'react-icons/md'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { postClientsForm } from '../../redux/operation'
-import { AppDispatch } from '../../redux/store';
+import { AppDispatch } from '../../redux/store'
 
 interface ContactProps {
   name: string
@@ -34,7 +34,7 @@ const Contacts: React.FC = () => {
     surname: '',
     location: '',
   }
-   const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>()
 
   const [success, setSuccess] = useState(false)
 
@@ -68,22 +68,25 @@ const Contacts: React.FC = () => {
     message: Yup.string(),
   })
 
-const handleSubmit = async (values: ContactProps, actions: FormikHelpers<ContactProps>) => {
-  values.location = countryName;
-  try {
-    await dispatch(postClientsForm(values)).unwrap();
-    setSuccess(true);
-    actions.resetForm();
-  } catch (error) {
-    console.log('Error posting form:', error);
+  const handleSubmit = async (
+    values: ContactProps,
+    actions: FormikHelpers<ContactProps>,
+  ) => {
+    values.location = countryName
+    try {
+      await dispatch(postClientsForm(values)).unwrap()
+      setSuccess(true)
+      actions.resetForm()
+    } catch (error) {
+      console.log('Error posting form:', error)
+    }
   }
-};
 
   return (
     <div className="flex flex-col gap-10 py-24 text-black">
       <div className="flex items-center justify-center gap-24">
         <div className="flex flex-col items-center gap-12 text-lg">
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <MdCall size={40} />
             </div>
@@ -92,7 +95,7 @@ const handleSubmit = async (values: ContactProps, actions: FormikHelpers<Contact
               <a href="tel:+380(67)-706-68-47">+380(67)-706-68-47</a>
             </div>
           </div>
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <MdEmail size={40} />
             </div>
@@ -103,16 +106,16 @@ const handleSubmit = async (values: ContactProps, actions: FormikHelpers<Contact
               </a>
             </div>
           </div>
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <MdLocationPin size={40} />
             </div>
             <div className="flex flex-col justify-center gap-1 text-white">
               <span className="text-2xl">Адреса</span>
-              <a> м. Київ</a>
+              <a>м.Київ</a>
             </div>
           </div>
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <FaInstagram size={40} />
             </div>
@@ -124,7 +127,7 @@ const handleSubmit = async (values: ContactProps, actions: FormikHelpers<Contact
             </div>
           </div>
         </div>
-        <div className="bg-custom-contact rounded-lg p-9 xl:max-w-[600px]">
+        <div className="rounded-lg bg-custom-contact p-9 xl:max-w-[600px]">
           {success ? (
             <div className="flex min-h-[470px] min-w-[528px] flex-col items-center justify-center gap-8 text-white">
               <MdDoneOutline size={70} />
@@ -238,7 +241,10 @@ const handleSubmit = async (values: ContactProps, actions: FormikHelpers<Contact
                         component={'span'}
                       />
                     </div>
-                    <button type='submit' className="bg-custom-contactbtn rounded-md px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700">
+                    <button
+                      type="submit"
+                      className="rounded-md bg-custom-contactbtn px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700"
+                    >
                       Надіслати
                     </button>
                   </Form>
