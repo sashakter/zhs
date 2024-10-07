@@ -31,7 +31,7 @@ export const initMongoDB = async () => {
 
     const sendEmail = (subject, body) => {
       const mailOptions = {
-        from: `${env('SMTP_EMAIL')}`,
+        from: `${env('SENDER_NAME')} ${env('SMTP_EMAIL')}`,
         to: 'office@alcotrade.com.ua',
         subject: subject,
         text: body,
