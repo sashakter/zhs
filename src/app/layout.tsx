@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Outfit } from 'next/font/google'
+import { Playfair_Display} from 'next/font/google'
 import './globals.css'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer'
@@ -7,6 +7,7 @@ import AgeVerificationModal from './components/AgeVerificationModal'
 import { ReactLenis } from '@studio-freight/react-lenis'
 import StoreProvider from './StoreProvider'
 const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
+
 
 export const metadata: Metadata = {
   title: 'Alcotrade UA',

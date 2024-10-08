@@ -25,3 +25,8 @@
 .react-tel-input .selected-flag {
   background-color: #242322 !important;
 }
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
