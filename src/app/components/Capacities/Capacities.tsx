@@ -105,7 +105,7 @@ const Capacities: React.FC = () => {
           <source src="/capacities.webm" type="video/webm" />
         </video>
       </div>
-      <div className="absolute inset-0 z-10 bg-black opacity-65"></div>
+      <div className="absolute inset-0 z-10 bg-black opacity-65 lg:bg-white"></div>
       {/* Title Component */}
       <div className="relative z-20 flex flex-col-reverse items-center justify-between lg:-top-52 lg:flex-row-reverse">
         <div className={`${css.video} hidden lg:block`}>

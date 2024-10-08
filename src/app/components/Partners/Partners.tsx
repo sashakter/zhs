@@ -4,7 +4,7 @@ import Title from '../Title'
 import Marquee from 'react-fast-marquee'
 const Partners: React.FC = () => {
   return (
-    <div className="relative mb-[1023px] flex justify-center md:mb-[700px]">
+    <div className="relative mb-[1020px] flex justify-center md:mb-[700px] lg:mb-[1023px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
         <div className={css.content}>

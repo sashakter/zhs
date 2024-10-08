@@ -33,7 +33,7 @@ const AboutCompany: React.FC = () => {
         <Title title="ПРО КОМПАНІЮ" earColor="#000" />
         <div className="relative mt-9 flex flex-wrap items-center justify-center gap-7 text-white">
           <div
-            className={`${css.partlist} flex min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-fit lg:w-[448px]`}
+            className={`${css.partlist} flex min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-[240px] lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
               <SlCursor size={swidth} />
@@ -51,7 +51,7 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-fit lg:w-[448px]`}
+            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-[240px] lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
               <SlChart size={swidth} />
@@ -69,7 +69,7 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-fit lg:w-[448px]`}
+            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-[240px] lg:min-h-fit lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
               <SlGraph size={swidth} />
@@ -87,7 +87,7 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-fit lg:w-[448px]`}
+            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-[240px] lg:min-h-fit lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
               <p className="text-2xl font-thin md:text-4xl">
@@ -108,7 +108,7 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-fit lg:w-[448px]`}
+            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-[240px] lg:min-h-fit lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
               <SlGrid size={swidth} />
@@ -126,7 +126,7 @@ const AboutCompany: React.FC = () => {
           </div>
 
           <div
-            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-fit lg:w-[448px]`}
+            className={`${css.partlist} flex h-60 min-h-[300px] w-[280px] rounded-xl bg-aboutpart bg-cover bg-center text-left lg:min-h-[240px] lg:min-h-fit lg:w-[448px]`}
           >
             <div className={`${css.imagecontainer} flex items-start`}>
               <SlBadge size={swidth + 5} />

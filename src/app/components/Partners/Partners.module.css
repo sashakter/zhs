@@ -1,13 +1,14 @@
 .covers {
   min-width: 320px;
-
   width: 100%;
-  height: 1023px;
-
   position: absolute;
   overflow: hidden;
 }
-
+@media screen and (min-width: 1024px) {
+  .covers {
+    min-height: 1023px;
+  }
+}
 @media screen and (min-width: 768px) {
   .covers {
     height: 700px;
