@@ -12,7 +12,7 @@ export default function News() {
         <div className="mb-14">
           <Title title="новини" earColor="#fff" />
         </div>
-        <div className="mb-10 flex flex-row items-center justify-center gap-4">
+        <div className="mb-10 flex flex-row items-center justify-center gap-12">
           <div className="flex w-[350px] flex-col rounded-xl bg-black">
             <Image
               src="/first-news.png" // Replace with your brand logo path
