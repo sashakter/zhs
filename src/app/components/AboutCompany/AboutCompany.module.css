@@ -1,5 +1,5 @@
 .overlay {
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,5 +51,11 @@
 @media screen and (min-width: 1024px) {
   .imagecontainer {
     clip-path: ellipse(70px 70px at 20% 20%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .imagecontainer {
+    clip-path: ellipse(65px 65px at 16% 20%);
   }
 }

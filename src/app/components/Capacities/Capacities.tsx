@@ -57,8 +57,14 @@ const Capacities: React.FC = () => {
 
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoVisible, setIsVideoVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    if (screen.width < 1024) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -85,11 +91,24 @@ const Capacities: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative z-40 flex min-h-screen flex-col justify-between bg-about bg-cover bg-no-repeat text-white grayscale contain-paint lg:h-screen">
-      <div className="absolute inset-0 z-10 bg-white/80 opacity-65"></div>
+    <div className="relative z-40 flex flex-col justify-between bg-none bg-no-repeat text-white grayscale contain-paint lg:h-screen lg:min-h-screen lg:bg-about lg:bg-cover">
+      <div className={`${css.videoMobile} z-10 block lg:hidden`}>
+        <video
+          ref={videoRef}
+          loop
+          muted
+          playsInline
+          className={`${css.videoBackground} grayscale`}
+        >
+          <source src="/capacities.mp4" type="video/mp4" />
+
+          <source src="/capacities.webm" type="video/webm" />
+        </video>
+      </div>
+      <div className="absolute inset-0 z-10 bg-black opacity-65"></div>
       {/* Title Component */}
       <div className="relative z-20 flex flex-col-reverse items-center justify-between lg:-top-52 lg:flex-row-reverse">
-        <div className={`${css.video}`}>
+        <div className={`${css.video} hidden lg:block`}>
           <div className={css.overlay}></div>
           <video
             ref={videoRef}
@@ -107,22 +126,33 @@ const Capacities: React.FC = () => {
           </video>
         </div>
         {/* List of Sections */}
-        <div className="flex flex-col items-center justify-center px-3 py-9 text-white lg:pl-48">
+        <div className="flex flex-col items-center justify-center px-5 py-9 text-white lg:pl-48">
           <div className="relative z-20">
-            <Title title="ПОТУЖНОСТІ" earColor="#000" addClass="text-black" />
+            <Title
+              title="ПОТУЖНОСТІ"
+              earColor={isMobile ? '#fff' : '#000'}
+              addClass="lg:text-black text-white"
+            />
           </div>
           <div className="relative z-40 mt-14 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
             {sections.map((section, index) => (
-              <div key={section.id} className="border-b border-black pb-2">
+              <div
+                key={section.id}
+                className="border-b border-white pb-2 lg:border-black"
+              >
                 {/* Section Title */}
                 <button
                   onClick={() => handleToggle(section.id)}
-                  className="flex w-full items-center justify-between text-left text-lg text-black focus:outline-none lg:text-2xl"
+                  className="flex w-full items-center justify-between text-left text-lg text-white focus:outline-none lg:text-2xl lg:text-black"
                 >
                   {section.title}
                   {openSection === section.id ? (
                     <Image
-                      src={'/Expand_right_light.svg'}
+                      src={
+                        isMobile
+                          ? '/Expand_right_black.svg'
+                          : '/Expand_right_light.svg'
+                      }
                       alt="arrow"
                       width={24}
                       height={24}
@@ -130,7 +160,11 @@ const Capacities: React.FC = () => {
                     />
                   ) : (
                     <Image
-                      src={'/Expand_right_light.svg'}
+                      src={
+                        isMobile
+                          ? '/Expand_right_black.svg'
+                          : '/Expand_right_light.svg'
+                      }
                       alt="arrow"
                       width={24}
                       height={24}
@@ -154,7 +188,7 @@ const Capacities: React.FC = () => {
                     'transition-max-height overflow-hidden duration-500 ease-in-out',
                   )}
                 >
-                  <div className="mt-2 p-1 text-sm text-black lg:mt-4 lg:text-lg">
+                  <div className="mt-2 p-1 text-sm text-white lg:mt-4 lg:text-lg lg:text-black">
                     {section.description}
                   </div>
                 </div>

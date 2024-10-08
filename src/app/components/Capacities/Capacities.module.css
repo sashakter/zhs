@@ -9,3 +9,17 @@
 .videoBackground {
   object-fit: cover;
 }
+
+@media screen and (max-width: 1024px) {
+  .videoMobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .video {
+    mask: none;
+    width: 100%;
+    min-height: 600px;
+  }
+}

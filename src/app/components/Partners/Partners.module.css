@@ -8,6 +8,11 @@
   overflow: hidden;
 }
 
+@media screen and (min-width: 768px) {
+  .covers {
+    height: 700px;
+  }
+}
 .marquee {
   padding: 20px;
   position: absolute;
@@ -17,7 +22,11 @@
   z-index: 20;
   overflow: hidden;
 }
-
+@media screen and (max-width: 1024px) {
+  .marquee {
+    scale: 1.5;
+  }
+}
 .imagefirst {
   flex-shrink: 0;
   margin-right: 40px;
