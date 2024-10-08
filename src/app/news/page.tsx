@@ -31,20 +31,18 @@ export default function News() {
               <p className="mb-5 h-[84px] text-xl font-semibold">
                 Матч півфіналу закінчився прикрою поразкою нашої команди
               </p>
-              <div className="mb-4 flex justify-end">
+              <a
+                href="https://www.instagram.com/p/DAdpeYHtlSy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blanc"
+                className="mb-4 flex justify-end cursor-pointer"
+              >
                 <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
-                  <a
-                    className="roboto cursor-pointer"
-                    href="https://www.instagram.com/p/DAdpeYHtlSy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                    target="_blanc"
-                  >
-                    Детальніше
-                  </a>
+                  <p className="roboto">Детальніше</p>
                   <span>
                     <IoIosArrowForward size={15} />
                   </span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -66,20 +64,18 @@ export default function News() {
               <p className="mb-5 h-[84px] text-xl font-semibold">
                 ХК Кременчук презентували нову форму!
               </p>
-              <div className="mb-4 flex justify-end">
+              <a
+                href="https://www.instagram.com/reel/DAbDe6cNjhH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blanc"
+                className="mb-4 flex cursor-pointer justify-end"
+              >
                 <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
-                  <a
-                    className="roboto cursor-pointer"
-                    href="https://www.instagram.com/reel/DAbDe6cNjhH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                    target="_blanc"
-                  >
-                    Детальніше
-                  </a>
+                  <p className="roboto">Детальніше</p>
                   <span>
                     <IoIosArrowForward size={15} />
                   </span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -102,26 +98,24 @@ export default function News() {
                 В Кременчуці відбувся конгрес ФХУ: Сергій Мазур новий президент
                 федерації
               </p>
-              <div className="mb-4 flex justify-end">
+              <a
+                href="https://www.instagram.com/p/DAOvT_dN7WL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank"
+                className="mb-4 flex cursor-pointer justify-end"
+              >
                 <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
-                  <a
-                    className="roboto cursor-pointer"
-                    href="https://www.instagram.com/p/DAOvT_dN7WL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                    target="_blank"
-                  >
-                    Детальніше
-                  </a>
+                  <p className="roboto">Детальніше</p>
                   <span>
                     <IoIosArrowForward size={15} />
                   </span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
         <div className="flex flex-col items-center gap-3">
           <div className="flex gap-6">
-            <Link href='/products'>
+            <Link href="/products">
               <Image
                 src="/sloza.png" // Replace with your brand logo path
                 alt="Житня Сльоза"
