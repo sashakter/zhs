@@ -5,7 +5,7 @@ import Marquee from 'react-fast-marquee'
 import Link from 'next/link'
 const Partners: React.FC = () => {
   return (
-    <div className="relative mb-[1020px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
+    <div className="relative mb-[1100px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
         <div className={css.content}>

@@ -74,6 +74,16 @@
   }
   .covers {
     min-width: 320px;
+    height: 1100px;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .covers {
+    min-width: 320px;
     height: 800px;
     width: 100%;
     position: absolute;
