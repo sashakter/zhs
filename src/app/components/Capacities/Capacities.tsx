@@ -126,7 +126,7 @@ const Capacities: React.FC = () => {
           </video>
         </div>
         {/* List of Sections */}
-        <div className="flex flex-col items-center justify-center px-5 py-9 text-white lg:px-24 lg:py-0 lg:pt-40 xl:pl-48 xl:pt-9">
+        <div className="flex flex-col items-center justify-center px-5 py-40 text-white lg:px-24 lg:py-0 lg:pt-40 xl:pl-48 xl:pt-9">
           <div className="relative z-20">
             <Title
               title="ПОТУЖНОСТІ"
@@ -134,7 +134,7 @@ const Capacities: React.FC = () => {
               addClass="lg:text-black text-white"
             />
           </div>
-          <div className="relative z-40 my-24 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
+          <div className="relative z-40 mt-32 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
             {sections.map((section, index) => (
               <div
                 key={section.id}
