@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
             </div>
           )}
           <Link
-            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            className="relative text-center py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
             href={'/policies'}
           >
             політика конфіденційності
