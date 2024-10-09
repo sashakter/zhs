@@ -56,15 +56,15 @@ const HeaderVideo: React.FC = () => {
           )}
         </video>
         <Image
-          className="block object-cover lg:hidden"
-          src="/bg-photo.jpg"
+          className="relative block object-cover lg:hidden"
+          src="/header-mobile.jpg"
           alt="bg-photo"
           fill
         />
         <div
           className={`${css.contentOverlay} relative z-50 flex flex-col items-start pt-32 lg:pt-40`}
         >
-          <div className="z-10 flex flex-col items-start gap-10 px-4 lg:pl-24">
+          <div className="z-10 flex flex-col items-center lg:items-start gap-10 px-4 lg:pl-24">
             <p className="text-left text-4xl font-medium uppercase leading-tight tracking-wider lg:text-5xl">
               Надійний партнер <br /> у світі алкогольної <br /> продукції.
               <br /> Співпраця, що гарантує

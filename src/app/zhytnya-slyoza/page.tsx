@@ -47,7 +47,7 @@ export default function ZshPage() {
           effect="fade"
           speed={800}
           fadeEffect={{ crossFade: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          // autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -60,7 +60,7 @@ export default function ZshPage() {
             <Link
               href={'/zhytnya-slyoza/gold'}
               style={{ contain: 'paint' }}
-              className="relative h-[820px] w-full"
+              className="relative w-full"
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image

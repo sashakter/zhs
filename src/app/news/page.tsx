@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function News() {
   return (
-    <div className="relative flex h-full w-full flex-col justify-center bg-news bg-contain px-3 xl:bg-cover">
+    <div className="relative flex h-full w-full flex-col justify-center bg-newsMobile bg-cover lg:bg-news bg-no-repeat lg:bg-contain px-3 xl:bg-cover">
       <div className="absolute inset-0 z-10 bg-black/70"></div>
       <div className="relative z-20 my-32">
         <div className="mb-14">

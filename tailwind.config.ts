@@ -14,6 +14,8 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         news: "url('/hokey.jpg')",
+        newsMobile: "url('/hockey-mobile.jpg')",
+        headerPhoto: "url('/fifth-partner.jpg')",
         pattern: "url('/pattern.png')",
         about: "url('/about.jpg')",
         aboutpart: "url('/about-part.jpg')",
@@ -23,6 +25,7 @@ const config: Config = {
         productThird: "url('/product-vidbirna.jpg')",
         productFourth: "url('/product-perceva.jpg')",
         contactBg: "url('/contact-bg.jpg')",
+        contactBgMobile: "url('/contacts-mobile.jpg')",
         contactBackground: "url('/contact-bkg.jpg')",
         footerBkg: "url('/footer-bkg-2.jpg')",
       },

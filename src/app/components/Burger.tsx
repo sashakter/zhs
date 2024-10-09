@@ -20,8 +20,8 @@ const Burger: React.FC<BurgerProps> = ({ setBurger }) => {
         src={'/alcotrade-logo.svg'}
         className="drop-shadow-2xl"
         alt="logo"
-        width={85}
-        height={85}
+        width={120}
+        height={120}
       />
       <nav className="flex flex-col items-center justify-center gap-3">
         <Link

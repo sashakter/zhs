@@ -303,7 +303,7 @@ const Partners: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute z-40 px-4 py-20 text-black lg:px-20 lg:py-36">
+      <div className="absolute z-40 px-4 py-24 text-black lg:px-20 lg:py-36">
         {/* Overlay */}
         <div className="relative flex flex-col items-center justify-center gap-14 text-white">
           <Title title="партнери" />
