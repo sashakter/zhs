@@ -6,20 +6,20 @@ import Link from 'next/link'
 
 export default function News() {
   return (
-    <div className="relative flex h-full w-full flex-col justify-center bg-news bg-contain xl:bg-cover">
+    <div className="relative flex h-full w-full flex-col justify-center bg-news bg-contain px-3 xl:bg-cover">
       <div className="absolute inset-0 z-10 bg-black/70"></div>
       <div className="relative z-20 my-32">
         <div className="mb-14">
           <Title title="новини" earColor="#fff" />
         </div>
-        <div className="mb-10 flex flex-row items-center justify-center gap-12">
+        <div className="mb-10 flex flex-row flex-wrap items-center justify-center gap-12">
           <div className="flex w-[350px] flex-col rounded-xl bg-black">
             <Image
               src="/first-news.png" // Replace with your brand logo path
               alt="Hokey News"
               width={816}
               height={819}
-              className="w-[400px] rounded-xl"
+              className="w-full rounded-xl"
             />
             <div className="flex h-[228px] flex-col px-4 py-2">
               <div className="mb-3 mt-2 flex w-36 items-center justify-center gap-2 rounded-2xl bg-custom-calendar p-1">
@@ -34,7 +34,7 @@ export default function News() {
               <a
                 href="https://www.instagram.com/p/DAdpeYHtlSy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                 target="_blanc"
-                className="mb-4 flex justify-end cursor-pointer"
+                className="mb-4 flex cursor-pointer justify-end"
               >
                 <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
                   <p className="roboto">Детальніше</p>
@@ -52,7 +52,7 @@ export default function News() {
               alt="Hokey News"
               width={816}
               height={819}
-              className="w-[400px] rounded-xl"
+              className="w-full rounded-xl"
             />
             <div className="flex h-[228px] flex-col px-4 py-2">
               <div className="mb-3 mt-2 flex w-36 items-center justify-center gap-2 rounded-2xl bg-custom-calendar p-1">
@@ -85,7 +85,7 @@ export default function News() {
               alt="Hokey News"
               width={816}
               height={819}
-              className="w-[400px] rounded-xl"
+              className="w-full rounded-xl"
             />
             <div className="flex h-[228px] flex-col px-4 py-2">
               <div className="mb-3 mt-2 flex w-36 items-center justify-center gap-2 rounded-2xl bg-custom-calendar p-1">
