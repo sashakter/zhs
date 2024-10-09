@@ -183,6 +183,122 @@ const Partners: React.FC = () => {
                 className={css.imagefirst}
               />
             </Marquee>
+            <Marquee
+              style={{ transform: 'rotate(16deg)' }}
+              autoFill={true}
+              loop={0}
+              gradient={false}
+              direction="left"
+              speed={40}
+            >
+              <Image
+                src={'/seven-partner.jpg'}
+                alt="Seven photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/first-partner.jpg'}
+                alt="First photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/six-partner.jpg'}
+                alt="Six photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/second-partner.jpg'}
+                alt="Second photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/fifth-partner.jpg'}
+                alt="Fifth photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/third-partner.jpg'}
+                alt="Third photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/fourth-partner.jpg'}
+                alt="Fourth photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+            </Marquee>
+            <Marquee
+              style={{ transform: 'rotate(16deg)' }}
+              autoFill={true}
+              loop={0}
+              gradient={false}
+              direction="right"
+              speed={40}
+            >
+              <Image
+                src={'/first-partner.jpg'}
+                alt="First photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/second-partner.jpg'}
+                alt="Second photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/third-partner.jpg'}
+                alt="Third photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/fourth-partner.jpg'}
+                alt="Fourth photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/fifth-partner.jpg'}
+                alt="Fifth photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/six-partner.jpg'}
+                alt="Six photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+              <Image
+                src={'/seven-partner.jpg'}
+                alt="Seven photo gallery"
+                width={853}
+                height={1280}
+                className={css.imagefirst}
+              />
+            </Marquee>
           </div>
         </div>
       </div>

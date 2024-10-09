@@ -134,7 +134,7 @@ const Capacities: React.FC = () => {
               addClass="lg:text-black text-white"
             />
           </div>
-          <div className="relative z-40 my-14 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
+          <div className="relative z-40 my-24 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
             {sections.map((section, index) => (
               <div
                 key={section.id}

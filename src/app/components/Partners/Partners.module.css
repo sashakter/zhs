@@ -65,3 +65,11 @@
   animation-play-state: running;
   animation-iteration-count: infinite;
 }
+
+@media screen and (max-width: 1023px) {
+  .imagefirst {
+    width: 100px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+}
