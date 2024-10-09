@@ -126,7 +126,7 @@ const Capacities: React.FC = () => {
           </video>
         </div>
         {/* List of Sections */}
-        <div className="flex flex-col items-center justify-center px-5 py-9 text-white lg:pl-48">
+        <div className="flex flex-col items-center justify-center px-5 py-9 text-white lg:px-24 lg:py-0 lg:pt-40 xl:pl-48 xl:pt-9">
           <div className="relative z-20">
             <Title
               title="ПОТУЖНОСТІ"

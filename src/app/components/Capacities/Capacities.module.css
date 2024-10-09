@@ -10,7 +10,7 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .videoMobile {
     position: absolute;
     top: 0;
