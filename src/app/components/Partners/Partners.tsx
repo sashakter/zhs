@@ -4,7 +4,7 @@ import Title from '../Title'
 import Marquee from 'react-fast-marquee'
 const Partners: React.FC = () => {
   return (
-    <div className="relative mb-[1020px] flex justify-center md:mb-[700px] lg:mb-[1023px]">
+    <div className="relative mb-[1020px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
         <div className={css.content}>
@@ -187,7 +187,7 @@ const Partners: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute z-40 px-4 py-6 text-black lg:px-20 lg:py-36">
+      <div className="absolute z-40 px-4 py-28 text-black lg:px-20 lg:py-36">
         {/* Overlay */}
         <div className="relative flex flex-col items-center justify-center gap-14 text-white">
           <Title title="партнери" />

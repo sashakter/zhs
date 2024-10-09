@@ -1,9 +1,9 @@
-import Partners from "../components/Partners/Partners"
+import Partners from '../components/Partners/Partners'
 
 export default function AboutPartners() {
-    return (
-        <div>
-            <Partners/>
-        </div>
-    )
+  return (
+    <div className="contain-paint">
+      <Partners />
+    </div>
+  )
 }
