@@ -1,6 +1,6 @@
 .covers {
   min-width: 320px;
-  min-height: 1025px;
+  height: 1025px;
   width: 100%;
   position: absolute;
   overflow: hidden;
@@ -71,5 +71,12 @@
     width: 100px;
     margin-right: 20px;
     margin-top: 20px;
+  }
+  .covers {
+    min-width: 320px;
+    height: 800px;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
   }
 }
