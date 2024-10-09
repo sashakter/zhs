@@ -83,10 +83,10 @@ const Contacts: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10 py-24 text-black">
-      <div className="flex items-center justify-center gap-24">
+    <div className="flex flex-col gap-10 px-3 py-24 text-black">
+      <div className="flex flex-wrap items-center justify-center gap-24 max-sm:flex-col-reverse">
         <div className="flex flex-col items-center gap-12 text-lg">
-          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10 max-sm:w-full">
             <div className="rounded-full bg-white p-2">
               <MdCall size={40} />
             </div>
@@ -129,7 +129,7 @@ const Contacts: React.FC = () => {
         </div>
         <div className="rounded-lg bg-custom-contact p-9 xl:max-w-[600px]">
           {success ? (
-            <div className="flex min-h-[470px] min-w-[528px] flex-col items-center justify-center gap-8 text-white">
+            <div className="flex w-full flex-col items-center justify-center gap-8 text-white lg:min-h-[470px] lg:min-w-[528px]">
               <MdDoneOutline size={70} />
               <span className="text-center text-2xl uppercase leading-9 tracking-wide">
                 Дякуємо, ваш запит надіслано
@@ -158,7 +158,7 @@ const Contacts: React.FC = () => {
               >
                 {({ setFieldValue, values }) => (
                   <Form className="flex flex-col items-start gap-5">
-                    <div className="flex w-full gap-4">
+                    <div className="flex w-full flex-wrap gap-4 lg:flex-nowrap">
                       <div className="flex w-full flex-col">
                         <Field
                           className="h-[50px] w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
@@ -186,7 +186,7 @@ const Contacts: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex w-full gap-4">
+                    <div className="flex w-full flex-wrap gap-4 lg:flex-nowrap">
                       <div className="flex w-full flex-col">
                         <Field
                           className="h-[50px] w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
