@@ -9,28 +9,34 @@ import 'swiper/css/navigation'
 import { Pagination, Autoplay } from 'swiper/modules'
 import { useMediaQuery } from 'react-responsive'
 import css from './Chooser.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import EarTitle from '../components/EarTitle'
 
 export default function ZshPage() {
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' })
+  const isMobileOrTablet = useMediaQuery({
+    query: '(max-width: 1024px)',
+  })
   const [isHoverGold, setIsHoverGold] = useState(false)
   const [isHoverDiamond, setIsHoverDiamond] = useState(false)
   const [isHoverVidb, setIsHoverVidb] = useState(false)
   const [isHoverPerc, setIsHoverPerc] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <div className="relative" id="content">
-      <div className="absolute z-30 my-32 flex flex-col items-center w-full justify-center">
-          <EarTitle color={'#C6986D'} />
-        <h1 className="sm:text-2xl uppercase lg:text-2xl">
-          Обери свій смак
-        </h1>
+      <div className="absolute z-30 my-32 flex w-full flex-col items-center justify-center">
+        <EarTitle color={'#C6986D'} />
+        <h1 className="uppercase sm:text-2xl lg:text-2xl">Обери свій смак</h1>
         <div className="rotate-180">
           <EarTitle color={'#C6986D'} />
         </div>
       </div>
-      {isMobileOrTablet ? (
+      {isMobileOrTablet && isClient ? (
         <Swiper
           spaceBetween={0}
           pagination={{
@@ -50,65 +56,69 @@ export default function ZshPage() {
           loop={true}
           className="w-full"
         >
-          <SwiperSlide>
-            <div
+          <SwiperSlide className="bg-productFirst bg-cover bg-no-repeat grayscale hover:grayscale-0">
+            <Link
+              href={'/zhytnya-slyoza/gold'}
               style={{ contain: 'paint' }}
-              className="h-[820px] w-full bg-gradient-to-b from-gold-yellow-top to-gold-yellow-bottom grayscale hover:grayscale-0"
+              className="relative h-[820px] w-full"
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-1/4 mx-auto"
+                className="relative -bottom-20 mx-auto"
                 src={'/gold.png'}
                 alt="gold"
                 width={244}
                 height={800}
               />
-            </div>
+            </Link>
           </SwiperSlide>
-          <SwiperSlide>
-            <div
+          <SwiperSlide className="bg-productSecond bg-cover bg-no-repeat grayscale hover:grayscale-0">
+            <Link
+              href={'/zhytnya-slyoza/diamond'}
               style={{ contain: 'paint' }}
-              className="h-[820px] w-full bg-gradient-to-b from-diamond-top to-diamond-bottom grayscale hover:grayscale-0"
+              className="relative h-[820px] w-full"
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-1/4 mx-auto"
+                className="relative -bottom-20 mx-auto"
                 src={'/diamond.png'}
                 alt="diamond"
                 width={244}
                 height={800}
               />
-            </div>
+            </Link>
           </SwiperSlide>
-          <SwiperSlide>
-            <div
+          <SwiperSlide className="bg-productThird bg-cover bg-no-repeat grayscale hover:grayscale-0">
+            <Link
+              href={'/zhytnya-slyoza/vidbirna'}
               style={{ contain: 'paint' }}
-              className="h-[820px] w-full bg-gradient-to-b from-vidbir-top to-vidbir-bottom grayscale hover:grayscale-0"
+              className="relative h-[820px] w-full"
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-1/4 mx-auto"
+                className="relative -bottom-20 mx-auto"
                 src={'/vidbirna.png'}
                 alt="vidbirna"
                 width={244}
                 height={800}
               />
-            </div>
+            </Link>
           </SwiperSlide>
-          <SwiperSlide>
-            <div
+          <SwiperSlide className="bg-productFourth bg-cover bg-no-repeat grayscale hover:grayscale-0">
+            <Link
+              href={'/zhytnya-slyoza/perceva'}
               style={{ contain: 'paint' }}
-              className="h-[820px] w-full bg-gradient-to-b from-perceva-top to-perceva-bottom grayscale hover:grayscale-0"
+              className="relative h-[820px] w-full"
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-1/4 mx-auto"
+                className="relative -bottom-20 mx-auto"
                 src={'/perceva.png'}
                 alt="perceva"
                 width={244}
                 height={800}
               />
-            </div>
+            </Link>
           </SwiperSlide>
         </Swiper>
       ) : (
@@ -116,7 +126,7 @@ export default function ZshPage() {
           <Link
             href={'/zhytnya-slyoza/gold'}
             style={{ contain: 'paint' }}
-            className="relative h-[820px] w-1/4 cursor-pointer bg-productFirst grayscale bg-cover bg-no-repeat hover:grayscale-0"
+            className="relative h-[820px] w-1/4 cursor-pointer bg-productFirst bg-cover bg-no-repeat grayscale hover:grayscale-0"
             onMouseEnter={() => setIsHoverGold(true)}
             onMouseLeave={() => setIsHoverGold(false)}
           >

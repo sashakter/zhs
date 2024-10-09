@@ -22,7 +22,7 @@ const Capacities: React.FC = () => {
         </div>
         <div className="absolute inset-0 z-0 bg-[#000] opacity-70"></div>
         {/* Content */}
-        <div className="relative z-50 mb-4 mt-28 flex w-full max-w-6xl flex-col items-center justify-between md:flex-row">
+        <div className="relative z-20 mb-4 mt-28 flex w-full max-w-6xl flex-col items-center justify-between md:flex-row">
           {/* Bottle Image */}
           <div className="flex justify-center md:w-1/2">
             <Image
@@ -82,7 +82,7 @@ const Capacities: React.FC = () => {
             </div>
           </div>
         </div>
-        <SwiperProducts/>
+        <SwiperProducts />
       </div>
     </div>
   )

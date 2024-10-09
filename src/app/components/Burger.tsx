@@ -9,7 +9,7 @@ interface BurgerProps {
 const Burger: React.FC<BurgerProps> = ({ setBurger }) => {
   const pathname = usePathname()
   return (
-    <div className="fixed inset-0 z-40 flex h-full w-full flex-col items-center justify-center space-y-6 bg-black transition-all duration-300 ease-in-out lg:hidden">
+    <div className="fixed inset-0 z-[999] flex h-full w-full flex-col items-center justify-center space-y-6 bg-black transition-all duration-300 ease-in-out lg:hidden">
       <button
         className="absolute right-4 top-4"
         onClick={() => setBurger(false)}
