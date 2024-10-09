@@ -1,5 +1,6 @@
 .covers {
   min-width: 320px;
+  min-height: 1025px;
   width: 100%;
   position: absolute;
   overflow: hidden;
