@@ -98,10 +98,10 @@ const Capacities: React.FC = () => {
           loop
           muted
           playsInline
+          autoPlay
           className={`${css.videoBackground} grayscale`}
         >
           <source src="/capacities.mp4" type="video/mp4" />
-
           <source src="/capacities.webm" type="video/webm" />
         </video>
       </div>
@@ -134,7 +134,7 @@ const Capacities: React.FC = () => {
               addClass="lg:text-black text-white"
             />
           </div>
-          <div className="relative z-40 mt-14 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
+          <div className="relative z-40 my-14 flex max-w-md flex-col items-center justify-center space-y-4 lg:mt-28">
             {sections.map((section, index) => (
               <div
                 key={section.id}

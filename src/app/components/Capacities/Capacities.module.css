@@ -17,9 +17,16 @@
     left: 0;
     width: 100%;
   }
+
+  .videoBackground {
+    object-fit: cover;
+    width: 100%;
+    height: 720px;
+  }
+
   .video {
     mask: none;
     width: 100%;
-    min-height: 600px;
+    min-height: 800px;
   }
 }

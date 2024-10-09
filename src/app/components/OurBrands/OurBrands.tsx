@@ -25,7 +25,7 @@ const OurBrands: React.FC = () => {
         <Title title="НАШІ БРЕНДИ" />
 
         {/* Brand Logo */}
-        <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-20">
+        <div className="flex flex-col lg:flex-row flex-wrap items-center justify-center gap-10 lg:gap-20">
           <Link
             href={'/'}
             className="flex flex-col items-center justify-center"
