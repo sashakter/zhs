@@ -2,6 +2,7 @@ import Image from 'next/image'
 import css from './Partners.module.css'
 import Title from '../Title'
 import Marquee from 'react-fast-marquee'
+import Link from 'next/link'
 const Partners: React.FC = () => {
   return (
     <div className="relative mb-[1020px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
@@ -349,9 +350,9 @@ const Partners: React.FC = () => {
               </div>
             </div>
           </div>
-          <button className="mt-4 rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
+          <Link href='/contacts' className="mt-4 rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
             Зв'язатись з нами
-          </button>
+          </Link>
         </div>
       </div>
     </div>

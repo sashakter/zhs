@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
 import { Outfit, Viaoda_Libre } from 'next/font/google'
+import Link from 'next/link'
 
 const outfit = Outfit({ subsets: ['latin'] })
 const viaodaLibre = Viaoda_Libre({ subsets: ['cyrillic'], weight: ['400'] })
@@ -70,9 +71,9 @@ const HeaderVideo: React.FC = () => {
               <br /> Співпраця, що гарантує
               <br /> успіх!
             </p>
-            <button className="rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
+            <Link href='/contacts' className="rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
               Зв'язатись з нами
-            </button>
+            </Link>
           </div>
         </div>
       </div>
