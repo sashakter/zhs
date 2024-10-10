@@ -14,9 +14,18 @@ const SwiperProducts = () => {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={5}
+        breakpoints={{
+          375: {
+            slidesPerView: 3,
+            loopAdditionalSlides: 0,
+            coverflowEffect: {
+              depth: 300,
+            },
+          },
+        }}
+        // slidesPerView={5}
         loop={true}
-        loopAdditionalSlides={4}
+        // loopAdditionalSlides={4}
         speed={500}
         autoplay={{
           delay: 2000,
@@ -27,7 +36,7 @@ const SwiperProducts = () => {
           stretch: 0,
           depth: 300,
           modifier: 1,
-          slideShadows: true,
+          slideShadows: false,
         }}
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className="mySwiper"
