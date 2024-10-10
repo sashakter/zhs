@@ -345,7 +345,7 @@ export default function Policy() {
         <p className="text-lg">
           E-mail:{' '}
           <a
-            className="py-1 hover:after:duration-200' relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full"
+            className="hover:after:duration-200' relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full"
             href="mailto:office@alcotrade.com.ua"
           >
             office@alcotrade.com.ua
@@ -353,7 +353,12 @@ export default function Policy() {
         </p>
         <p className="mb-12 text-lg">
           Телефон Служби Підтримки:{' '}
-          <a className="py-1 hover:after:duration-200' relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full" href="tel:+380677066847">+380 (67) 706 68 47</a>
+          <a
+            className="hover:after:duration-200' relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full"
+            href="tel:+380677066847"
+          >
+            +380 (67) 706 68 47
+          </a>
         </p>
       </div>
     </div>

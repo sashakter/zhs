@@ -56,39 +56,39 @@ export default function ZshPage() {
           loop={true}
           className="w-full"
         >
-          <SwiperSlide className="bg-productFirst bg-cover bg-no-repeat grayscale hover:grayscale-0">
+          <SwiperSlide className="bg-productFirst bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
+            <div className="absolute left-0 top-0 z-40 h-full w-full bg-gradient-to-b from-[#000] from-10% bg-cover bg-center opacity-50 duration-300"></div>
             <Link
               href={'/zhytnya-slyoza/gold'}
               style={{ contain: 'paint' }}
-              className="relative w-full"
+              className="relative h-[1000px] w-full"
             >
-              <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-20 mx-auto"
+                className="relative z-50 mx-auto"
                 src={'/gold.png'}
                 alt="gold"
-                width={244}
-                height={800}
+                width={188}
+                height={590}
               />
             </Link>
           </SwiperSlide>
-          <SwiperSlide className="bg-productSecond bg-cover bg-no-repeat grayscale hover:grayscale-0">
+          <SwiperSlide className="bg-productSecond bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
+            <div className="absolute left-0 top-0 z-40 h-full w-full bg-gradient-to-b from-[#000] from-10% bg-cover bg-center opacity-50 duration-300"></div>
             <Link
               href={'/zhytnya-slyoza/diamond'}
               style={{ contain: 'paint' }}
               className="relative h-[820px] w-full"
             >
-              <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-20 mx-auto"
+                className="relative z-50 mx-auto"
                 src={'/diamond.png'}
                 alt="diamond"
-                width={244}
-                height={800}
+                width={188}
+                height={590}
               />
             </Link>
           </SwiperSlide>
-          <SwiperSlide className="bg-productThird bg-cover bg-no-repeat grayscale hover:grayscale-0">
+          <SwiperSlide className="bg-productThird bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
             <Link
               href={'/zhytnya-slyoza/vidbirna'}
               style={{ contain: 'paint' }}
@@ -96,15 +96,15 @@ export default function ZshPage() {
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-20 mx-auto"
+                className="relative z-50 mx-auto"
                 src={'/vidbirna.png'}
                 alt="vidbirna"
-                width={244}
-                height={800}
+                width={188}
+                height={590}
               />
             </Link>
           </SwiperSlide>
-          <SwiperSlide className="bg-productFourth bg-cover bg-no-repeat grayscale hover:grayscale-0">
+          <SwiperSlide className="bg-productFourth bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
             <Link
               href={'/zhytnya-slyoza/perceva'}
               style={{ contain: 'paint' }}
@@ -112,11 +112,11 @@ export default function ZshPage() {
             >
               <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
               <Image
-                className="relative -bottom-20 mx-auto"
+                className="relative z-50 mx-auto"
                 src={'/perceva.png'}
                 alt="perceva"
-                width={244}
-                height={800}
+                width={188}
+                height={590}
               />
             </Link>
           </SwiperSlide>
