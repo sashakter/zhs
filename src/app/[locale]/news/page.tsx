@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import Title from '../components/Title'
+import Title from '../../components/Title'
 import { IoCalendarOutline } from 'react-icons/io5'
 import { IoIosArrowForward } from 'react-icons/io'
 import Link from 'next/link'
 
 export default function News() {
   return (
-    <div className="bg-newsMobile relative flex h-full w-full flex-col justify-center bg-cover bg-no-repeat px-3 lg:bg-news lg:bg-contain xl:bg-cover">
+    <div className="relative flex h-full w-full flex-col justify-center bg-newsMobile bg-cover bg-no-repeat px-3 lg:bg-news lg:bg-contain xl:bg-cover">
       <div className="absolute inset-0 z-10 bg-black/70"></div>
       <div className="relative z-20 my-32">
         <div className="mb-14">

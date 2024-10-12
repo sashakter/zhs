@@ -1,7 +1,7 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+import { usePathname } from '@/navigation'
+import { Link } from '@/navigation'
 import Image from 'next/image'
 
 export function NavLinks() {

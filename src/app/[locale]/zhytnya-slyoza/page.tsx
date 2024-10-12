@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Title from '../components/Title'
+import Title from '../../components/Title'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -11,7 +11,7 @@ import { useMediaQuery } from 'react-responsive'
 import css from './Chooser.module.css'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import EarTitle from '../components/EarTitle'
+import EarTitle from '../../components/EarTitle'
 
 export default function ZshPage() {
   const isMobileOrTablet = useMediaQuery({

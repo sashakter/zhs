@@ -14,6 +14,7 @@ import { SlChart } from 'react-icons/sl'
 import { SlGraph } from 'react-icons/sl'
 import { SlGrid } from 'react-icons/sl'
 import { SlBadge } from 'react-icons/sl'
+import { useTranslations } from 'next-intl'
 
 const AboutCompany: React.FC = () => {
   const [swidth, setSwidth] = useState(0)

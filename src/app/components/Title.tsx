@@ -1,7 +1,8 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import EarTitle from './EarTitle'
-import { CSSProperties } from 'react'
+import { CSSProperties, useTransition } from 'react'
 
 interface TitleProps {
   title: string
