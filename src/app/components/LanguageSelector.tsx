@@ -1,26 +1,58 @@
-import { useState } from "react";
+import { useLocale, useTranslations } from 'next-intl'
+import { usePathname, useRouter } from '@/navigation'
+import { useParams } from 'next/navigation'
+import { ChangeEvent, useTransition } from 'react'
+import clsx from 'clsx'
 
-const LanguageSelector: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("UA");
+type Props = {
+  children: React.ReactNode
+  defaultValue: string
+  label: string
+}
 
-  const languages = ["UA", "EN"]; // Add more languages as needed
+export default function LanguageSelector({
+  children,
+  defaultValue,
+  label,
+}: Props) {
+  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
+  const pathname = usePathname()
+  const params = useParams()
 
-  const handleLanguageChange = (language: string) => {
-    setSelectedLanguage(language);
-    setIsOpen(false);
-    // Implement language change logic here, e.g., setting a cookie or updating a context
-  };
+  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    const nextLocale = event.target.value
+    startTransition(() => {
+      // @ts-ignore
+      router.replace({ pathname, params }, { locale: nextLocale })
+    })
+  }
+
+  // Function to handle arrow click
+  const handleArrowClick = () => {
+    const selectElement = document.getElementById(
+      'language-select',
+    ) as HTMLSelectElement
+    if (selectElement) {
+      selectElement.focus() // Focus the select element
+    }
+  }
 
   return (
-    <div className="relative inline-block text-left">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none"
+    <label className="relative flex items-center justify-center rounded-md border border-white px-2 text-lg">
+      <p className="sr-only">{label}</p>
+      <select
+        id="language-select" // Add an ID to the select element for referencing
+        className="relative z-10 inline-flex appearance-none bg-transparent py-1 pr-4"
+        defaultValue={defaultValue}
+        disabled={isPending}
+        onChange={onSelectChange}
       >
-        {selectedLanguage}
+        {children}
+      </select>
+      <span className="pointer-events-auto absolute right-2 z-0 my-auto">
         <svg
-          className="ml-2 -mr-1 h-5 w-5 text-white"
+          className="-mr-1 ml-2 h-5 w-5 text-white"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
@@ -32,25 +64,7 @@ const LanguageSelector: React.FC = () => {
             clipRule="evenodd"
           />
         </svg>
-      </button>
-
-      {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            {languages.map((language) => (
-              <button
-                key={language}
-                onClick={() => handleLanguageChange(language)}
-                className="block px-4 py-2 text-sm text-white hover:bg-gray-800 w-full text-left"
-              >
-                {language}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default LanguageSelector;
+      </span>
+    </label>
+  )
+}

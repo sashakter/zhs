@@ -3,7 +3,10 @@ import css from './Partners.module.css'
 import Title from '../Title'
 import Marquee from 'react-fast-marquee'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 const Partners: React.FC = () => {
+  const t = useTranslations('Partners')
+
   return (
     <div className="relative mb-[1100px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>
@@ -303,19 +306,21 @@ const Partners: React.FC = () => {
           </div>
         </div>
       </div>
-
       <div className="absolute z-40 px-4 py-24 text-black lg:px-20 lg:py-36">
         {/* Overlay */}
         <div className="relative flex flex-col items-center justify-center gap-14 text-white">
-          <Title title="партнери" />
+          <h1 className="text-3xl font-bold">{t('title')}</h1>
+
           <div className="flex flex-col items-center justify-center gap-10 lg:text-2xl">
-            <p className="max-w-md text-center">
-              Завод співпрацює з дистриб&#39;юторами по всій Україні і планує
-              вихід на міжнародний ринок.
-            </p>
+            <p className="max-w-md text-center">{t('description')}</p>
+
             <div className="flex flex-col items-center justify-center gap-4">
-              <p>Шукайте нас на полицях в:</p>
-              <a href="https://marketopt.info/" target="_blank">
+              <p>{t('findUs')}</p>
+              <a
+                href="https://marketopt.info/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   className="w-52"
                   src={'/marketopt.png'}
@@ -325,33 +330,41 @@ const Partners: React.FC = () => {
                 />
               </a>
             </div>
+
             <div className="flex flex-wrap justify-center gap-20 lg:flex-nowrap">
               <div className="flex flex-col items-center justify-center gap-2 lg:min-w-[429px] lg:gap-5">
                 <p className="max-w-80 text-center lg:max-w-96">
-                  Основні клієнти включають:
+                  {t('mainClientsTitle')}
                 </p>
                 <ul className="text-left font-semibold">
-                  <li>ПП &quot;АЛКОГРУПА ПЛЮС&quot; </li>
-                  <li>ПП &quot;ГУРТОВА БАЗА&quot;</li>
-                  <li>ТОВ &quot;АЛКОБАЗА&quot;</li>
-                  <li>ТОВ &quot;КЛЕВЕР ЮА&quot;</li>
-                  <li>ТОВ &quot;ТД ІМПЕРІАЛ&quot;</li>
+                  <li>{t('client1')}</li>
+                  <li>{t('client2')}</li>
+                  <li>{t('client3')}</li>
+                  <li>{t('client4')}</li>
+                  <li>{t('client5')}</li>
                 </ul>
               </div>
+
               <div className="flex flex-col items-start justify-center gap-2 lg:min-w-[429px] lg:gap-5">
-                <p className="content-center text-center">Постачальники:</p>
+                <p className="content-center text-center">
+                  {t('supplierTitle')}
+                </p>
                 <ul className="text-left font-semibold">
-                  <li>ТОВ &quot;СПІРІТУС ВИШНЯКИ&quot;</li>
-                  <li>ТОВ &quot;УОЛЛ-СТРИТ&quot;</li>
-                  <li>ТОВ &quot;МАЛИНІВСЬКИЙ СКЛОЗАВОД&quot;</li>
-                  <li>ТОВ &quot;СКЛЯННИЙ АЛЬЯНС&quot;</li>
-                  <li>ТОВ ТД &quot;ОСТОВ-БАРДС&quot;</li>
+                  <li>{t('supplier1')}</li>
+                  <li>{t('supplier2')}</li>
+                  <li>{t('supplier3')}</li>
+                  <li>{t('supplier4')}</li>
+                  <li>{t('supplier5')}</li>
                 </ul>
               </div>
             </div>
           </div>
-          <Link href='/contacts' className="mt-4 rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700">
-            Зв'язатись з нами
+
+          <Link
+            href="/contacts"
+            className="mt-4 rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700"
+          >
+            {t('contactUs')}
           </Link>
         </div>
       </div>

@@ -1,5 +1,107 @@
 {
   "HeaderVideo": {
-    "description": "A Reliable Partner<br></br> in the World of<br></br> Alcoholic Beverages.<br></br> Collaboration that <br></br> Guarantees Success!"
+    "description": "A Reliable Partner<br></br> in the World of<br></br> Alcoholic Beverages.<br></br> Collaboration that <br></br> Guarantees Success!",
+    "button": "contact us"
+  },
+  "LocaleSwitcher": {
+    "label": "Змінити мову",
+    "locale": {
+      "uk": "UA",
+      "en": "EN"
+    }
+  },
+  "NavBar": {
+    "main": "main",
+    "products": "products",
+    "partners": "partnership",
+    "news": "news",
+    "contact_us": "contact us"
+  },
+  "AboutCompany": {
+    "title": "ABOUT THE COMPANY",
+    "part1": {
+      "title": "Unique positioning of each brand",
+      "description": "We proudly present each product of our company, creating unique offers for our consumers. Each brand stands out with its quality, taste, and history."
+    },
+    "part2": {
+      "title": "High quantitative and qualitative distribution indicators",
+      "description": "Our distribution capabilities allow us to deliver products quickly and reliably to any corner of Ukraine. This ensures that our beverages are always available for every consumer."
+    },
+    "part3": {
+      "title": "Consistently high quality",
+      "description": "At the core of each of our products lies uncompromising quality. We carefully control all stages of production so that every sip brings satisfaction."
+    },
+    "part4": {
+      "title": "Company in the alcohol market of Ukraine since 2002",
+      "description": "For over 20 years, we have earned a reputation as a reliable manufacturer and partner. Our years of experience allow us to adapt to market changes and exceed our customers' expectations."
+    },
+    "part5": {
+      "title": "Diverse range of flavors",
+      "description": "Our portfolio includes classic vodkas, special varieties, as well as sweet and bitter tinctures. This diversity allows you to find the perfect drink for any occasion."
+    },
+    "part6": {
+      "title": "Innovative production",
+      "description": "We constantly implement the latest technologies to improve production and meet modern quality standards. Each new product reflects our pursuit of excellence."
+    }
+  },
+  "OurBrands": {
+    "title": "OUR BRANDS"
+  },
+  "Capacities": {
+    "title": "Capacities",
+    "manufacturingLines": {
+      "title": "MANUFACTURING LINES",
+      "description": "The factory is equipped with modern production lines that allow for the large-scale production of a variety of alcoholic beverages without compromising quality."
+    },
+    "qualityControl": {
+      "title": "QUALITY CONTROL LABORATORIES",
+      "description": "The company has its own laboratories where continuous quality control is conducted at all stages of production, from raw material selection to finished products. This ensures high quality and safety of our products."
+    },
+    "rawMaterials": {
+      "title": "RAW MATERIALS",
+      "description": "We collaborate with the best suppliers of Ukrainian raw materials, ensuring the use of the highest quality ingredients in production and its uninterrupted supply."
+    },
+    "productionFacilities": {
+      "title": "PRODUCTION FACILITIES",
+      "description": "The factory is located on a large territory, allowing for the expansion of production capacities and the implementation of new technologies to improve production processes."
+    },
+    "humanResources": {
+      "title": "HUMAN RESOURCES",
+      "description": "The team consists of highly qualified specialists with extensive experience in the production of alcoholic beverages, ensuring a high level of professionalism and efficiency in their work."
+    }
+  },
+  "Partners": {
+    "title": "Partners",
+    "description": "The factory collaborates with distributors across Ukraine and plans to enter the international market.",
+    "findUs": "Look for us on the shelves at:",
+    "mainClientsTitle": "Main clients include:",
+    "supplierTitle": "Suppliers:",
+    "client1": "PP 'ALKOGRUPA PLUS'",
+    "client2": "PP 'GURTOVA BAZA'",
+    "client3": "LLC 'ALKOBAZA'",
+    "client4": "LLC 'KLEVER UA'",
+    "client5": "LLC 'TD IMPERIAL'",
+    "supplier1": "LLC 'SPIRITUS VISHNYAKI'",
+    "supplier2": "LLC 'WALL STREET'",
+    "supplier3": "LLC 'MALINIVSKY GLASS FACTORY'",
+    "supplier4": "LLC 'GLASS ALLIANCE'",
+    "supplier5": "LLC 'TD OSTOV-BARDS'",
+    "contactUs": "Contact us"
+  },
+  "Footer": {
+    "responsibleConsumption": "<span>CONSUME RESPONSIBLY!</span> DO NOT SHARE THIS CONTENT WITH PERSONS UNDER 18 YEARS OLD",
+    "companyName": "LLC 'AlcoTrade Ukraine'",
+    "contactPhone": "+380(67)-706-68-47",
+    "contactEmail": "office@alcotrade.com.ua",
+    "products": "Products",
+    "partnership": "Partnership",
+    "license": "License",
+    "licenseInfo": "№ 990108201900005",
+    "privacyPolicy": "Privacy Policy",
+    "rightsReserved": "LLC 'AlcoTrade Ukraine' ©2024 ALL RIGHTS RESERVED",
+    "poweredBy": "Powered by Kalyna group"
+  },
+  "ContactUsBar": {
+    "title": "Contact us:"
   }
 }

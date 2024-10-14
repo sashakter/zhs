@@ -77,7 +77,7 @@ const HeaderVideo: React.FC = () => {
               href="/contacts"
               className="rounded-sm border border-white bg-white px-5 py-2 text-2xl font-medium uppercase text-black hover:bg-custom-black hover:text-white hover:duration-700"
             >
-              Зв'язатись з нами
+              {t('button')}
             </Link>
           </div>
         </div>

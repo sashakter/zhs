@@ -4,8 +4,10 @@ import Title from '../Title' // Adjust the import path
 import Link from 'next/link'
 import RunningSroke from '../RunningStroke'
 import css from './OurBrands.module.css'
+import { useTranslations } from 'next-intl'
 
 const OurBrands: React.FC = () => {
+  const t = useTranslations('OurBrands')
   return (
     <div className={`${css.brandsContainer} bg-black text-white`}>
       {/* Background Image */}
@@ -22,10 +24,10 @@ const OurBrands: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 mt-56 flex h-full flex-col items-center justify-start gap-20 py-7 text-center lg:gap-10 lg:py-10 lg:pb-20">
         {/* Title */}
-        <Title title="НАШІ БРЕНДИ" />
+        <Title title={t('title')} />
 
         {/* Brand Logo */}
-        <div className="flex flex-col lg:flex-row flex-wrap items-center justify-center gap-10 lg:gap-20">
+        <div className="flex flex-col flex-wrap items-center justify-center gap-10 lg:flex-row lg:gap-20">
           <Link
             href={'/'}
             className="flex flex-col items-center justify-center"

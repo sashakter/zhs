@@ -4,9 +4,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import Title from '../Title'
 import clsx from 'clsx'
 import Image from 'next/image'
-import Marquee from 'react-fast-marquee'
 import css from '../Capacities/Capacities.module.css'
-import RunningSroke from '../RunningStroke'
+import { useTranslations } from 'next-intl'
 
 interface Section {
   id: number
@@ -15,42 +14,38 @@ interface Section {
 }
 
 const Capacities: React.FC = () => {
+  const t = useTranslations('Capacities')
   const [openSection, setOpenSection] = useState<number | null>(null)
-  const contentRefs = useRef<Array<HTMLDivElement | null>>([]) // Correctly typed as an array of HTMLDivElement or null
+  const contentRefs = useRef<Array<HTMLDivElement | null>>([])
+
   const sections: Section[] = [
     {
       id: 1,
-      title: 'ВИРОБНИЧІ ЛІНІЇ',
-      description:
-        'Завод обладнаний сучасними виробничими лініями, які дозволяють виготовляти різноманітні алкогольні напої великими обсягами без втрати якості.',
+      title: t('manufacturingLines.title'),
+      description: t('manufacturingLines.description'),
     },
     {
       id: 2,
-      title: 'ЛАБОРАТОРІЇ КОНТРОЛЮ ЯКОСТІ',
-      description:
-        'Компанія має власні лабораторії, де проводиться постійний контроль якості всіх стадій виробництва - від відбору сировини до готової продукції. Це дозволяє забезпечити високу якість та безпеку наших продуктів.',
+      title: t('qualityControl.title'),
+      description: t('qualityControl.description'),
     },
     {
       id: 3,
-      title: 'СИРОВИНА',
-      description:
-        'Ми співпрацюємо з найкращими постачальниками української сировини, що гарантує використання найякісніших інгредієнтів у виробництві, та його безперебійності.',
+      title: t('rawMaterials.title'),
+      description: t('rawMaterials.description'),
     },
     {
       id: 4,
-      title: 'ВИРОБНИЧІ ПЛОЩІ',
-      description:
-        'Завод розташований на великій території, що дозволяє розширювати виробничі потужності та впроваджувати нові технології для вдосконалення процесів виробництва.',
+      title: t('productionFacilities.title'),
+      description: t('productionFacilities.description'),
     },
     {
       id: 5,
-      title: 'КАДРОВИЙ ПОТЕНЦІАЛ',
-      description:
-        'Команда складається з висококваліфікованих спеціалістів з великим досвідом у галузі виробництва алкогольних напоїв, що гарантує високий рівень професіоналізму та ефективність у роботі.',
+      title: t('humanResources.title'),
+      description: t('humanResources.description'),
     },
   ]
 
-  // Function to toggle the open section
   const handleToggle = (id: number) => {
     setOpenSection(openSection === id ? null : id)
   }
@@ -60,11 +55,12 @@ const Capacities: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (screen.width < 1024) {
+    if (window.innerWidth < 1024) {
       setIsMobile(true)
     } else {
       setIsMobile(false)
     }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -118,10 +114,10 @@ const Capacities: React.FC = () => {
             className={`${css.videoBackground} grayscale`}
           >
             {isVideoVisible && (
-              <source src="/capacities.mp4" type="video/mp4" />
-            )}
-            {isVideoVisible && (
-              <source src="/bg-video-header.webm" type="video/webm" />
+              <>
+                <source src="/capacities.mp4" type="video/mp4" />
+                <source src="/bg-video-header.webm" type="video/webm" />
+              </>
             )}
           </video>
         </div>
@@ -129,7 +125,7 @@ const Capacities: React.FC = () => {
         <div className="flex flex-col items-center justify-center px-5 py-24 text-white lg:px-24 lg:py-0 lg:pt-40 xl:pl-48 xl:pt-9">
           <div className="relative z-20">
             <Title
-              title="ПОТУЖНОСТІ"
+              title={t('title')}
               earColor={isMobile ? '#fff' : '#000'}
               addClass="lg:text-black text-white"
             />
@@ -146,37 +142,27 @@ const Capacities: React.FC = () => {
                   className="flex w-full items-center justify-between text-left text-lg text-white focus:outline-none lg:text-2xl lg:text-black"
                 >
                   {section.title}
-                  {openSection === section.id ? (
-                    <Image
-                      src={
-                        isMobile
+                  <Image
+                    src={
+                      openSection === section.id
+                        ? isMobile
                           ? '/Expand_right_black.svg'
                           : '/Expand_right_light.svg'
-                      }
-                      alt="arrow"
-                      width={24}
-                      height={24}
-                      className="rotate-90 transition-all lg:w-8"
-                    />
-                  ) : (
-                    <Image
-                      src={
-                        isMobile
+                        : isMobile
                           ? '/Expand_right_black.svg'
                           : '/Expand_right_light.svg'
-                      }
-                      alt="arrow"
-                      width={24}
-                      height={24}
-                      className="rotate-0 transition-all lg:w-8"
-                    />
-                  )}
+                    }
+                    alt="arrow"
+                    width={24}
+                    height={24}
+                    className={`transition-all lg:w-8 ${openSection === section.id ? 'rotate-90' : 'rotate-0'}`}
+                  />
                 </button>
 
                 {/* Smooth Transition for the Description */}
                 <div
                   ref={(el) => {
-                    contentRefs.current[index] = el // Сохраняем элемент в ref, но ничего не возвращаем
+                    contentRefs.current[index] = el // Storing the element in ref
                   }}
                   style={{
                     maxHeight:
