@@ -1,12 +1,14 @@
 import Image from 'next/image'
 import { Link } from '@/navigation'
 import { usePathname } from '@/navigation'
+import { useTranslations } from 'next-intl'
 
 interface BurgerProps {
   setBurger: (value: boolean) => void
 }
 
 const Burger: React.FC<BurgerProps> = ({ setBurger }) => {
+  const t = useTranslations('NavBar')
   const pathname = usePathname()
   return (
     <div className="fixed inset-0 z-[999] flex h-full w-full flex-col items-center justify-center space-y-6 bg-black transition-all duration-300 ease-in-out lg:hidden">
@@ -29,35 +31,35 @@ const Burger: React.FC<BurgerProps> = ({ setBurger }) => {
           href="/"
           onClick={() => setBurger(false)}
         >
-          Головна
+          {t('main')}
         </Link>
         <Link
           className={`link ${pathname === '/products' ? 'active' : ''}`}
           href="/products"
           onClick={() => setBurger(false)}
         >
-          Продукція
+          {t('products')}
         </Link>
         <Link
           className={`link ${pathname === '/partners' ? 'active' : ''}`}
           href="/partners"
           onClick={() => setBurger(false)}
         >
-          Партнерство
+          {t('partners')}
         </Link>
         <Link
           className={`link ${pathname === '/news' ? 'active' : ''}`}
           href="/news"
           onClick={() => setBurger(false)}
         >
-          Новини
+          {t('news')}
         </Link>
         <Link
           className={`link ${pathname === '/contacts' ? 'active' : ''}`}
           href="/contacts"
           onClick={() => setBurger(false)}
         >
-          Контакти
+          {t('contact_us')}
         </Link>
       </nav>
       <div className="social">
