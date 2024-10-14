@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import SwiperProducts from '../../components/SwiperProducts/SwiperProducts'
+import SwiperProducts from '@/app/components/SwiperProducts/SwiperProducts'
 
 const Capacities: React.FC = () => {
   return (
