@@ -103,5 +103,28 @@
   },
   "ContactUsBar": {
     "title": "Contact us:"
+  },
+  "videoPartners": {
+    "title": "Videoreview",
+    "video": "/partners-video-en.mp4"
+  },
+  "contactForm": {
+    "title": "Contact Us!",
+    "description": "Please fill out the contact form below for further cooperation.",
+    "adress_title": "Address",
+    "adress": "Saksaganskogo st. 29, Kyiv",
+    "phone": "Phone number",
+    "mail": "Email",
+    "form": "Contact form",
+    "form_description": "Please fill out the necessary information so that we can provide you with a prompt response!",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "text": "Message",
+    "required": "Required",
+    "min": "Enter correct last name",
+    "valid_email": "Invalid email",
+    "button": "Send",
+    "success": "Thank you, your request has been sent <br></br> We will respond shortly!",
+    "button_back": "Back to main"
   }
 }

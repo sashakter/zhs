@@ -52,7 +52,7 @@ const Contacts: React.FC = () => {
     <div className="flex flex-col gap-10 py-24 text-black">
       <div className="flex items-center justify-center gap-24">
         <div className="flex flex-col items-center gap-12 text-lg">
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <MdCall size={40} />
             </div>
@@ -61,7 +61,7 @@ const Contacts: React.FC = () => {
               <a href="tel:+380(67)-706-68-47">+380(67)-706-68-47</a>
             </div>
           </div>
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <MdEmail size={40} />
             </div>
@@ -72,7 +72,7 @@ const Contacts: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <MdLocationPin size={40} />
             </div>
@@ -81,17 +81,17 @@ const Contacts: React.FC = () => {
               <a>м. Київ</a>
             </div>
           </div>
-          <div className="bg-custom-contact flex w-[325px] items-center gap-5 rounded-lg py-2 pl-4 pr-10">
+          <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
             <div className="rounded-full bg-white p-2">
               <AiFillInstagram size={40} />
             </div>
             <div className="flex flex-col justify-center gap-1 text-white">
               <span className="text-2xl">Інстаграм</span>
-              <a>м. Київ</a>
+              <a>zhitnia_sloza</a>
             </div>
           </div>
         </div>
-        <div className="bg-custom-contact rounded-lg p-9 xl:max-w-[600px]">
+        <div className="rounded-lg bg-custom-contact p-9 xl:max-w-[600px]">
           <h4 className="mb-3 text-2xl uppercase text-white">
             Контактна Форма
           </h4>
@@ -148,7 +148,7 @@ const Contacts: React.FC = () => {
                   placeholder="Коментар"
                   rows={5}
                 />
-                <button className="bg-custom-contactbtn rounded-md px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700">
+                <button className="rounded-md bg-custom-contactbtn px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700">
                   Надіслати
                 </button>
               </Form>

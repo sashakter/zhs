@@ -1,14 +1,14 @@
+import { useTranslations } from 'next-intl'
 import Contacts from '../../components/ContactForm'
 
 export default function ContactPage() {
+  const t = useTranslations('contactForm')
   return (
     <div className="bg-black bg-cover bg-no-repeat">
       <div className="flex w-full flex-col items-center justify-center bg-contactBgMobile bg-cover bg-no-repeat py-32 lg:bg-contactBg">
         <div className="relative mt-12 flex flex-col items-center justify-center gap-3 text-center">
-          <h3 className="text-3xl uppercase">Зв'яжіться з нами!</h3>
-          <p className="text-lg">
-            Заповніть контактну форму нижче для подальшої співпраці
-          </p>
+          <h3 className="text-3xl uppercase">{t('title')}</h3>
+          <p className="text-lg">{t('description')}</p>
         </div>
       </div>
       <div className="bg-contactBackground bg-cover bg-no-repeat">

@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { postClientsForm } from '../../redux/operation'
 import { AppDispatch } from '../../redux/store'
+import { useTranslations } from 'next-intl'
 
 interface ContactProps {
   name: string
@@ -26,6 +27,7 @@ interface ContactProps {
 }
 
 const Contacts: React.FC = () => {
+  const t = useTranslations('contactForm')
   const initialValues = {
     name: '',
     email: '',
@@ -59,12 +61,10 @@ const Contacts: React.FC = () => {
   }, [])
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Обовʼязкове поле'),
-    surname: Yup.string().min(3, 'Введіть коректні дані'),
-    email: Yup.string()
-      .email('Невірний формат пошти')
-      .required('Обовʼязкове поле'),
-    phone: Yup.string().required('Обовʼязкове поле'),
+    name: Yup.string().required(t('required')),
+    surname: Yup.string().min(3, t('min')),
+    email: Yup.string().email(t('valid_email')).required(t('required')),
+    phone: Yup.string().required(t('required')),
     message: Yup.string(),
   })
 
@@ -91,7 +91,7 @@ const Contacts: React.FC = () => {
               <MdCall size={40} />
             </div>
             <div className="flex flex-col justify-center gap-1 text-white">
-              <span className="text-2xl">Номер телефону</span>
+              <span className="text-2xl">{t('phone')}</span>
               <a href="tel:+380(67)-706-68-47">+380(67)-706-68-47</a>
             </div>
           </div>
@@ -100,7 +100,7 @@ const Contacts: React.FC = () => {
               <MdEmail size={40} />
             </div>
             <div className="flex flex-col justify-center gap-1 text-white">
-              <span className="text-2xl">Пошта</span>
+              <span className="text-2xl">{t('mail')}</span>
               <a href="mailto:office@alcotrade.com.ua">
                 office@alcotrade.com.ua
               </a>
@@ -111,8 +111,8 @@ const Contacts: React.FC = () => {
               <MdLocationPin size={40} />
             </div>
             <div className="flex flex-col justify-center gap-1 text-white">
-              <span className="text-2xl">Адреса</span>
-              <a>м.Київ</a>
+              <span className="text-2xl">{t('adress_title')}</span>
+              <a>{t('adress')}</a>
             </div>
           </div>
           <div className="flex w-[325px] items-center gap-5 rounded-lg bg-custom-contact py-2 pl-4 pr-10">
@@ -132,24 +132,24 @@ const Contacts: React.FC = () => {
             <div className="flex w-full flex-col items-center justify-center gap-8 text-white lg:min-h-[470px] lg:min-w-[528px]">
               <MdDoneOutline size={70} />
               <span className="text-center text-2xl uppercase leading-9 tracking-wide">
-                Дякуємо, ваш запит надіслано
-                <br /> Ми відповімо найближчим часом!
+                {t.rich('success', {
+                  br: () => <br />,
+                })}
               </span>
               <Link
                 className="rounded-md border border-white px-6 py-2 text-lg font-medium tracking-wide hover:bg-white hover:text-black hover:duration-500"
                 href="/"
               >
-                Повернутися на головну
+                {t('button_back')}
               </Link>
             </div>
           ) : (
             <div>
               <h4 className="mb-3 text-2xl uppercase text-white">
-                Контактна Форма
+                {t('form')}
               </h4>
               <p className="mb-6 text-base tracking-wide text-white">
-                Заповніть необхідну інформацію, щоб ми мали змогу надати вам
-                швидку відповідь!
+                {t('form_description')}
               </p>
               <Formik
                 initialValues={initialValues}
@@ -164,7 +164,7 @@ const Contacts: React.FC = () => {
                           className="h-[50px] w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
                           name="name"
                           type="text"
-                          placeholder="Ім&#39;я"
+                          placeholder={t('first_name')}
                         />
                         <ErrorMessage
                           className="text-red-600"
@@ -177,7 +177,7 @@ const Contacts: React.FC = () => {
                           className="h-[50px] w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
                           name="surname"
                           type="text"
-                          placeholder="Прізвище"
+                          placeholder={t('last_name')}
                         />
                         <ErrorMessage
                           className="text-red-600"
@@ -192,7 +192,7 @@ const Contacts: React.FC = () => {
                           className="h-[50px] w-full rounded-md border border-white bg-inherit px-2 py-3 text-white"
                           name="email"
                           type="email"
-                          placeholder="Пошта"
+                          placeholder={t('mail')}
                         />
                         <ErrorMessage
                           className="text-red-600"
@@ -231,7 +231,7 @@ const Contacts: React.FC = () => {
                         name="message"
                         style={{ resize: 'none' }}
                         as="textarea"
-                        placeholder="Коментар"
+                        placeholder={t('text')}
                         columns={8}
                         rows={5}
                       />
@@ -245,7 +245,7 @@ const Contacts: React.FC = () => {
                       type="submit"
                       className="rounded-md bg-custom-contactbtn px-6 py-2 text-2xl font-medium tracking-wide text-white hover:bg-white hover:text-black hover:duration-700"
                     >
-                      Надіслати
+                      {t('button')}
                     </button>
                   </Form>
                 )}
