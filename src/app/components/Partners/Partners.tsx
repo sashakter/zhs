@@ -8,7 +8,7 @@ const Partners: React.FC = () => {
   const t = useTranslations('Partners')
 
   return (
-    <div className="relative mb-[1100px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
+    <div className="relative mb-[1200px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
         <div className={css.content}>
@@ -309,26 +309,41 @@ const Partners: React.FC = () => {
       <div className="absolute z-40 px-4 py-24 text-black lg:px-20 lg:py-36">
         {/* Overlay */}
         <div className="relative flex flex-col items-center justify-center gap-14 text-white">
-          <h1 className="text-3xl font-bold">{t('title')}</h1>
+          <Title title={t('title')} />
 
           <div className="flex flex-col items-center justify-center gap-10 lg:text-2xl">
             <p className="max-w-md text-center">{t('description')}</p>
 
             <div className="flex flex-col items-center justify-center gap-4">
               <p>{t('findUs')}</p>
-              <a
-                href="https://marketopt.info/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  className="w-52"
-                  src={'/marketopt.png'}
-                  alt="Marketopt Icon"
-                  width={666}
-                  height={376}
-                />
-              </a>
+              <div className="my-5 flex flex-wrap items-center justify-center gap-10">
+                <a
+                  href="https://marketopt.info/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    className="w-52"
+                    src={'/marketopt.png'}
+                    alt="Marketopt Icon"
+                    width={666}
+                    height={376}
+                  />
+                </a>
+                <a
+                  href="https://posad.com.ua/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    className="w-52"
+                    src={'/logo-posad.svg'}
+                    alt="Posad Icon"
+                    width={666}
+                    height={376}
+                  />
+                </a>
+              </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-20 lg:flex-nowrap">
