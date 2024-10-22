@@ -2,8 +2,12 @@
 import React from 'react'
 import Image from 'next/image'
 import SwiperProducts from '@/app/components/SwiperProducts/SwiperProducts'
+import { useTranslations } from 'next-intl'
 
 const Capacities: React.FC = () => {
+  const t = useTranslations('diamondPage')
+  const keys = ['Origin', 'Quantity', 'Design'] as const
+  const keysTwo = ['alcoholContent', 'shelfLife', 'volume'] as const
   return (
     <div>
       <div className="relative flex flex-col items-center justify-center bg-black px-4 py-8 text-white">
@@ -33,47 +37,30 @@ const Capacities: React.FC = () => {
           {/* Description */}
           <div className="mt-8 md:ml-8 md:mt-0 md:w-1/2">
             <h2 className="mb-4 text-2xl font-bold md:text-4xl">
-              Житня Сльоза
+              {t('title')}
             </h2>
-            <p className="mb-4">
-              Житня Сльоза - це українська горілка, що володіє багатою спадщиною
-              і неповторним смаком. Її назва відображає традиції та культуру
-              України у поєднанні з високою якістю продукту.
-            </p>
+            <p className="mb-4">{t('description')}</p>
 
             <div className="mb-6">
-              <h3 className="mb-2 text-xl font-semibold">
-                Характеристики "Житня Сльоза":
-              </h3>
+              <h3 className="mb-2 text-xl font-semibold">{t('listTitle')}</h3>
               <ul className="list-none space-y-2">
-                <li>
-                  <strong>Походження:</strong> Виготовляється з найкращих
-                  українських зернових, що надає горілці особливого аромату і
-                  м&quot;якості.
-                </li>
-                <li>
-                  <strong>Якість:</strong> Очищається і фільтрується за
-                  особливими технологіями для досягнення чистоти і неповторного
-                  смаку.
-                </li>
-                <li>
-                  <strong>Дизайн:</strong> Елегантний дизайн пляшки відображає
-                  українські традиції та надає продукту впізнаваного вигляду.
-                </li>
+                {keys.map((key) => (
+                  <li key={key}>
+                    <strong>{t(`list.${key}.strong`)}</strong>{' '}
+                    {t(`list.${key}.text`)}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="mb-6">
               <ul className="list-none space-y-2">
-                <li>
-                  <strong>Вміст алкоголю:</strong> 40%
-                </li>
-                <li>
-                  <strong>Срок придатності:</strong> 24 місяці
-                </li>
-                <li>
-                  <strong>Об'єм:</strong> 0.2л, 0.5л, 0.7л
-                </li>
+                {keysTwo.map((key) => (
+                  <li key={key}>
+                    <strong>{t(`list.${key}.strong`)}</strong>{' '}
+                    {t(`list.${key}.text`)}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
