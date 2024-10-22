@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image' // Assuming you're using Next.js
 import Title from '../Title' // Adjust the import path
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import RunningSroke from '../RunningStroke'
 import css from './OurBrands.module.css'
 import { useTranslations } from 'next-intl'
@@ -44,7 +44,7 @@ const OurBrands: React.FC = () => {
             {/* <p className="text-xl font-thin lg:text-2xl">Ice Peack</p> */}
           </Link>
           <Link
-            href={'/zhytnya-slyoza#content'}
+            href={'/products'}
             className="flex flex-col items-center justify-center"
           >
             <Image

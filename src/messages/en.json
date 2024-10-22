@@ -126,5 +126,50 @@
     "button": "Send",
     "success": "Thank you, your request has been sent <br></br> We will respond shortly!",
     "button_back": "Back to main"
+  },
+  "ZshPage": {
+    "title": "Choose your taste"
+  },
+  "diamondPage": {
+    "title": "Zhitniа Slozа",
+    "description": "Zhitniа Sliozа is a Ukrainian horilka with a rich heritage and unique flavor. Its name reflects the traditions and culture of Ukraine combined with high product quality.",
+    "listTitle": "Characteristics of 'Zhitniа Slozа:'",
+    "list": {
+      "Origin": {
+        "strong": "Origin:",
+        "text": "Made from the finest Ukrainian grains, which impart a special aroma and smoothness to the vodka."
+      },
+      "Quantity": {
+        "strong": "Quantity:",
+        "text": "Purified and filtered using special technologies to achieve purity and an unparalleled taste."
+      },
+      "Design": {
+        "strong": "Design:",
+        "text": "The elegant bottle design showcases Ukrainian traditions, giving the product a recognizable appearance."
+      },
+      "alcoholContent": {
+        "strong": "Alcohol content:",
+        "text": "40%"
+      },
+      "shelfLife": {
+        "strong": "Shelf life:",
+        "text": "24 months"
+      },
+      "volume": {
+        "strong": "Volume:",
+        "text": "0.2L, 0.5L, 0.7L"
+      }
+    }
+  },
+  "News": {
+    "title": "News",
+    "date1": "28 Sep. 2024",
+    "date2": "27 Sep. 2024",
+    "date3": "22 Sep. 2024",
+    "descr1": "The semifinal match ended in a disappointing defeat for our team.",
+    "descr2": "HC Kremenchuk unveiled their new uniform!",
+    "descr3": "The congress of the Ukrainian Hockey Federation took place in Kremenchuk: Serhiy Mazur is the new president of the federation.",
+    "button": "Read More",
+    "text": "TM 'Zhytnya Slyoza' - General Sponsor of HC Kremenchuk"
   }
 }

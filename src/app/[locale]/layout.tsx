@@ -27,13 +27,12 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: Props) {
-  // Load translation messages for the selected locale
   const messages = await getMessages({ locale })
 
   const lenisOptions = {
     lerp: 0.1,
     duration: 1.5,
-    smoothTouch: false, // Smooth scroll for touch devices
+    smoothTouch: false,
     smooth: true,
   }
 

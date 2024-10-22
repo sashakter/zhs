@@ -8,7 +8,7 @@ import Capacities from '../components/Capacities/Capacities'
 import Partners from '../components/Partners/Partners'
 import RunningSroke from '../components/RunningStroke'
 
-const Chooser = dynamic(() => import('./zhytnya-slyoza/page'), {
+const Chooser = dynamic(() => import('./products/page'), {
   ssr: false,
 })
 
