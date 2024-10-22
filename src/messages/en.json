@@ -171,5 +171,11 @@
     "descr3": "The congress of the Ukrainian Hockey Federation took place in Kremenchuk: Serhiy Mazur is the new president of the federation.",
     "button": "Read More",
     "text": "TM 'Zhytnya Slyoza' - General Sponsor of HC Kremenchuk"
+  },
+  "AgeModal": {
+    "title": "THIS CONTENT IS AVAILABLE ONLY TO ADULT USERS.<br></br>HAVE YOU REACHED THE LEGAL DRINKING AGE?",
+    "button": "Yes",
+    "button2": "No",
+    "description": "BY CONFIRMING YOUR AGE, YOU AGREE TO OUR <privacy>PRIVACY POLICY</privacy>."
   }
 }
