@@ -1,19 +1,34 @@
+import { useTranslations } from 'next-intl'
+import { ReactNode } from 'react'
+interface SectionProps {
+  title: string
+  children: ReactNode
+  number: number
+}
+const Section = ({ number, title, children }: SectionProps) => (
+  <div className="mb-12 flex flex-col pl-24 pr-20">
+    <h3 className="mb-3 text-xl font-bold">
+      <span className="mr-1 text-2xl">{number}.</span>
+      {title}
+    </h3>
+    {children}
+  </div>
+)
+
 export default function Policy() {
+  const t = useTranslations('privacyPolicy')
   return (
     <div className="bg-black py-36">
       <h2 className="mb-10 text-center text-2xl font-bold uppercase tracking-wide">
-        Політика конфіденційності та захисту персональних даних
+        {t('title')}
       </h2>
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">1.</span>Загальні положення
-        </h3>
+      <Section number={1} title="Загальні положення">
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">1.1</span>Товариство з обмеженною
           відповідальністю «АлкоТрейд» поважає право відвідувачів веб-сайту
-          https://alcotrade.com.ua (надалі - https://alcotrade.com.ua та/або
-          веб-сайт, та/або сайт) на приватність та конфіденційність і визнає
-          важливість захисту зібраної про них інформації.
+          alcotrade.com.ua (надалі - alcotrade.com.ua та/або веб-сайт, та/або
+          сайт) на приватність та конфіденційність і визнає важливість захисту
+          зібраної про них інформації.
         </p>
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">1.2</span>Товариство з обмеженною
@@ -42,8 +57,8 @@ export default function Policy() {
         </p>
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">1.5</span>Використовуючи веб-сайт
-          https://alcotrade.com.ua, ви погоджуєтесь з умовами Політики
-          конфіденційності Alcotrade.
+          alcotrade.com.ua, ви погоджуєтесь з умовами Політики конфіденційності
+          Alcotrade.
         </p>
         <p className="mb-12 text-lg">
           <span className="mr-1 text-2xl">1.6</span> Сайт не призначений для
@@ -51,12 +66,9 @@ export default function Policy() {
           законодавства щодо обмеження споживання та продажу алкогольних напоїв
           неповнолітнім, та до питань безпеки.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">2.</span>Спосіб збору інформації
-        </h3>
+      <Section number={2} title="Спосіб збору інформації">
         <p className="text-lg">
           Компанія може збирати ваші персональні дані шляхом:
         </p>
@@ -86,13 +98,13 @@ export default function Policy() {
           даних (відповідно до статті 7 Закону України «Про захист персональних
           даних»).
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">3.</span>Перелік персональних даних та
-          інформації
-        </h3>
+      <Section
+        number={3}
+        title="Перелік персональних даних та
+          інформації"
+      >
         <p className="text-lg">
           <span className="mr-1 text-2xl">3.1</span>Обов’язковою є наступні
           дані/інформація, що запитується:
@@ -118,13 +130,13 @@ export default function Policy() {
           положення тощо), в тому числі інформацію про самі технічні засоби: тип
           пристрою, операційна система, тип браузера.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">4.</span>Мета збирання та обробки
-          персональних даних та інформації
-        </h3>
+      <Section
+        number={4}
+        title="Мета збирання та обробки
+          персональних даних та інформації"
+      >
         <p className="text-lg">
           <span className="mr-1 text-2xl">4.1.</span>Компанія збирає інформацію
           для:
@@ -147,13 +159,13 @@ export default function Policy() {
           <span className="mr-1 text-2xl">4.2.</span>Обробка інформації
           здійснюється відповідно до вимог діючого законодавства України.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">5.</span>Передавання інформації третім
-          особам
-        </h3>
+      <Section
+        number={5}
+        title="Передавання інформації третім
+          особам"
+      >
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">5.1.</span>
           Компанія не здійснює передачу персональних даних третім особам, крім
@@ -173,25 +185,22 @@ export default function Policy() {
           укладені відповідні договори; - випадків, прямо передбачених чинним
           законодавством України.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">6.</span>Термін збереження інформації
-        </h3>
+      <Section title="Термін збереження інформації" number={6}>
         <p className="mb-12 text-lg">
           <span className="mr-1 text-2xl">6.1</span>
           Надана інформація зберігається лише до тих пір, доки це має сенс для
           мети, зазначеній у цій Політиці конфіденційності, загалом на строк 10
           років, якщо довший строк не буде встановлено законодавством України.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">7.</span>Права суб’єкта персональних
-          даних
-        </h3>
+      <Section
+        title="Права суб’єкта персональних
+          даних"
+        number={7}
+      >
         <p className="text-lg">
           <span className="mr-1 text-2xl">7.1.</span>Ви маєте право:
         </p>
@@ -231,12 +240,9 @@ export default function Policy() {
           особами, перед виконанням вашого запиту ми можемо попросити вас
           підтвердити вашу особистість.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">8.</span>Захист персональних даних{' '}
-        </h3>
+      <Section number={8} title="Захист персональних даних">
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">8.1.</span>
           Для забезпечення захисту персональних даних Компанія дотримується
@@ -269,15 +275,12 @@ export default function Policy() {
           договори, де передбачені зобов'язання щодо дотримання
           конфіденційності.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">9.</span>Використання файлів Cookie
-        </h3>
+      <Section title="Використання файлів Cookie" number={9}>
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">9.1.</span>
-          Bayaderagroup.com використовує технологію cookie, за допомогою якої
+          alcotade.com.ua використовує технологію cookie, за допомогою якої
           ресурс налаштовується на роботу особисто з вами.{' '}
         </p>
         <p className="mb-3 text-lg">
@@ -305,13 +308,13 @@ export default function Policy() {
           шахрайства та вдосконалення безпеки сайту / персоналізація сайту для
           кожного користувача.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">10.</span>Зміна Політики
-          конфіденційності
-        </h3>
+      <Section
+        title="Зміна Політики
+          конфіденційності"
+        number={10}
+      >
         <p className="mb-3 text-lg">
           <span className="mr-1 text-2xl">10.1.</span>
           До Політики конфіденційності періодично та без попереднього
@@ -331,12 +334,9 @@ export default function Policy() {
           Просимо час від часу переглядати Політику конфіденційності для того,
           щоб бути в курсі будь-яких змін або доповнень.
         </p>
-      </div>
+      </Section>
 
-      <div className="flex flex-col pl-24 pr-20">
-        <h3 className="mb-3 text-xl font-bold">
-          <span className="mr-1 text-2xl">11.</span>Контактні дані
-        </h3>
+      <Section title="Контактні дані" number={11}>
         <p className="text-lg">
           <span className="mr-1 text-2xl">11.1.</span>
           Для зворотного зв’язку щодо питань, пов’язаних із Політикою
@@ -360,7 +360,7 @@ export default function Policy() {
             +380 (67) 706 68 47
           </a>
         </p>
-      </div>
+      </Section>
     </div>
   )
 }
