@@ -4,11 +4,12 @@ import Title from '../Title'
 import Marquee from 'react-fast-marquee'
 import { Link } from '@/navigation'
 import { useTranslations } from 'next-intl'
+import PartnersVideo from '../PartnersVideo/PartnersVideo'
 const Partners: React.FC = () => {
   const t = useTranslations('Partners')
 
   return (
-    <div className="relative mb-[1200px] flex justify-center md:mb-[800px] lg:mb-[1023px]">
+    <div className="relative mb-[1500px] flex justify-center md:mb-[800px] lg:mb-[1800px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>
         <div className="absolute inset-0 z-30 bg-black opacity-70"></div>
         <div className={css.content}>
@@ -306,7 +307,7 @@ const Partners: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="absolute z-40 px-4 py-24 text-black lg:px-20 lg:py-36">
+      <div className="absolute z-40 px-4 py-24 lg:px-20 lg:py-36">
         {/* Overlay */}
         <div className="relative flex flex-col items-center justify-center gap-14 text-white">
           <Title title={t('title')} />
@@ -382,6 +383,7 @@ const Partners: React.FC = () => {
             {t('contactUs')}
           </Link>
         </div>
+        <PartnersVideo />
       </div>
     </div>
   )

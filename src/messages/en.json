@@ -178,6 +178,9 @@
     "button2": "No",
     "description": "BY CONFIRMING YOUR AGE, YOU AGREE TO OUR <privacy>PRIVACY POLICY</privacy>."
   },
+  "PatnersVideo": {
+    "title": "Videoreview"
+  },
   "privacyPolicy": {
     "title": "Privacy Policy and Personal Data Protection"
   }
