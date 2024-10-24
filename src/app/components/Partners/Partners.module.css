@@ -1,6 +1,6 @@
 .covers {
   min-width: 320px;
-  height: 1300px;
+  height: 1500px;
   width: 100%;
   position: absolute;
   overflow: hidden;
@@ -12,7 +12,7 @@
 }
 @media screen and (min-width: 768px) {
   .covers {
-    height: 700px;
+    height: 1400px;
   }
 }
 .marquee {
@@ -71,22 +71,5 @@
     width: 100px;
     margin-right: 20px;
     margin-top: 20px;
-  }
-  .covers {
-    min-width: 320px;
-    height: 1200px;
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .covers {
-    min-width: 320px;
-    height: 800px;
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
   }
 }
