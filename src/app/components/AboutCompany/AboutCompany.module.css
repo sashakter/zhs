@@ -1,0 +1,61 @@
+.overlay {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: translateY(100%);
+  background-color: #2c2c2c;
+  color: #f4f4fd;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 40px 32px;
+  -webkit-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partlist {
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.partlist:hover .overlay,
+.partlist:focus .overlay {
+  transform: translateY(0%);
+}
+
+.imagecontainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  width: 150px;
+  height: 100px;
+  background-color: #5a88ca;
+  clip-path: ellipse(45px 45px at 20% 20%);
+}
+
+@media screen and (min-width: 1024px) {
+  .imagecontainer {
+    clip-path: ellipse(70px 70px at 20% 20%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .imagecontainer {
+    clip-path: ellipse(65px 65px at 16% 20%);
+  }
+}

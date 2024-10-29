@@ -1,0 +1,64 @@
+.videoBackgroundContainer {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  height: 800px;
+  mask-image: url('/test-mask.png');
+  mask-repeat: repeat-x;
+  mask-position: top;
+  mask-size: contain;
+  overflow: hidden;
+}
+.videoBackground {
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1024px) {
+  .videoBackgroundContainer {
+    min-height: calc(100vh - 40px);
+  }
+  .contentOverlay {
+    min-height: calc(100vh - 40px);
+  }
+}
+
+.contentOverlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 800px;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.textOverlay {
+  font-size: 3rem;
+}
+@media (max-width: 1023px) {
+  .videoBackground {
+    display: none; /* Hide video on mobile */
+  }
+}
+@media screen and (min-width: 768px) {
+  .videoBackgroundContainer {
+    height: 600px;
+  }
+}
