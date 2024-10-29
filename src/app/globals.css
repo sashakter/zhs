@@ -8,12 +8,25 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-
-
-
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+.flag-dropdown {
+  background-color: #242322 !important;
+}
+.arrow {
+  border-top: 4px solid #fff !important;
+}
+.react-tel-input .selected-flag:hover {
+  background-color: #242322 !important;
+}
+.react-tel-input .selected-flag {
+  background-color: #242322 !important;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }

@@ -1,0 +1,187 @@
+{
+  "HeaderVideo": {
+    "description": "Reliable Partner<br></br> in the World of<br></br> Alcoholic Beverages.<br></br> Collaboration that <br></br> Guarantees Success!",
+    "button": "contact us"
+  },
+  "LocaleSwitcher": {
+    "label": "Змінити мову",
+    "locale": {
+      "uk": "UA",
+      "en": "EN"
+    }
+  },
+  "NavBar": {
+    "main": "main",
+    "products": "products",
+    "partners": "partnership",
+    "news": "news",
+    "contact_us": "contact us"
+  },
+  "AboutCompany": {
+    "title": "ABOUT THE COMPANY",
+    "part1": {
+      "title": "Unique positioning of each brand",
+      "description": "We proudly present each product of our company, creating unique offers for our consumers. Each brand stands out with its quality, taste, and history."
+    },
+    "part2": {
+      "title": "High quantitative and qualitative distribution indicators",
+      "description": "Our distribution capabilities allow us to deliver products quickly and reliably to any corner of Ukraine. This ensures that our beverages are always available for every consumer."
+    },
+    "part3": {
+      "title": "Consistently high quality",
+      "description": "At the core of each of our products lies uncompromising quality. We carefully control all stages of production so that every sip brings satisfaction."
+    },
+    "part4": {
+      "title": "Company in the alcohol market of Ukraine since 2002",
+      "description": "For over 20 years, we have earned a reputation as a reliable manufacturer and partner. Our years of experience allow us to adapt to market changes and exceed our customers' expectations."
+    },
+    "part5": {
+      "title": "Diverse range of flavors",
+      "description": "Our portfolio includes classic vodkas, special varieties, as well as sweet and bitter tinctures. This diversity allows you to find the perfect drink for any occasion."
+    },
+    "part6": {
+      "title": "Innovative production",
+      "description": "We constantly implement the latest technologies to improve production and meet modern quality standards. Each new product reflects our pursuit of excellence."
+    }
+  },
+  "OurBrands": {
+    "title": "OUR BRANDS"
+  },
+  "Capacities": {
+    "title": "Capacities",
+    "manufacturingLines": {
+      "title": "MANUFACTURING LINES",
+      "description": "The factory is equipped with modern production lines that allow for the large-scale production of a variety of alcoholic beverages without compromising quality."
+    },
+    "qualityControl": {
+      "title": "QUALITY CONTROL LABORATORIES",
+      "description": "The company has its own laboratories where continuous quality control is conducted at all stages of production, from raw material selection to finished products. This ensures high quality and safety of our products."
+    },
+    "rawMaterials": {
+      "title": "RAW MATERIALS",
+      "description": "We collaborate with the best suppliers of Ukrainian raw materials, ensuring the use of the highest quality ingredients in production and its uninterrupted supply."
+    },
+    "productionFacilities": {
+      "title": "PRODUCTION FACILITIES",
+      "description": "The factory is located on a large territory, allowing for the expansion of production capacities and the implementation of new technologies to improve production processes."
+    },
+    "humanResources": {
+      "title": "HUMAN RESOURCES",
+      "description": "The team consists of highly qualified specialists with extensive experience in the production of alcoholic beverages, ensuring a high level of professionalism and efficiency in their work."
+    }
+  },
+  "Partners": {
+    "title": "Partners",
+    "description": "The factory collaborates with distributors across Ukraine and plans to enter the international market.",
+    "findUs": "Look for us on the shelves at:",
+    "mainClientsTitle": "Main clients include:",
+    "supplierTitle": "Suppliers:",
+    "client1": "PE 'ALCOGROUP PLUS'",
+    "client2": "PE 'HURTOVA BAZA'",
+    "client3": "LLC 'ALKOBAZA'",
+    "client4": "LLC 'KLEVER UA'",
+    "client5": "LLC 'TD IMPERIAL'",
+    "supplier1": "LLC 'SPIRITUS VYSHNYAKY'",
+    "supplier2": "LLC 'UOLL-STRIT'",
+    "supplier3": "LLC 'MALYNIVSKYI SKLOZAVOD'",
+    "supplier4": "LLC 'SKLYANNYI ALIANS'",
+    "supplier5": "LLC 'TD OSTOV-BARDS'",
+    "contactUs": "Contact us"
+  },
+  "Footer": {
+    "responsibleConsumption": "<span>CONSUME RESPONSIBLY!</span> DO NOT SHARE THIS CONTENT WITH PERSONS UNDER 18 YEARS OLD",
+    "companyName": "LLC 'AlcoTrade Ukraine'",
+    "contactPhone": "+380(67)-706-68-47",
+    "contactEmail": "office@alcotrade.com.ua",
+    "products": "Products",
+    "partnership": "Partnership",
+    "license": "License",
+    "licenseInfo": "№ 990108201900005",
+    "privacyPolicy": "Privacy Policy",
+    "rightsReserved": "LLC 'AlcoTrade Ukraine' ©2024 ALL RIGHTS RESERVED",
+    "poweredBy": "Powered by Kalyna group"
+  },
+  "ContactUsBar": {
+    "title": "Contact us:"
+  },
+  "videoPartners": {
+    "title": "Videoreview",
+    "video": "/partners-video-en.mp4"
+  },
+  "contactForm": {
+    "title": "Contact Us!",
+    "description": "Please fill out the contact form below for further cooperation.",
+    "adress_title": "Address",
+    "adress": "Saksaganskogo st. 29, Kyiv",
+    "phone": "Phone number",
+    "mail": "Email",
+    "form": "Contact form",
+    "form_description": "Please fill out the necessary information so that we can provide you with a prompt response!",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "text": "Message",
+    "required": "Required",
+    "min": "Enter correct last name",
+    "valid_email": "Invalid email",
+    "button": "Send",
+    "success": "Thank you, your request has been sent <br></br> We will respond shortly!",
+    "button_back": "Back to main"
+  },
+  "ZshPage": {
+    "title": "Choose your taste"
+  },
+  "diamondPage": {
+    "title": "Zhitniа Slozа",
+    "description": "Zhitniа Sliozа is a Ukrainian horilka with a rich heritage and unique flavor. Its name reflects the traditions and culture of Ukraine combined with high product quality.",
+    "listTitle": "Characteristics of 'Zhitniа Slozа:'",
+    "list": {
+      "Origin": {
+        "strong": "Origin:",
+        "text": "Made from the finest Ukrainian grains, which impart a special aroma and smoothness to the vodka."
+      },
+      "Quantity": {
+        "strong": "Quantity:",
+        "text": "Purified and filtered using special technologies to achieve purity and an unparalleled taste."
+      },
+      "Design": {
+        "strong": "Design:",
+        "text": "The elegant bottle design showcases Ukrainian traditions, giving the product a recognizable appearance."
+      },
+      "alcoholContent": {
+        "strong": "Alcohol content:",
+        "text": "40%"
+      },
+      "shelfLife": {
+        "strong": "Shelf life:",
+        "text": "24 months"
+      },
+      "volume": {
+        "strong": "Volume:",
+        "text": "0.2L, 0.5L, 0.7L"
+      }
+    }
+  },
+  "News": {
+    "title": "News",
+    "date1": "28 Sep. 2024",
+    "date2": "27 Sep. 2024",
+    "date3": "22 Sep. 2024",
+    "descr1": "The semifinal match ended in a disappointing defeat for our team.",
+    "descr2": "HC Kremenchuk unveiled their new uniform!",
+    "descr3": "The congress of the Ukrainian Hockey Federation took place in Kremenchuk: Serhiy Mazur is the new president of the federation.",
+    "button": "Read More",
+    "text": "TM 'Zhytnya Slyoza' - General Sponsor of HC Kremenchuk"
+  },
+  "AgeModal": {
+    "title": "THIS CONTENT IS AVAILABLE ONLY TO ADULT USERS.<br></br>HAVE YOU REACHED THE LEGAL DRINKING AGE?",
+    "button": "Yes",
+    "button2": "No",
+    "description": "BY CONFIRMING YOUR AGE, YOU AGREE TO OUR <privacy>PRIVACY POLICY</privacy>."
+  },
+  "PatnersVideo": {
+    "title": "Videoreview"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy and Personal Data Protection"
+  }
+}
