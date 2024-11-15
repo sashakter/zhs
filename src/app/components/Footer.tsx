@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import ContactBar from './ContactBar'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 

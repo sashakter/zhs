@@ -2,7 +2,7 @@ import Image from 'next/image'
 import css from './Partners.module.css'
 import Title from '../Title'
 import Marquee from 'react-fast-marquee'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 import PartnersVideo from '../PartnersVideo/PartnersVideo'
 const Partners: React.FC = () => {

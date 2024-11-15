@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
 import { Outfit, Viaoda_Libre } from 'next/font/google'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 
 const outfit = Outfit({ subsets: ['latin'] })

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display } from 'next/font/google'
-import '@/app/globals.css'
+import '@/src/app/globals.css'
 import NavBar from '../components/NavBar/NavBar'
 import Footer from '../components/Footer'
 import AgeVerificationModal from '../components/AgeVerificationModal'
@@ -8,7 +8,9 @@ import { ReactLenis } from '@studio-freight/react-lenis'
 import { NextIntlClientProvider } from 'next-intl'
 import StoreProvider from '../../StoreProvider'
 import { getMessages } from 'next-intl/server'
-import { locales } from '@/config'
+import { locales } from '@/src/config'
+import { SessionProvider } from 'next-auth/react'
+import { Providers } from '@/src/app/providers'
 
 const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
 
@@ -43,12 +45,14 @@ export default async function RootLayout({
       >
         <StoreProvider count={0}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <div>
-              <AgeVerificationModal />
-            </div>
-            <NavBar />
-            {children}
-            <Footer />
+            <Providers>
+              <div>
+                <AgeVerificationModal />
+              </div>
+              <NavBar />
+              {children}
+              <Footer />
+            </Providers>
           </NextIntlClientProvider>
         </StoreProvider>
       </body>

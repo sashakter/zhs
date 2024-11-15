@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image' // Assuming you're using Next.js
 import Title from '../Title' // Adjust the import path
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import RunningSroke from '../RunningStroke'
 import css from './OurBrands.module.css'
 import { useTranslations } from 'next-intl'

@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 
 const ContactBar: React.FC = () => {
   const t = useTranslations('ContactUsBar')

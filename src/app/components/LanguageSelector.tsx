@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl'
-import { usePathname, useRouter } from '@/navigation'
+import { usePathname, useRouter } from '@/src/navigation'
 import { useParams } from 'next/navigation'
-import { ChangeEvent, useTransition } from 'react'
+import React, { ChangeEvent, useTransition } from 'react'
 import clsx from 'clsx'
 
 type Props = {

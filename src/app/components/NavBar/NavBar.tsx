@@ -1,7 +1,7 @@
 'use client'
 
-import { usePathname } from '@/navigation'
-import { Link } from '@/navigation'
+import { usePathname } from '@/src/navigation'
+import { Link } from '@/src/navigation'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Burger from '../Burger'
@@ -10,6 +10,8 @@ import css from './NavBar.module.css'
 import MenuButton from '../MenuButton'
 import LocaleSwitcher from '../LocaleSwitcher'
 import { useTranslations } from 'next-intl'
+import { PiSignInBold } from 'react-icons/pi'
+import { CgProfile } from 'react-icons/cg'
 
 const NavBar: React.FC = () => {
   const pathname = usePathname()
@@ -75,11 +77,16 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
       </div>
-      <LocaleSwitcher />
-      <button className="pl-3 lg:hidden" onClick={() => setBurger(!burger)}>
-        <MenuButton />
-      </button>
-      {burger && <Burger setBurger={setBurger} />}
+      <div className="flex gap-10 items-center">
+        <Link href="/signin">
+          <CgProfile />
+        </Link>
+        <LocaleSwitcher />
+        <button className="pl-3 lg:hidden" onClick={() => setBurger(!burger)}>
+          <MenuButton />
+        </button>
+        {burger && <Burger setBurger={setBurger} />}
+      </div>
     </nav>
   )
 }
