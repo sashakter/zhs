@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Title from '@/src/app/components/Title'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'

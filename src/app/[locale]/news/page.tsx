@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Title from '../../components/Title'
 import { IoCalendarOutline } from 'react-icons/io5'
 import { IoIosArrowForward } from 'react-icons/io'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 
 export default function News() {

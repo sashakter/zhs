@@ -7,7 +7,6 @@ import { useTranslations } from 'next-intl'
 import PartnersVideo from '../PartnersVideo/PartnersVideo'
 const Partners: React.FC = () => {
   const t = useTranslations('Partners')
-
   return (
     <div className="relative mb-[1500px] flex justify-center md:mb-[1400px] lg:mb-[1800px]">
       <div className={`${css.covers} relative bg-custom-capacities`}>

@@ -1,6 +1,4 @@
-import VideoReview from '@/app/components/VideoReview'
 import Partners from '../../components/Partners/Partners'
-import PartnersVideo from '@/app/components/PartnersVideo/PartnersVideo'
 
 export default function AboutPartners() {
   return (
