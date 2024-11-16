@@ -1,7 +1,6 @@
 import { usePathname, useRouter } from '@/src/navigation'
 import { useParams } from 'next/navigation'
 import React, { ChangeEvent, useTransition } from 'react'
-import clsx from 'clsx'
 
 type Props = {
   children: React.ReactNode
@@ -28,14 +27,14 @@ export default function LanguageSelector({
   }
 
   // Function to handle arrow click
-  const handleArrowClick = () => {
-    const selectElement = document.getElementById(
-      'language-select',
-    ) as HTMLSelectElement
-    if (selectElement) {
-      selectElement.focus() // Focus the select element
-    }
-  }
+  // const handleArrowClick = () => {
+  //   const selectElement = document.getElementById(
+  //     'language-select',
+  //   ) as HTMLSelectElement
+  //   if (selectElement) {
+  //     selectElement.focus() // Focus the select element
+  //   }
+  // }
 
   return (
     <label className="relative flex items-center justify-center rounded-md border border-white px-2 text-lg">
