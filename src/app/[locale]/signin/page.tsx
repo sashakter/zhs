@@ -1,6 +1,6 @@
 // app/login/page.tsx
 import { getServerSession } from 'next-auth/next'
-import { authOptions } from '@/src/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/src/lib/authOptions'
 import { redirect } from '@/src/navigation'
 import LoginForm from '@/src/app/components/LoginForm'
 
