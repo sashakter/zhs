@@ -2,7 +2,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter, useSearchParams } from '@/src/navigation'
+import { useRouter } from '@/src/navigation'
+import { useSearchParams } from 'next/navigation'
 import axios from 'axios'
 
 export default function ResetPassword() {

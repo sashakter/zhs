@@ -17,7 +17,6 @@ const OurBrands: React.FC = () => {
         layout="fill"
         className="object-cover object-bottom opacity-50 blur-sm"
       />
-
       {/* Overlay to darken the background */}
       <div className="absolute inset-0 bg-black opacity-30"></div>
 

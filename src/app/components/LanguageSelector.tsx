@@ -1,4 +1,3 @@
-import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from '@/src/navigation'
 import { useParams } from 'next/navigation'
 import React, { ChangeEvent, useTransition } from 'react'
