@@ -65,7 +65,7 @@ export default function Register() {
             <Form>
               <div className="mb-4 ">
                 <label htmlFor="name" className="block  text-white">
-                  Ім'я
+                  Ім&#39;я
                 </label>
                 <Field
                   type="text"
