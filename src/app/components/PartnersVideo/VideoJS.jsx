@@ -3,13 +3,11 @@
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 import { useRef, useEffect } from 'react'
-import { useLocale } from 'next-intl'
 
 export const VideoJS = (props) => {
   const videoRef = useRef(null)
   const playerRef = useRef(null)
   const { options, onReady } = props
-
   useEffect(() => {
     // Make sure Video.js player is only initialized once
     if (!playerRef.current) {
@@ -42,7 +40,7 @@ export const VideoJS = (props) => {
   }, [playerRef])
 
   return (
-    <div data-vjs-player className="rounded-full">
+    <div data-vjs-player="" className="rounded-full">
       <div
         ref={videoRef}
         className="min-w-80 md:min-w-[640px] lg:min-w-[800px] xl:min-w-[1024px]"

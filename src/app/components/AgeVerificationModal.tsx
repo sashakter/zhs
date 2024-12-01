@@ -1,5 +1,5 @@
 'use client'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 import React, { useState, useEffect } from 'react'
 

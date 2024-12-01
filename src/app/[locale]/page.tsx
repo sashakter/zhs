@@ -7,6 +7,7 @@ import OurBrands from '../components/OurBrands/OurBrands'
 import Capacities from '../components/Capacities/Capacities'
 import Partners from '../components/Partners/Partners'
 import RunningSroke from '../components/RunningStroke'
+import React from 'react'
 
 const Chooser = dynamic(() => import('./products/page'), {
   ssr: false,

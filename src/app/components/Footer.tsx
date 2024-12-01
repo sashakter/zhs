@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import ContactBar from './ContactBar'
-import { Link } from '@/navigation'
+import { Link } from '@/src/navigation'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
@@ -91,7 +91,8 @@ const Footer: React.FC = () => {
         <h3 className="text-center text-xl">{t('rightsReserved')}</h3>
         <Link
           className="relative py-1 uppercase text-white after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
-          href="https://www.instagram.com/kalynaitgroup?igsh=eXB4Y3d5bmNja3hp&utm_source=qr"
+          href="https://kalynagroup.space"
+          target="_blank"
         >
           {t('poweredBy')}
         </Link>
