@@ -5,11 +5,11 @@ import { redirect } from '@/src/navigation'
 import LoginForm from '@/src/app/components/LoginForm'
 
 export default async function LoginPage() {
-  // const session = await getServerSession(authOptions)
-  //
-  // if (session) {
-  //   redirect('/dashboard')
-  // }
+  const session = await getServerSession(authOptions)
+
+  if (session) {
+    redirect('/dashboard')
+  }
 
   return <LoginForm />
 }
