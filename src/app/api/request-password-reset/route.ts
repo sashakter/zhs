@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const client = await clientPromise
     const usersCollection = client.db().collection('users')
 
-    const user = await usersCollection.findOne({ email: email.toLowerCase() })
+    const user = await usersCollection.findOne({ email: String(email).toLowerCase() })
 
     if (!user) {
       return NextResponse.json(
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     const expires = new Date(Date.now() + 3600000) // Токен действителен 1 час
 
     await usersCollection.updateOne(
-      { email: email.toLowerCase() },
+      { email: String(email).toLowerCase() },
       { $set: { resetPasswordToken: token, resetPasswordExpires: expires } },
     )
 
