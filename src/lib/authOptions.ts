@@ -22,8 +22,8 @@ export const authOptions: NextAuthOptions = {
         const client = await clientPromise
         const usersCollection = client.db().collection('users')
 
-        const email = credentials?.email?.toLowerCase()
-        const user = await usersCollection.findOne({ email })
+        const email = String(credentials?.email?.toLowerCase())
+        const user = await usersCollection.findOne({ email: email })
 
         if (user && credentials?.password) {
           const isValid = await bcrypt.compare(
