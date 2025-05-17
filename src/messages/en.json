@@ -183,5 +183,19 @@
   },
   "privacyPolicy": {
     "title": "Privacy Policy and Personal Data Protection"
+  },
+  "cookie": {
+    "title": "Cookie Policy",
+    "description": "This website uses cookies to ensure you get the best experience on our website. By using our website, you agree to our use of cookies in accordance with our Privacy Policy.",
+    "buttonAccept": "Accept",
+    "buttonDecline": "Decline",
+    "buttonSettings": "Settings",
+    "settings": {
+      "title": "Cookie Settings",
+      "necessary": "<strong>Necessary</strong> Always active (for basic site functionality)",
+      "analytics": "Analytics",
+      "buttonCancel": "Cancel",
+      "buttonSave": "Save"
+    }
   }
 }

@@ -27,7 +27,7 @@ const AgeVerificationModal: React.FC = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 uppercase">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 uppercase">
       <div className="rounded-lg border border-white bg-black p-8 text-center text-white">
         <h2 className="mb-4 text-lg font-semibold">
           {t.rich('title', {

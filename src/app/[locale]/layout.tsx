@@ -4,13 +4,11 @@ import '@/src/app/globals.css'
 import NavBar from '../components/NavBar/NavBar'
 import Footer from '../components/Footer'
 import AgeVerificationModal from '../components/AgeVerificationModal'
-import { ReactLenis } from '@studio-freight/react-lenis'
 import { NextIntlClientProvider } from 'next-intl'
 import StoreProvider from '../../StoreProvider'
 import { getMessages } from 'next-intl/server'
-import { locales } from '@/src/config'
-import { SessionProvider } from 'next-auth/react'
 import { Providers } from '@/src/app/providers'
+import CookieConsent from '../components/CookieConsent'
 
 const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
 
@@ -48,6 +46,7 @@ export default async function RootLayout({
             <Providers>
               <div>
                 <AgeVerificationModal />
+                <CookieConsent />
               </div>
               <NavBar />
               {children}
