@@ -25,8 +25,39 @@ const WhiteSwitch = styled(Switch)(({ theme }) => ({
 const CookieSettingsModal = ({ onSave, onCancel }: Props) => {
   const [analytics, setAnalytics] = useState(false)
   const t = useTranslations('cookie')
+
   const handleSave = () => {
-    onSave({ analytics })
+    const consent = {
+      analytics,
+      ads: false,
+    }
+    localStorage.setItem('cookieConsent', JSON.stringify(consent))
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: analytics ? 'granted' : 'denied',
+        ad_storage: 'denied',
+      })
+    }
+
+    onSave(consent)
+  }
+
+  const handleCancel = () => {
+    const consent = {
+      analytics: false,
+      ads: false,
+    }
+    localStorage.setItem('cookieConsent', JSON.stringify(consent))
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+      })
+    }
+
+    onCancel()
   }
 
   return (
@@ -52,7 +83,7 @@ const CookieSettingsModal = ({ onSave, onCancel }: Props) => {
 
         <div className="flex justify-end gap-2">
           <button
-            onClick={onCancel}
+            onClick={handleCancel}
             className="rounded border border-white px-4 py-2 text-sm"
           >
             {t('settings.buttonCancel')}
