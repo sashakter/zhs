@@ -18,7 +18,9 @@ export async function POST(request: Request) {
     const client = await clientPromise
     const usersCollection = client.db().collection('users')
 
-    const user = await usersCollection.findOne({ email: String(email).toLowerCase() })
+    const user = await usersCollection.findOne({
+      email: String(email).toLowerCase(),
+    })
 
     if (!user) {
       return NextResponse.json(
