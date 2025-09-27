@@ -14,7 +14,7 @@ const OurBrands: React.FC = () => {
       <Image
         src="/brands.jpg" // Replace with your background image path
         alt="Background"
-        layout="fill"
+        fill={true}
         className="object-cover object-bottom opacity-50 blur-sm"
       />
       {/* Overlay to darken the background */}

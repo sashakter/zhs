@@ -1,10 +1,10 @@
 {
   "HeaderVideo": {
-    "description": "Reliable Partner<br></br> in the World of<br></br> Alcoholic Beverages.<br></br> Collaboration that <br></br> Guarantees Success!",
+    "description": "Reliable Partner<br/> in the World of<br/> Alcoholic Beverages.<br/> Collaboration that <br/> Guarantees Success!",
     "button": "contact us"
   },
   "LocaleSwitcher": {
-    "label": "Змінити мову",
+    "label": "Change Language",
     "locale": {
       "uk": "UA",
       "en": "EN"
@@ -89,7 +89,7 @@
     "contactUs": "Contact us"
   },
   "Footer": {
-    "responsibleConsumption": "<span>CONSUME RESPONSIBLY!</span> DO NOT SHARE THIS CONTENT WITH PERSONS UNDER 18 YEARS OLD",
+    "responsibleConsumption": "<hl>CONSUME RESPONSIBLY!</hl> DO NOT SHARE THIS CONTENT WITH PERSONS UNDER 18 YEARS OLD",
     "companyName": "LLC 'AlcoTrade Ukraine'",
     "contactPhone": "+380(67)-706-68-47",
     "contactEmail": "office@alcotrade.com.ua",
@@ -124,7 +124,7 @@
     "min": "Enter correct last name",
     "valid_email": "Invalid email",
     "button": "Send",
-    "success": "Thank you, your request has been sent <br></br> We will respond shortly!",
+    "success": "Thank you, your request has been sent <br/> We will respond shortly!",
     "button_back": "Back to main"
   },
   "ZshPage": {
@@ -173,7 +173,7 @@
     "text": "TM 'Zhytnya Slyoza' - General Sponsor of HC Kremenchuk"
   },
   "AgeModal": {
-    "title": "THIS CONTENT IS AVAILABLE ONLY TO ADULT USERS.<br></br>HAVE YOU REACHED THE LEGAL DRINKING AGE?",
+    "title": "THIS CONTENT IS AVAILABLE ONLY TO ADULT USERS.<br/>HAVE YOU REACHED THE LEGAL DRINKING AGE?",
     "button": "Yes",
     "button2": "No",
     "description": "BY CONFIRMING YOUR AGE, YOU AGREE TO OUR <privacy>PRIVACY POLICY</privacy>."

@@ -1,15 +1,19 @@
+// src/i18n/request.ts
 import { getRequestConfig } from 'next-intl/server'
-import { notFound } from 'next/navigation'
-import { locales } from '../config'
+import { locales, defaultLocale } from './config'
+
+type AppLocale = (typeof locales)[number]
 
 export default getRequestConfig(async ({ locale }) => {
-  if (!locales.includes(locale as any)) notFound()
+  // нормализуем: если undefined/невалидная — берём defaultLocale
+  const currentLocale: AppLocale = locales.includes(locale as AppLocale)
+    ? (locale as AppLocale)
+    : defaultLocale
 
-  // Import the messages for the given locale
-  const messages = await import(`../messages/${locale}.json`)
+  const messages = (await import(`../messages/${currentLocale}.json`)).default
 
-  // Return the configuration object as expected
   return {
-    messages: messages.default, // This must be present
+    locale: currentLocale,
+    messages,
   }
 })

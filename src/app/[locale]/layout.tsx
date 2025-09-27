@@ -6,9 +6,9 @@ import Footer from '../components/Footer'
 import AgeVerificationModal from '../components/AgeVerificationModal'
 import { NextIntlClientProvider } from 'next-intl'
 import StoreProvider from '../../StoreProvider'
-import { getMessages } from 'next-intl/server'
 import { Providers } from '@/src/app/providers'
 import CookieConsent from '../components/CookieConsent'
+import React from 'react'
 
 const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
 
@@ -20,21 +20,12 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: 'uk' | 'en' }>
 }
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Props) {
-  const messages = await getMessages({ locale })
-
-  const lenisOptions = {
-    lerp: 0.1,
-    duration: 1.5,
-    smoothTouch: false,
-    smooth: true,
-  }
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params
+  const messages = (await import(`@/src/messages/${locale}.json`)).default
 
   return (
     <html lang={locale} className="scroll-smooth">

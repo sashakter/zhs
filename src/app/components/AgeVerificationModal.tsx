@@ -30,9 +30,7 @@ const AgeVerificationModal: React.FC = () => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 uppercase">
       <div className="rounded-lg border border-white bg-black p-8 text-center text-white">
         <h2 className="mb-4 text-lg font-semibold">
-          {t.rich('title', {
-            br: () => <br />,
-          })}
+          {t.rich('title', { br: () => <br /> })}
         </h2>
         <div className="flex justify-center gap-4 uppercase">
           <button
@@ -51,7 +49,7 @@ const AgeVerificationModal: React.FC = () => {
         <p className="mt-4 text-sm">
           {t.rich('description', {
             privacy: (chunks) => (
-              <Link href={'/policies'} className="ml-1 underline">
+              <Link href="/policies" className="ml-1 underline">
                 {chunks}
               </Link>
             ),

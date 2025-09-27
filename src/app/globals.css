@@ -1,11 +1,81 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 13, 12, 12;
-  --background-end-rgb: 255, 255, 255;
+@import 'tailwindcss';
+
+/* ====== ДИЗАЙН-ТОКЕНЫ (v4) ====== */
+@theme {
+  /* Цвета (заменяют textColor/bgColor/borderColor) */
+  --color-white: #f7f7f7;
+  --color-black: #212121;
+  --color-yellow: #ffe197;
+
+  --color-gold-yellow-top: #fceabb;
+  --color-gold-yellow-bottom: #815e00;
+  --color-diamond-top: #e2e2e2;
+  --color-diamond-bottom: #cedaff;
+  --color-vidbir-top: #c6986d;
+  --color-vidbir-bottom: #252522;
+  --color-perceva-top: #c5ad4c;
+  --color-perceva-bottom: #d44647;
+
+  --color-custom-pink: #474646;
+  --color-custom-black: #434343;
+  --color-custom-about: #937f6b;
+  --color-custom-capacities: #1b1c1d;
+  --color-running-first: #232526;
+  --color-running-second: #414345;
+  --color-custom-contact: #242322;
+  --color-custom-contactbtn: #bb9330;
+  --color-custom-calendar: #c29636;
+
+  --drop-shadow-2xl: 0 0 10px rgb(194 153 113 / 0.25);
+  --drop-shadow-3xl: 0 -35px 20px rgba(255 255 255 / 0.45);
+}
+
+@utility bg-news {
+  background-image: url('/hokey.jpg');
+}
+@utility bg-newsMobile {
+  background-image: url('/hockey-mobile.jpg');
+}
+@utility bg-headerPhoto {
+  background-image: url('/fifth-partner.jpg');
+}
+@utility bg-pattern {
+  background-image: url('/pattern.png');
+}
+@utility bg-about {
+  background-image: url('/about.jpg');
+}
+@utility bg-aboutpart {
+  background-image: url('/about-part.jpg');
+}
+@utility bg-test {
+  background-image: url('/test.jpg');
+}
+@utility bg-productFirst {
+  background-image: url('/product-gold.jpg');
+}
+@utility bg-productSecond {
+  background-image: url('/product-diamond.jpg');
+}
+@utility bg-productThird {
+  background-image: url('/product-vidbirna.jpg');
+}
+@utility bg-productFourth {
+  background-image: url('/product-perceva.jpg');
+}
+@utility bg-contactBg {
+  background-image: url('/contact-bg.jpg');
+}
+@utility bg-contactBgMobile {
+  background-image: url('/contacts-mobile.jpg');
+}
+@utility bg-contactBackground {
+  background-image: url('/contact-bkg.jpg');
+}
+@utility bg-footerBkg {
+  background-image: url('/footer-bkg-2.jpg');
 }
 
 @layer utilities {

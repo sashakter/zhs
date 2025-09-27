@@ -3,12 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
-import { Outfit, Viaoda_Libre } from 'next/font/google'
 import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
-
-const outfit = Outfit({ subsets: ['latin'] })
-const viaodaLibre = Viaoda_Libre({ subsets: ['cyrillic'], weight: ['400'] })
 
 const HeaderVideo: React.FC = () => {
   const t = useTranslations('HeaderVideo')
@@ -21,23 +17,16 @@ const HeaderVideo: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVideoVisible(true)
-            if (videoRef.current) {
-              videoRef.current.play()
-            }
+            videoRef.current?.play()
           }
         })
       },
       { threshold: 0.1 },
     )
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
-    }
-
+    if (videoRef.current) observer.observe(videoRef.current)
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current)
-      }
+      if (videoRef.current) observer.unobserve(videoRef.current)
     }
   }, [])
 
@@ -58,20 +47,20 @@ const HeaderVideo: React.FC = () => {
             <source src="/bg-video-header.webm" type="video/webm" />
           )}
         </video>
+
         <Image
           className="relative block object-cover lg:hidden"
           src="/header-mobile.jpg"
           alt="bg-photo"
           fill
         />
+
         <div
           className={`${css.contentOverlay} relative z-50 flex flex-col items-start pt-32 lg:pt-40`}
         >
           <div className="z-10 flex flex-col items-center gap-10 px-4 lg:items-start lg:pl-24">
             <p className="text-left text-4xl font-medium uppercase leading-tight tracking-wider lg:text-5xl">
-              {t.rich('description', {
-                br: () => <br />,
-              })}
+              {t.rich('description', { br: () => <br /> })}
             </p>
             <Link
               href="/contacts"
