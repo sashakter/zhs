@@ -5,7 +5,6 @@ import { locales, defaultLocale } from './config'
 type AppLocale = (typeof locales)[number]
 
 export default getRequestConfig(async ({ locale }) => {
-  // нормализуем: если undefined/невалидная — берём defaultLocale
   const currentLocale: AppLocale = locales.includes(locale as AppLocale)
     ? (locale as AppLocale)
     : defaultLocale

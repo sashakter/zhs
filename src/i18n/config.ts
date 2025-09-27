@@ -4,10 +4,8 @@ export type AppLocale = (typeof locales)[number]
 
 export const defaultLocale: AppLocale = 'uk'
 
-// чтобы url всегда содержал локаль: /uk/... и /en/...
 export const localePrefix = 'always' as const
 
-// если не локализуешь пути — достаточно этого:
 export const pathnames = {
   '/': '/',
   '/products': '/products',

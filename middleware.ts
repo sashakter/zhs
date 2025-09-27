@@ -1,14 +1,18 @@
-// /middleware.ts
+// middleware.ts
 import createMiddleware from 'next-intl/middleware'
-import { locales, defaultLocale, localePrefix } from './src/i18n/config'
+import { locales, defaultLocale, localePrefix } from '@/src/i18n/config'
+// import { pathnames } from './i18n/config' // если локализуете роуты — можно добавить
 
 export default createMiddleware({
   locales,
   defaultLocale,
   localePrefix,
+  // pathnames, // если используете локализованные маршруты
 })
 
 export const config = {
-  // ВАЖНО: исключаем API, _next, _vercel и любой путь с расширением (статика)
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: [
+    // Обрабатываем всё, КРОМЕ api, _next, _vercel и любых url с расширением (.*\..*)
+    '/((?!api|_next|_vercel|.*\\..*).*)',
+  ],
 }

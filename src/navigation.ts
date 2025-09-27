@@ -14,7 +14,10 @@ export const pathnames = {
   '/request': '/request',
   '/signin': '/signin',
   '/signup': '/signup',
-  // дополни свои маршруты
+  '/products/gold': '/products/gold',
+  '/products/vidbirna': '/products/vidbirna',
+  '/products/diamond': '/products/diamond',
+  '/products/perceva': '/products/perceva',
 }
 
 export const { Link, redirect, usePathname, useRouter } = createNavigation({

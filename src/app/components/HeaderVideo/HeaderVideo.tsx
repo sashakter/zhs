@@ -5,47 +5,87 @@ import css from './HeaderVideo.module.css'
 import Image from 'next/image'
 import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
+import { renderWithBreaks } from '../renderWithBreaks'
 
 const HeaderVideo: React.FC = () => {
   const t = useTranslations('HeaderVideo')
-  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
   const [isVideoVisible, setIsVideoVisible] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVideoVisible(true)
-            videoRef.current?.play()
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
+    const containerEl = containerRef.current
+    if (!containerEl) return
 
-    if (videoRef.current) observer.observe(videoRef.current)
+    const handleIntersect: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVideoVisible(true)
+          const vid = videoRef.current
+          if (vid) {
+            vid.play().catch((err) => {
+              console.warn('Video autoplay prevented:', err)
+            })
+          }
+        } else {
+          const vid = videoRef.current
+          if (vid && !vid.paused) {
+            vid.pause()
+          }
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(handleIntersect, {
+      threshold: 0.1,
+    })
+
+    observer.observe(containerEl)
+
     return () => {
-      if (videoRef.current) observer.unobserve(videoRef.current)
+      observer.unobserve(containerEl)
+      observer.disconnect()
     }
   }, [])
 
+  const handleCanPlay = () => {
+    const vid = videoRef.current
+    if (!vid) return
+    if (isVideoVisible) {
+      vid.play().catch((err) => {
+        console.warn('Video play on canplay failed:', err)
+      })
+    }
+  }
+
+  const handleError: React.ReactEventHandler<HTMLVideoElement> = (e) => {
+    const target = e.currentTarget
+    const err = target?.error
+    console.error('Header BG video error:', err)
+  }
+
   return (
     <div>
-      <div className={css.videoBackgroundContainer}>
+      <div ref={containerRef} className={css.videoBackgroundContainer}>
         <video
           ref={videoRef}
-          loop
+          autoPlay
           muted
           playsInline
-          className={`${css.videoBackground} rotate-90`}
+          loop
+          preload="metadata"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          onCanPlay={handleCanPlay}
+          onError={handleError}
+          className={`${css.videoBackground}`}
+          aria-hidden="true"
         >
-          {isVideoVisible && (
-            <source src="/bg-video-header.mp4" type="video/mp4" />
-          )}
-          {isVideoVisible && (
-            <source src="/bg-video-header.webm" type="video/webm" />
-          )}
+          <source src="/bg-video-header.webm" type="video/webm" />
+          <source src="/bg-video-header.mp4" type="video/mp4" />
         </video>
 
         <Image
@@ -53,6 +93,7 @@ const HeaderVideo: React.FC = () => {
           src="/header-mobile.jpg"
           alt="bg-photo"
           fill
+          priority
         />
 
         <div
@@ -60,7 +101,7 @@ const HeaderVideo: React.FC = () => {
         >
           <div className="z-10 flex flex-col items-center gap-10 px-4 lg:items-start lg:pl-24">
             <p className="text-left text-4xl font-medium uppercase leading-tight tracking-wider lg:text-5xl">
-              {t.rich('description', { br: () => <br /> })}
+              {renderWithBreaks(t('description'))}
             </p>
             <Link
               href="/contacts"
