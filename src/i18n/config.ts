@@ -18,4 +18,8 @@ export const pathnames = {
   '/request': '/request',
   '/signin': '/signin',
   '/signup': '/signup',
+  '/products/gold': '/products/gold',
+  '/products/vidbirna': '/products/vidbirna',
+  '/products/diamond': '/products/diamond',
+  '/products/perceva': '/products/perceva',
 } as const
