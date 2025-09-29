@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import css from './Partners.module.css'
 import Title from '../Title'
