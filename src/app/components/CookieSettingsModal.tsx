@@ -26,13 +26,26 @@ const CookieSettingsModal = ({ onSave, onCancel }: Props) => {
   const [analytics, setAnalytics] = useState(false)
   const t = useTranslations('cookie')
 
-  const handleSave = () => {
-    const consent = {
-      analytics,
-      ads: false,
+  // Предзаполняем текущим значением (если уже есть)
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('cookieConsent')
+      if (!raw) return
+      const parsed = JSON.parse(raw)
+      if (parsed && typeof parsed === 'object' && 'analytics' in parsed) {
+        setAnalytics(!!parsed.analytics)
+      }
+    } catch {
+      /* noop */
     }
+  }, [])
+
+  const handleSave = () => {
+    // Пишем единый JSON-формат:
+    const consent = { necessary: true, analytics, ads: false }
     localStorage.setItem('cookieConsent', JSON.stringify(consent))
 
+    // Обновляем gtag, если уже инициализирован
     if (typeof window.gtag === 'function') {
       window.gtag('consent', 'update', {
         analytics_storage: analytics ? 'granted' : 'denied',
@@ -40,23 +53,11 @@ const CookieSettingsModal = ({ onSave, onCancel }: Props) => {
       })
     }
 
-    onSave(consent)
+    onSave({ analytics })
   }
 
   const handleCancel = () => {
-    const consent = {
-      analytics: false,
-      ads: false,
-    }
-    localStorage.setItem('cookieConsent', JSON.stringify(consent))
-
-    if (typeof window.gtag === 'function') {
-      window.gtag('consent', 'update', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-      })
-    }
-
+    // Ничего не меняем — просто закрываем
     onCancel()
   }
 
@@ -90,7 +91,7 @@ const CookieSettingsModal = ({ onSave, onCancel }: Props) => {
           </button>
           <button
             onClick={handleSave}
-            className="rounded bg-white text-black px-4 py-2 text-sm"
+            className="rounded bg-white px-4 py-2 text-sm text-black"
           >
             {t('settings.buttonSave')}
           </button>

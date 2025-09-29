@@ -2,6 +2,7 @@
 import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 import React, { useState, useEffect } from 'react'
+import { renderWithBreaks } from '@/src/app/components/renderWithBreaks'
 
 const AgeVerificationModal: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true)
@@ -30,9 +31,7 @@ const AgeVerificationModal: React.FC = () => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 uppercase">
       <div className="rounded-lg border border-white bg-black p-8 text-center text-white">
         <h2 className="mb-4 text-lg font-semibold">
-          {t.rich('title', {
-            br: () => <br />,
-          })}
+          {renderWithBreaks(t('title'))}
         </h2>
         <div className="flex justify-center gap-4 uppercase">
           <button
@@ -51,7 +50,7 @@ const AgeVerificationModal: React.FC = () => {
         <p className="mt-4 text-sm">
           {t.rich('description', {
             privacy: (chunks) => (
-              <Link href={'/policies'} className="ml-1 underline">
+              <Link href="/policies" className="ml-1 underline">
                 {chunks}
               </Link>
             ),

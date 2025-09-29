@@ -1,3 +1,4 @@
+// app/[locale]/layout.tsx
 import type { Metadata } from 'next'
 import { Playfair_Display } from 'next/font/google'
 import '@/src/app/globals.css'
@@ -6,9 +7,10 @@ import Footer from '../components/Footer'
 import AgeVerificationModal from '../components/AgeVerificationModal'
 import { NextIntlClientProvider } from 'next-intl'
 import StoreProvider from '../../StoreProvider'
-import { getMessages } from 'next-intl/server'
 import { Providers } from '@/src/app/providers'
 import CookieConsent from '../components/CookieConsent'
+import React from 'react'
+import { locales, defaultLocale } from '@/src/i18n/config'
 
 const playfair = Playfair_Display({ subsets: ['cyrillic', 'latin'] })
 
@@ -20,29 +22,25 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Props) {
-  const messages = await getMessages({ locale })
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params
+  const currentLocale = locales.includes(locale as (typeof locales)[number])
+    ? locale
+    : defaultLocale
 
-  const lenisOptions = {
-    lerp: 0.1,
-    duration: 1.5,
-    smoothTouch: false,
-    smooth: true,
-  }
+  const messages = (await import(`@/src/messages/${currentLocale}.json`))
+    .default
 
   return (
-    <html lang={locale} className="scroll-smooth">
+    <html lang={currentLocale} className="scroll-smooth">
       <body
         className={`${playfair.className} flex flex-col justify-center text-white`}
       >
         <StoreProvider count={0}>
-          <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider locale={currentLocale} messages={messages}>
             <Providers>
               <div>
                 <AgeVerificationModal />

@@ -3,14 +3,19 @@ const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    webpack(config) {
-        config.module.rules.push({
-            test: /\.svg$/,
-            use: ['@svgr/webpack'],
-        })
+  webpack: (config) => {
+    config.resolve = config.resolve || {}
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      canvas: false,
+    }
+    return config
+  },
 
-        return config
-    },
+  // Можно вовсе убрать redirects(). Если хочешь оставить только корневой — раскомментируй:
+  async redirects() {
+    return [{ source: '/', destination: '/uk', permanent: false }]
+  },
 }
 
 export default withNextIntl(nextConfig)

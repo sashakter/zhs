@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import css from './Partners.module.css'
 import Title from '../Title'
@@ -5,6 +7,7 @@ import Marquee from 'react-fast-marquee'
 import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 import PartnersVideo from '../PartnersVideo/PartnersVideo'
+import React from 'react'
 const Partners: React.FC = () => {
   const t = useTranslations('Partners')
   return (

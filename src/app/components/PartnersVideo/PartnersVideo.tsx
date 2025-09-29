@@ -23,12 +23,12 @@ const PartnersVideo: React.FC = () => {
         sources: [
           //@ts-ignore
           {
-            src: '/Partners-Video-En.mp4',
+            src: '/partners-video-en.mp4',
             type: 'video/mp4',
           },
           //@ts-ignore
           {
-            src: '/Partners-Video-En.webm',
+            src: '/partners-video-en.webm',
             type: 'video/webm',
           },
         ],
@@ -39,12 +39,12 @@ const PartnersVideo: React.FC = () => {
         sources: [
           //@ts-ignore
           {
-            src: '/Partners-Video-Uk.mp4',
+            src: '/partners-video-uk.mp4',
             type: 'video/mp4',
           },
           //@ts-ignore
           {
-            src: '/Partners-Video-Uk.webm',
+            src: '/partners-video-uk.webm',
             type: 'video/webm',
           },
         ],

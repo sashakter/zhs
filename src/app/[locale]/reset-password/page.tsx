@@ -30,7 +30,7 @@ export default function ResetPassword() {
     try {
       const res = await axios.post('/api/reset-password', { token, password })
       setMessage(res.data.message)
-      router.push('/login')
+      router.push('/signin')
     } catch (error: any) {
       setMessage(error.response?.data?.message || 'Ошибка при сбросе пароля')
     }

@@ -1,3 +1,4 @@
+'use client'
 import { useTranslations } from 'next-intl'
 import Contacts from '../../components/ContactForm'
 
