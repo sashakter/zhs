@@ -7,7 +7,7 @@ import 'swiper/css/navigation'
 import SwiperProducts from '@/src/app/components/SwiperProducts/SwiperProducts'
 import { useTranslations } from 'next-intl'
 
-const Capacities: React.FC = () => {
+const DiamondPage: React.FC = () => {
   const t = useTranslations('diamondPage')
   const keys = ['Origin', 'Quantity', 'Design'] as const
   const keysTwo = ['alcoholContent', 'shelfLife', 'volume'] as const
@@ -74,4 +74,4 @@ const Capacities: React.FC = () => {
   )
 }
 
-export default Capacities
+export default DiamondPage

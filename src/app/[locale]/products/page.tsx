@@ -1,197 +1,76 @@
-'use client'
-
+import { fetchProducts, revalidateSeconds } from '@/src/lib/cms'
+import BrandSidebar from '@/src/app/components/catalog/BrandSidebar'
+import SearchBox from '@/src/app/components/catalog/SearchBox'
+import Pagination from '@/src/app/components/catalog/Pagination'
+import ProductCard from '@/src/app/components/catalog/ProductCard'
 import Image from 'next/image'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import { Pagination, Autoplay } from 'swiper/modules'
-import { useMediaQuery } from 'react-responsive'
-import css from './Chooser.module.css'
-import { useEffect, useState } from 'react'
-import { Link } from '@/src/navigation'
-import EarTitle from '../../components/EarTitle'
-import { useTranslations } from 'next-intl'
+export const revalidate = revalidateSeconds
 
-export default function ZshPage() {
-  const t = useTranslations('ZshPage')
-  const isMobileOrTablet = useMediaQuery({
-    query: '(max-width: 1024px)',
-  })
-  const [isHoverGold, setIsHoverGold] = useState(false)
-  const [isHoverDiamond, setIsHoverDiamond] = useState(false)
-  const [isHoverVidb, setIsHoverVidb] = useState(false)
-  const [isHoverPerc, setIsHoverPerc] = useState(false)
-  const [isClient, setIsClient] = useState(false)
+export default async function ProductsAllPage({
+  params,
+  searchParams,
+}: {
+  params: { locale: string }
+  searchParams: { q?: string; page?: string; limit?: string }
+}) {
+  const resolvedParams = await params
+  const locale = resolvedParams.locale ?? 'uk'
+  const sp = (await searchParams) as {
+    q?: string
+    page?: string
+    limit?: string
+  }
+  const page = Math.max(1, Number(sp?.page || 1))
+  const limit = Math.min(48, Math.max(12, Number(sp?.limit || 24)))
+  const q = sp?.q
 
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
+  const data = await fetchProducts({ q, page, limit })
 
   return (
-    <div className="relative" id="content">
-      <div className="absolute z-30 my-32 flex w-full flex-col items-center justify-center">
-        <EarTitle color={'#C6986D'} />
-        <h1 className="uppercase sm:text-2xl lg:text-2xl">{t('title')}</h1>
-        <div className="rotate-180">
-          <EarTitle color={'#C6986D'} />
+    <main className="relative flex flex-col items-center bg-black px-4 py-8 text-white">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/diamond.jpg"
+          alt="Background"
+          fill={true}
+          className="object-cover"
+          quality={100}
+        />
+      </div>
+      <div className="absolute inset-0 z-0 bg-black/70" />
+
+      <div className="relative z-20 mt-28 w-full max-w-6xl">
+        <div className="flex gap-8">
+          <BrandSidebar locale={locale} />
+          <section className="flex-1">
+            <h1 className="mb-4 text-2xl font-semibold">Продукти</h1>
+            <div className="mb-6">
+              <SearchBox placeholder="Пошук продуктів…" />
+            </div>
+
+            {data.items.length === 0 ? (
+              <p className="text-neutral-400">Нічого не знайдено.</p>
+            ) : (
+              <>
+                <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+                  {data.items.map((p) => (
+                    <ProductCard key={p.id} p={p} locale={locale} />
+                  ))}
+                </ul>
+
+                <Pagination
+                  basePath={`/${locale}/products`}
+                  page={page}
+                  limit={limit}
+                  total={data.total}
+                  query={{ q }}
+                />
+              </>
+            )}
+          </section>
         </div>
       </div>
-      {isMobileOrTablet && isClient ? (
-        <Swiper
-          spaceBetween={0}
-          pagination={{
-            clickable: true,
-            bulletActiveClass: css.swiperCustomBulletActive,
-          }}
-          modules={[Pagination, Autoplay]}
-          effect="fade"
-          speed={800}
-          fadeEffect={{ crossFade: true }}
-          // autoplay={{ delay: 3000, disableOnInteraction: false }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-          }}
-          loop={true}
-          className="w-full"
-        >
-          <SwiperSlide className="bg-productFirst bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
-            <div className="absolute left-0 top-0 z-40 h-full w-full bg-gradient-to-b from-[#000] from-10% bg-cover bg-center opacity-50 duration-300"></div>
-            <Link
-              href={'/products/gold'}
-              style={{ contain: 'paint' }}
-              className="relative h-[1000px] w-full"
-            >
-              <Image
-                className="relative z-50 mx-auto"
-                src={'/gold.png'}
-                alt="gold"
-                width={188}
-                height={590}
-              />
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="bg-productSecond bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
-            <div className="absolute left-0 top-0 z-40 h-full w-full bg-gradient-to-b from-[#000] from-10% bg-cover bg-center opacity-50 duration-300"></div>
-            <Link
-              href={'/products/diamond'}
-              style={{ contain: 'paint' }}
-              className="relative h-[820px] w-full"
-            >
-              <Image
-                className="relative z-50 mx-auto"
-                src={'/diamond.png'}
-                alt="diamond"
-                width={188}
-                height={590}
-              />
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="bg-productThird bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
-            <Link
-              href={'/products/vidbirna'}
-              style={{ contain: 'paint' }}
-              className="relative h-[820px] w-full"
-            >
-              <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
-              <Image
-                className="relative z-50 mx-auto"
-                src={'/vidbirna.png'}
-                alt="vidbirna"
-                width={188}
-                height={590}
-              />
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="bg-productFourth bg-cover bg-no-repeat pt-56 md:pt-60 lg:pt-72">
-            <Link
-              href={'/products/perceva'}
-              style={{ contain: 'paint' }}
-              className="relative h-[820px] w-full"
-            >
-              <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
-              <Image
-                className="relative z-50 mx-auto"
-                src={'/perceva.png'}
-                alt="perceva"
-                width={188}
-                height={590}
-              />
-            </Link>
-          </SwiperSlide>
-        </Swiper>
-      ) : (
-        <div className="flex">
-          <Link
-            href={'/products/gold'}
-            style={{ contain: 'paint' }}
-            className="relative h-[820px] w-1/4 cursor-pointer bg-productFirst bg-cover bg-no-repeat grayscale hover:grayscale-0"
-            onMouseEnter={() => setIsHoverGold(true)}
-            onMouseLeave={() => setIsHoverGold(false)}
-          >
-            <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
-            <Image
-              className={`relative -bottom-1/4 ${isHoverGold ? '-bottom-[12%]' : ''} mx-auto duration-700`}
-              src={'/gold.png'}
-              priority={true}
-              alt="gold"
-              width={244}
-              height={800}
-            />
-          </Link>
-          <Link
-            href={'/products/diamond'}
-            style={{ contain: 'paint' }}
-            onMouseEnter={() => setIsHoverDiamond(true)}
-            onMouseLeave={() => setIsHoverDiamond(false)}
-            className="h-[820px] w-1/4 bg-productSecond bg-cover bg-no-repeat grayscale hover:grayscale-0"
-          >
-            <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
-            <Image
-              className={`relative -bottom-1/4 ${isHoverDiamond ? '-bottom-[12%]' : ''} mx-auto duration-700`}
-              src={'/diamond.png'}
-              alt="diamond"
-              width={244}
-              height={800}
-            />
-          </Link>
-          <Link
-            href={'/products/vidbirna'}
-            style={{ contain: 'paint' }}
-            onMouseEnter={() => setIsHoverVidb(true)}
-            onMouseLeave={() => setIsHoverVidb(false)}
-            className="h-[820px] w-1/4 bg-productThird bg-cover bg-no-repeat grayscale hover:grayscale-0"
-          >
-            <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
-            <Image
-              className={`relative -bottom-1/4 ${isHoverVidb ? '-bottom-[12%]' : ''} mx-auto duration-700`}
-              src={'/vidbirna.png'}
-              alt="vidbirna"
-              width={244}
-              height={800}
-            />
-          </Link>
-          <Link
-            href={'/products/perceva'}
-            style={{ contain: 'paint' }}
-            onMouseEnter={() => setIsHoverPerc(true)}
-            onMouseLeave={() => setIsHoverPerc(false)}
-            className="h-[820px] w-1/4 bg-productFourth bg-cover bg-no-repeat grayscale hover:grayscale-0"
-          >
-            <div className="absolute left-0 top-0 z-50 h-full w-full bg-black bg-cover bg-center opacity-80 duration-300 hover:opacity-0"></div>
-            <Image
-              className={`relative -bottom-1/4 ${isHoverPerc ? '-bottom-[12%]' : ''} mx-auto duration-700`}
-              src={'/perceva.png'}
-              alt="perceva"
-              width={244}
-              height={800}
-            />
-          </Link>
-        </div>
-      )}
-    </div>
+    </main>
   )
 }
