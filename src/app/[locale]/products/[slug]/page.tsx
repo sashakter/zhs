@@ -6,11 +6,8 @@ import { Link } from '@/src/navigation'
 
 export const revalidate = revalidateSeconds
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export async function generateMetadata(props: any) {
+  const { params } = props
   const { slug } = (await params) as { slug: string }
   const p = await fetchProductBySlug(slug).catch(() => null)
   if (!p) return {}
@@ -27,11 +24,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function ProductPage({
-  params,
-}: {
-  params: { locale: string; slug: string }
-}) {
+export default async function ProductPage(props: any) {
+  const { params } = props
   const { locale, slug } = (await params) as { locale: string; slug: string }
   const p = await fetchProductBySlug(slug).catch(() => null)
   if (!p) return notFound()
