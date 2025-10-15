@@ -7,13 +7,8 @@ import Image from 'next/image'
 
 export const revalidate = revalidateSeconds
 
-export default async function ProductsAllPage({
-  params,
-  searchParams,
-}: {
-  params: { locale: string }
-  searchParams: { q?: string; page?: string; limit?: string }
-}) {
+export default async function ProductsAllPage(props: any) {
+  const { params, searchParams } = props
   const resolvedParams = await params
   const locale = resolvedParams.locale ?? 'uk'
   const sp = (await searchParams) as {
