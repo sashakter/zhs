@@ -7,11 +7,8 @@ import { Link } from '@/src/navigation'
 
 export const revalidate = revalidateSeconds
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export async function generateMetadata(props: any) {
+  const { params } = props
   const { slug } = (await params) as { slug: string }
   const brand = await fetchBrandBySlug(slug).catch(() => null)
   if (!brand) return {}
