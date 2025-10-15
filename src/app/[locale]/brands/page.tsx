@@ -5,11 +5,9 @@ import { notFound } from 'next/navigation'
 
 export const revalidate = revalidateSeconds
 
-export default async function BrandsPage({
-  params,
-}: {
-  params: { locale: string }
-}) {
+export default async function BrandsPage(props: any) {
+  const { params } = props
+  const { locale } = (await params) as { locale: string }
   const data = await fetchBrands({ limit: 120 })
   if (!data) return notFound()
 
