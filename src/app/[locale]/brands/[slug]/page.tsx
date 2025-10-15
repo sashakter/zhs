@@ -24,13 +24,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function BrandPage({
-  params,
-  searchParams,
-}: {
-  params: { locale: string; slug: string }
-  searchParams: { q?: string }
-}) {
+export default async function BrandPage(props: any) {
+  const { params, searchParams } = props
   const { locale, slug } = params
   const brand = await fetchBrandBySlug(slug).catch(() => null)
   if (!brand) return notFound()
