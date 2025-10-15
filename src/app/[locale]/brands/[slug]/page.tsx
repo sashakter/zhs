@@ -31,12 +31,11 @@ export default async function BrandPage({
   params: { locale: string; slug: string }
   searchParams: { q?: string }
 }) {
-  const { locale, slug } = (await params) as { locale: string; slug: string }
-  const sp = (await searchParams) as { q?: string }
+  const { locale, slug } = params
   const brand = await fetchBrandBySlug(slug).catch(() => null)
   if (!brand) return notFound()
 
-  const q = (sp?.q || '').trim().toLowerCase()
+  const q = (searchParams?.q || '').trim().toLowerCase()
   const products = q
     ? brand.products.filter((p) => p.name.toLowerCase().includes(q))
     : brand.products
@@ -100,9 +99,6 @@ export default async function BrandPage({
             <h1 className="mb-4 text-2xl font-semibold">Продукти</h1>
             <div className="mb-6 flex items-center gap-3">
               <SearchBox placeholder="Пошук у бренді…" />
-              <span aria-hidden className="mt-1 select-none text-lg">
-                🔍
-              </span>
             </div>
 
             <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
