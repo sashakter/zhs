@@ -10,8 +10,7 @@ export default async function BrandsPage({
 }: {
   params: { locale: string }
 }) {
-  const locale = params.locale ?? 'uk'
-  const data = await fetchBrands({ limit: 120 }) // при необхідності зробимо пагінацію
+  const data = await fetchBrands({ limit: 120 })
   if (!data) return notFound()
 
   return (
