@@ -1,11 +1,11 @@
-import { fetchProducts, revalidateSeconds } from '@/src/lib/cms'
+import { fetchProducts } from '@/src/lib/cms'
 import BrandSidebar from '@/src/app/components/catalog/BrandSidebar'
 import SearchBox from '@/src/app/components/catalog/SearchBox'
 import Pagination from '@/src/app/components/catalog/Pagination'
 import ProductCard from '@/src/app/components/catalog/ProductCard'
 import Image from 'next/image'
 
-export const revalidate = revalidateSeconds
+export const revalidate = 600
 
 export default async function ProductsAllPage(props: any) {
   const { params, searchParams } = props

@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { fetchBrandBySlug, revalidateSeconds } from '@/src/lib/cms'
+import { fetchBrandBySlug } from '@/src/lib/cms'
 import Breadcrumbs from '@/src/app/components/catalog/Breadcrumbs'
 import SearchBox from '@/src/app/components/catalog/SearchBox'
 import { Link } from '@/src/navigation'
 
-export const revalidate = revalidateSeconds
+export const revalidate = 600
 
 export async function generateMetadata(props: any) {
   const { params } = props

@@ -1,9 +1,9 @@
-import { fetchBrands, revalidateSeconds } from '@/src/lib/cms'
+import { fetchBrands } from '@/src/lib/cms'
 import Image from 'next/image'
 import { Link } from '@/src/navigation'
 import { notFound } from 'next/navigation'
 
-export const revalidate = revalidateSeconds
+export const revalidate = 600
 
 export default async function BrandsPage(props: any) {
   const { params } = props

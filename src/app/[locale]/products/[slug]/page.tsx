@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { fetchProductBySlug, revalidateSeconds } from '@/src/lib/cms'
+import { fetchProductBySlug } from '@/src/lib/cms'
 import Breadcrumbs from '@/src/app/components/catalog/Breadcrumbs'
 import { Link } from '@/src/navigation'
 
-export const revalidate = revalidateSeconds
+export const revalidate = 600
 
 export async function generateMetadata(props: any) {
   const { params } = props
