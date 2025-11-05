@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { fetchBrandBySlug } from '@/src/lib/cms'
 import Breadcrumbs from '@/src/app/components/catalog/Breadcrumbs'
 import SearchBox from '@/src/app/components/catalog/SearchBox'
-import { Link } from '@/src/navigation'
+import ProductCard from '@/src/app/components/catalog/ProductCard'
 
 export const revalidate = 600
 
@@ -32,14 +32,6 @@ export default async function BrandPage(props: any) {
     ? brand.products.filter((p) => p.name.toLowerCase().includes(q))
     : brand.products
 
-  const variantsLine = (
-    v?: { label?: string | null; volumeMl?: number | null }[],
-  ) =>
-    (v ?? [])
-      .map((x) => (x.label ? x.label : x.volumeMl ? `${x.volumeMl}` : ''))
-      .filter(Boolean)
-      .join(' ')
-
   const b = brand!
   const coverUrl = b.cover?.url
   const coverAlt = b.cover?.alt
@@ -55,7 +47,7 @@ export default async function BrandPage(props: any) {
           quality={100}
         />
       </div>
-      <div className="absolute inset-0 z-0 bg-black/70" />
+      <div className="absolute inset-0 z-0 bg-[#000]/70" />
 
       <div className="relative z-20 mt-28 w-full max-w-6xl">
         <Breadcrumbs
@@ -64,8 +56,8 @@ export default async function BrandPage(props: any) {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
           <aside className="md:col-span-3 rounded-xl border border-neutral-800 bg-neutral-900/50 p-4">
-            <h3 className="mb-4 text-sm tracking-widest text-neutral-400">
-              БРЕНДИ
+            <h3 className="mb-4 uppercase text-sm tracking-widest text-neutral-100">
+              бренди
             </h3>
             <div className="relative mx-auto mb-4 aspect-square w-40 overflow-hidden rounded-lg">
               {coverUrl ? (
@@ -73,7 +65,7 @@ export default async function BrandPage(props: any) {
                   src={coverUrl}
                   alt={coverAlt || b.name}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               ) : (
                 <div className="h-full w-full bg-neutral-900" />
@@ -95,40 +87,7 @@ export default async function BrandPage(props: any) {
 
             <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
               {products.map((p) => (
-                <li
-                  key={p.id}
-                  className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-3 transition-colors hover:border-neutral-600"
-                >
-                  <Link href={`/products/${p.slug}` as any}>
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
-                      {p.cover?.url ? (
-                        <Image
-                          src={p.cover.url}
-                          alt={p.cover.alt || p.name}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-neutral-900">
-                          No image
-                        </div>
-                      )}
-                    </div>
-                    <div className="mt-3">
-                      <h3 className="text-base font-medium">{p.name}</h3>
-                      {p.variants?.length ? (
-                        <p className="mt-1 text-sm text-neutral-400">
-                          {variantsLine(p.variants)}
-                        </p>
-                      ) : null}
-                      <div className="mt-2">
-                        <span className="inline-block rounded border border-neutral-700 px-2 py-0.5 text-xs">
-                          more
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
+                <ProductCard key={p.id} p={p} />
               ))}
             </ul>
           </section>

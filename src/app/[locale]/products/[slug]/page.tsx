@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { fetchProductBySlug } from '@/src/lib/cms'
+import { fetchProductBySlug, fetchProducts } from '@/src/lib/cms'
 import Breadcrumbs from '@/src/app/components/catalog/Breadcrumbs'
-import { Link } from '@/src/navigation'
+import ProductGalleryVariants from '@/src/app/components/catalog/ProductGalleryVariants'
+import ProductCard from '@/src/app/components/catalog/ProductCard'
 
 export const revalidate = 600
 
@@ -26,17 +27,32 @@ export async function generateMetadata(props: any) {
 
 export default async function ProductPage(props: any) {
   const { params } = props
-  const { locale, slug } = (await params) as { locale: string; slug: string }
+  const { slug } = (await params) as { slug: string }
   const p = await fetchProductBySlug(slug).catch(() => null)
   if (!p) return notFound()
 
   const gallery = [
-    ...(p.cover?.url ? [{ url: p.cover.url, alt: p.cover.alt || p.name }] : []),
+    ...(p.cover?.url
+      ? [
+          {
+            url: p.cover.url,
+            alt: p.cover.alt || p.name,
+            width: p.cover.width ?? undefined,
+            height: p.cover.height ?? undefined,
+          },
+        ]
+      : []),
     ...(p.images?.map((im) => ({
       url: im.media.url,
       alt: im.media.alt || p.name,
+      width: im.media.width ?? undefined,
+      height: im.media.height ?? undefined,
     })) ?? []),
   ]
+
+  // Fetch other products of the same brand (exclude current product)
+  const othersList = await fetchProducts({ brand: p.brand.slug, limit: 12, status: 'ACTIVE' })
+  const otherProducts = othersList.items.filter((x) => x.slug !== p.slug).slice(0, 8)
 
   return (
     <main className="relative flex flex-col items-center bg-black px-4 py-8 text-white">
@@ -49,7 +65,7 @@ export default async function ProductPage(props: any) {
           quality={100}
         />
       </div>
-      <div className="absolute inset-0 z-0 bg-black/70"></div>
+      <div className="absolute inset-0 z-0 bg-[#000]/70"></div>
 
       <div className="relative z-20 mt-28 w-full max-w-6xl">
         <Breadcrumbs
@@ -60,77 +76,25 @@ export default async function ProductPage(props: any) {
           ]}
         />
 
-        <div className="grid items-start gap-8 md:grid-cols-2">
-          <div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-neutral-800">
-              {gallery[0]?.url ? (
-                <Image
-                  src={gallery[0].url}
-                  alt={gallery[0].alt}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-neutral-900">
-                  No image
-                </div>
-              )}
-            </div>
-            {gallery.length > 1 && (
-              <div className="mt-4 grid grid-cols-4 gap-3">
-                {gallery.slice(1, 5).map((g, i) => (
-                  <div
-                    key={i}
-                    className="relative aspect-square overflow-hidden rounded-lg border border-neutral-800"
-                  >
-                    <Image
-                      src={g.url}
-                      alt={g.alt}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+        <ProductGalleryVariants
+          name={p.name}
+          brandName={p.brand.name}
+          brandSlug={p.brand.slug}
+          description={p.description}
+          gallery={gallery}
+          variants={p.variants}
+        />
 
-          {/* Описание и варианты */}
-          <div>
-            <h1 className="text-3xl font-semibold">{p.name}</h1>
-
-            {p.variants?.length ? (
-              <div className="mt-6">
-                <h2 className="mb-2 text-sm tracking-wider text-neutral-400">
-                  Обʼєм
-                </h2>
-                <ul className="flex flex-wrap gap-2">
-                  {p.variants.map((v) => (
-                    <li
-                      key={v.id}
-                      className="cursor-pointer rounded-lg border border-neutral-700 px-3 py-1 text-sm transition-colors hover:border-neutral-500 hover:bg-neutral-800"
-                    >
-                      {v.label || (v.volumeMl ? `${v.volumeMl} мл` : 'Варіант')}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            {p.description && (
-              <p className="mt-6 text-neutral-300">{p.description}</p>
-            )}
-
-            <div className="mt-8">
-              <Link
-                href={`/${locale}/brands/${p.brand.slug}` as any}
-                className="text-neutral-300 underline hover:text-white"
-              >
-                До бренду: {p.brand.name}
-              </Link>
-            </div>
-          </div>
-        </div>
+        {otherProducts.length > 0 && (
+          <section className="mt-16">
+            <h2 className="mb-6 text-2xl font-semibold">Інші продукти бренду</h2>
+            <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+              {otherProducts.map((op) => (
+                <ProductCard key={op.id} p={op} />
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </main>
   )

@@ -20,7 +20,7 @@ export default async function ProductsAllPage(props: any) {
   const limit = Math.min(48, Math.max(12, Number(sp?.limit || 24)))
   const q = sp?.q
 
-  const data = await fetchProducts({ q, page, limit })
+  const data = await fetchProducts({ q, page, limit, status: 'ACTIVE' })
 
   return (
     <main className="relative flex flex-col items-center bg-black px-4 py-8 text-white">
@@ -33,7 +33,7 @@ export default async function ProductsAllPage(props: any) {
           quality={100}
         />
       </div>
-      <div className="absolute inset-0 z-0 bg-black/70" />
+      <div className="absolute inset-0 z-0 bg-[#000]/70" />
 
       <div className="relative z-20 mt-28 w-full max-w-6xl">
         <div className="flex gap-8">
@@ -48,14 +48,14 @@ export default async function ProductsAllPage(props: any) {
               <p className="text-neutral-400">Нічого не знайдено.</p>
             ) : (
               <>
-                <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+                <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                   {data.items.map((p) => (
-                    <ProductCard key={p.id} p={p} locale={locale} />
+                    <ProductCard key={p.id} p={p} />
                   ))}
                 </ul>
 
                 <Pagination
-                  basePath={`/${locale}/products`}
+                  basePath={`/products`}
                   page={page}
                   limit={limit}
                   total={data.total}

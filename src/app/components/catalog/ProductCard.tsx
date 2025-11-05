@@ -4,10 +4,8 @@ import type { ProductLite } from '@/src/lib/cms'
 
 export default function ProductCard({
   p,
-  locale = 'uk',
 }: {
   p: ProductLite
-  locale?: string
 }) {
   const variants = p.variants
     ?.map((v) => v.label || (v.volumeMl ? `${v.volumeMl} мл` : ''))
@@ -31,11 +29,14 @@ export default function ProductCard({
           )}
         </div>
         <div className="mt-3">
+          {p.brand?.name && (
+            <p className="text-sm text-neutral-400">{p.brand.name}</p>
+          )}
           <h3 className="text-base font-medium">{p.name}</h3>
           {variants && <p className="text-sm text-neutral-400">{variants}</p>}
-          <div className="mt-2">
-            <span className="inline-block rounded-md border border-neutral-700 px-2 py-1 text-xs">
-              more
+          <div className="mt-2 flex justify-end">
+            <span className="inline-block rounded-md border border-neutral-700 px-4 py-2 text-sm">
+              Більше
             </span>
           </div>
         </div>
