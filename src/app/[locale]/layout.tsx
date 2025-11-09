@@ -35,10 +35,13 @@ export default async function RootLayout({ children, params }: Props) {
     .default
 
   return (
-    <html lang={currentLocale} className="scroll-smooth">
+    <html lang={currentLocale} className="scroll-smooth" data-scroll-behavior="smooth">
       <body
         className={`${playfair.className} flex flex-col justify-center text-white`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+          Skip to main content
+        </a>
         <StoreProvider count={0}>
           <NextIntlClientProvider locale={currentLocale} messages={messages}>
             <Providers>
@@ -47,7 +50,9 @@ export default async function RootLayout({ children, params }: Props) {
                 <CookieConsent />
               </div>
               <NavBar />
-              {children}
+              <main id="main-content">
+                {children}
+              </main>
               <Footer />
             </Providers>
           </NextIntlClientProvider>

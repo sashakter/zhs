@@ -9,8 +9,8 @@ export const revalidate = 600
 
 export async function generateMetadata(props: any) {
   const { params } = props
-  const { slug } = (await params) as { slug: string }
-  const brand = await fetchBrandBySlug(slug).catch(() => null)
+  const { slug, locale } = (await params) as { slug: string; locale: string }
+  const brand = await fetchBrandBySlug(slug, locale).catch(() => null)
   if (!brand) return {}
   return {
     title: brand.seoTitle || `${brand.name} | Alcotrade`,
@@ -23,8 +23,8 @@ export async function generateMetadata(props: any) {
 
 export default async function BrandPage(props: any) {
   const { params, searchParams } = props
-  const { locale, slug } = params
-  const brand = await fetchBrandBySlug(slug).catch(() => null)
+  const { locale, slug } = (await params) as { slug: string; locale: string }
+  const brand = await fetchBrandBySlug(slug, locale).catch(() => null)
   if (!brand) return notFound()
 
   const q = (searchParams?.q || '').trim().toLowerCase()

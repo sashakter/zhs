@@ -94,6 +94,7 @@ const HeaderVideo: React.FC = () => {
           alt="bg-photo"
           fill
           priority
+          sizes="100vw"
         />
 
         <div

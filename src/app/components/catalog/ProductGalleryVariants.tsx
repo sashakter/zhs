@@ -20,6 +20,7 @@ interface Props {
   description?: string | null
   gallery: GalleryItem[]
   variants?: VariantItem[] | null
+  locale?: string
 }
 
 export default function ProductGalleryVariants({
@@ -29,6 +30,7 @@ export default function ProductGalleryVariants({
   description,
   gallery,
   variants = [],
+  locale = 'uk',
 }: Props) {
   const initial = gallery?.[0]
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(initial ?? null)
@@ -147,10 +149,10 @@ export default function ProductGalleryVariants({
 
         {variants && variants.length > 0 ? (
           <div className="mt-6">
-            <h2 className="mb-2 text-sm tracking-wider text-neutral-400">Обʼєм</h2>
+            <h2 className="mb-2 text-sm tracking-wider text-neutral-400">{locale === 'en' ? 'Volume' : 'Обʼєм'}</h2>
             <ul className="flex flex-wrap gap-2">
               {variants.map((v) => {
-                const label = v.label || (v.volumeMl ? `${v.volumeMl} мл` : "Варіант")
+                const label = v.label || (v.volumeMl ? `${v.volumeMl} ${locale === 'en' ? 'ml' : 'мл'}` : (locale === 'en' ? 'Variant' : 'Варіант'))
                 const isActive = selectedVariantId === v.id
                 return (
                   <li key={v.id}>
@@ -182,7 +184,7 @@ export default function ProductGalleryVariants({
 
         <div className="mt-8">
           <Link href={`/brands/${brandSlug}` as any} className="text-neutral-300 underline hover:text-white">
-            До бренду: {brandName}
+            {locale === 'en' ? 'To brand:' : 'До бренду:'} {brandName}
           </Link>
         </div>
       </div>
