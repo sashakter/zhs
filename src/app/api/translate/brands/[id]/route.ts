@@ -3,10 +3,7 @@ import { NextResponse } from 'next/server'
 const BASE = process.env.CMS_PUBLIC_BASE_URL!
 const TOKEN = process.env.CMS_READONLY_TOKEN
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } },
-) {
+export async function GET(request: Request, { params }: any) {
   const { id } = params
   if (!id) {
     return NextResponse.json({ error: 'ID is required' }, { status: 400 })
