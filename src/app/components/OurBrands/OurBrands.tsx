@@ -19,6 +19,7 @@ export default async function OurBrands() {
         alt="Background"
         fill={true}
         className="object-cover object-bottom opacity-50 blur-sm"
+        sizes="100vw"
       />
       <div className="absolute inset-0 bg-black opacity-30"></div>
 

@@ -14,7 +14,7 @@ const ContactBar: React.FC = () => {
           <Image src="/arrow.svg" alt="arrow" width={26} height={26} />
         </div>
         <div className="">
-          <Image src="/vector-line.svg" alt="line" width={300} height={22} />
+          <Image src="/vector-line.svg" alt="line" width={300} height={22} style={{ height: 'auto' }} />
         </div>
       </div>
     </Link>

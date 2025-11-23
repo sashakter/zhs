@@ -23,6 +23,34 @@ async function getJSON<T>(
   return (await res.json()) as T
 }
 
+type Translation<T> = T & {
+  translations: ({
+    id: string
+    locale: string
+  } & Partial<Omit<T, 'id' | 'slug' | 'cover' | 'images' | 'brand' | 'variants' | '_count' | 'translations'>> & { slug?: string | null })[]
+}
+
+async function getTranslatedJSON<T>(
+  path: string,
+  locale: string,
+  search?: Record<string, string | number | undefined>,
+  nextOpts?: NextOpts,
+) {
+  const data = await getJSON<Translation<T>>(path, search, nextOpts)
+  if (locale !== 'uk') {
+    const translation = data.translations?.find((t) => t.locale === locale)
+    if (translation) {
+      for (const key in translation) {
+        if (key !== 'id' && key !== 'locale' && translation[key as keyof typeof translation]) {
+          // @ts-ignore
+          data[key as keyof T] = translation[key as keyof typeof translation]
+        }
+      }
+    }
+  }
+  return data
+}
+
 export type Media = {
   url: string
   width?: number | null
@@ -86,9 +114,10 @@ export async function fetchBrands(params?: {
     { tags: ['brands'] },
   )
 }
-export async function fetchBrandBySlug(slug: string) {
-  return getJSON<BrandLite & { products: ProductLite[] }>(
+export async function fetchBrandBySlug(slug: string, locale: string) {
+  return getTranslatedJSON<BrandLite & { products: ProductLite[] }>(
     `/api/brands/${slug}`,
+    locale,
     undefined,
     { tags: ['brands', `brand:${slug}`, `products:brand:${slug}`] },
   )
@@ -116,8 +145,8 @@ export async function fetchProducts(params?: {
     { tags },
   )
 }
-export async function fetchProductBySlug(slug: string) {
-  return getJSON<{
+export async function fetchProductBySlug(slug: string, locale: string) {
+  return getTranslatedJSON<{
     id: string
     name: string
     slug: string
@@ -126,9 +155,22 @@ export async function fetchProductBySlug(slug: string) {
     seoDescription?: string | null
     cover?: Media | null
     images?: { position: number; media: Media }[]
-    variants?: (ProductVariantLite & { image?: Media | null })[]
+    translations?: {
+      id?: string
+      locale: string
+      name?: string | null
+      slug?: string | null
+      description?: string | null
+      seoTitle?: string | null
+      seoDescription?: string | null
+    }[]
+    variants?: (ProductVariantLite & {
+      image?: Media | null
+      translations?: { id?: string; locale: string; label?: string | null }[]
+    })[]
     brand: { id: string; name: string; slug: string }
   }>(`/api/products/${slug}`,
+    locale,
     undefined,
     { tags: ['products', `product:${slug}`] },
   )

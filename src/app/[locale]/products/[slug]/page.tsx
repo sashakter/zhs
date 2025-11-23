@@ -9,8 +9,8 @@ export const revalidate = 600
 
 export async function generateMetadata(props: any) {
   const { params } = props
-  const { slug } = (await params) as { slug: string }
-  const p = await fetchProductBySlug(slug).catch(() => null)
+  const { slug, locale } = (await params) as { slug: string; locale: string }
+  const p = await fetchProductBySlug(slug, locale).catch(() => null)
   if (!p) return {}
   return {
     title: p.seoTitle || `${p.name} | Alcotrade`,
@@ -27,8 +27,8 @@ export async function generateMetadata(props: any) {
 
 export default async function ProductPage(props: any) {
   const { params } = props
-  const { slug } = (await params) as { slug: string }
-  const p = await fetchProductBySlug(slug).catch(() => null)
+  const { slug, locale } = (await params) as { slug: string; locale: string }
+  const p = await fetchProductBySlug(slug, locale).catch(() => null)
   if (!p) return notFound()
 
   const gallery = [
@@ -70,7 +70,7 @@ export default async function ProductPage(props: any) {
       <div className="relative z-20 mt-28 w-full max-w-6xl">
         <Breadcrumbs
           items={[
-            { label: 'Бренди', href: `/brands` },
+            { label: locale === 'en' ? 'Brands' : 'Бренди', href: `/brands` },
             { label: p.brand.name, href: `/brands/${p.brand.slug}` },
             { label: p.name },
           ]}
@@ -82,6 +82,7 @@ export default async function ProductPage(props: any) {
           brandSlug={p.brand.slug}
           description={p.description}
           gallery={gallery}
+          locale={locale}
           variants={p.variants}
         />
 
