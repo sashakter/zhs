@@ -31,7 +31,7 @@ export default function News() {
                 </span>
                 <p className="roboto">{t('date1')}</p>
               </div>
-              <p className="mb-5 min-h-[112px] text-xl font-semibold">
+              <p className="mb-5 min-h-28 text-xl font-semibold">
                 {t('descr1')}
               </p>
               <a
@@ -64,7 +64,7 @@ export default function News() {
                 </span>
                 <p className="roboto">{t('date2')}</p>
               </div>
-              <p className="mb-5 min-h-[112px] text-xl font-semibold">
+              <p className="mb-5 min-h-28 text-xl font-semibold">
                 {t('descr2')}
               </p>
               <a
