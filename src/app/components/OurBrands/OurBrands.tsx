@@ -23,7 +23,7 @@ export default async function OurBrands() {
       />
       <div className="absolute inset-0 bg-black opacity-30"></div>
 
-      <div className="relative z-10 mt-32 flex h-full flex-col items-center justify-start gap-20 py-7 text-center lg:gap-20 lg:py-20 lg:pb-20">
+      <div className="w-full relative z-10 mt-32 flex h-full flex-col items-center justify-start gap-20 py-7 text-center lg:gap-20 lg:py-20 lg:pb-20">
         <Title title={t('title')} />
         <OurBrandsCarousel brands={brands} />
         <RunningSroke />
