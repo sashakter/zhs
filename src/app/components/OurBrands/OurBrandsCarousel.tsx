@@ -26,7 +26,6 @@ export default function OurBrandsCarousel({ brands }: Props) {
     {
       align: "center",
       loop: visibleBrands.length > 3,
-      skipSnaps: false,
       dragFree: false,
       slidesToScroll: 1,
     },
@@ -36,8 +35,9 @@ export default function OurBrandsCarousel({ brands }: Props) {
   if (!visibleBrands.length) return null
 
   return (
-    <div className="relative select-none overflow-hidden" ref={emblaRef}>
-      <div className="flex gap-4 px-2 py-2">
+    <div className="relative select-none overflow-hidden w-full" ref={emblaRef}>
+      {/* IMPORTANT FIX: min-w-0 */}
+      <div className="flex gap-4 px-2 py-2 min-w-0">
         {visibleBrands.map((b) => {
           const isSvg = /\.svg(\?|$)/i.test(b.cover?.url || "")
           const pad = isSvg ? "p-4 lg:p-6" : "p-2 lg:p-4"
@@ -45,7 +45,7 @@ export default function OurBrandsCarousel({ brands }: Props) {
           return (
             <div
               key={b.id}
-              className="flex shrink-0 grow-0 basis-[80%] justify-center sm:basis-[55%] md:basis-[35%] lg:basis-[24%] xl:basis-[20%]"
+              className="flex shrink-0 grow-0 min-w-0 basis-[80%] justify-center sm:basis-[55%] md:basis-[35%] lg:basis-[24%] xl:basis-[20%]"
             >
               <Link
                 href={`/brands/${b.slug}` as any}
