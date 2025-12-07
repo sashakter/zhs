@@ -45,7 +45,7 @@ export default function OurBrandsCarousel({ brands }: Props) {
           return (
             <div
               key={b.id}
-              className="flex shrink-0 grow-0 min-w-0 basis-[80%] justify-center sm:basis-[55%] md:basis-[35%] lg:basis-[24%] xl:basis-[20%]"
+              className="flex shrink-0 grow-0 min-w-0 basis-[80%] justify-center sm:basis-[55%] md:basis-[35%] lg:basis-[24%]"
             >
               <Link
                 href={`/brands/${b.slug}` as any}
