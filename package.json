@@ -33,7 +33,7 @@
     "marked": "^16.4.2",
     "mongoose": "^8.18.2",
     "nanoid": "^5.1.6",
-    "next": "^15.5.4",
+    "next": "^15.5.7",
     "next-auth": "^4.24.13",
     "next-intl": "^4.5.0",
     "node-fetch": "^3.3.2",

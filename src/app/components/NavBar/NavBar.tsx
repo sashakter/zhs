@@ -44,35 +44,35 @@ const NavBar: React.FC = () => {
       <div className="xl: flex items-center pr-14 xl:justify-between">
         <div className="hidden gap-2 lg:flex xl:gap-6">
           <Link
-            className={`link ${pathname === '/' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
+            className={`link ${pathname === '/' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
             href="/"
           >
             {t('main')}
           </Link>
           <Image src={'/ear.svg'} alt="" width={20} height={20} role="presentation" style={{ height: 'auto', width: 'auto' }} />
           <Link
-            className={`link ${pathname === '/products' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
+            className={`link ${pathname === '/products' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
             href="/products"
           >
             {t('products')}
           </Link>
           <Image src={'/ear.svg'} alt="" width={20} height={20} role="presentation" style={{ height: 'auto', width: 'auto' }} />
           <Link
-            className={`link ${pathname === '/partners' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
+            className={`link ${pathname === '/partners' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
             href="/partners"
           >
             {t('partners')}
           </Link>
           <Image src={'/ear.svg'} alt="" width={20} height={20} role="presentation" style={{ height: 'auto', width: 'auto' }} />
           <Link
-            className={`link ${pathname === '/news' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
+            className={`link ${pathname === '/news' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
             href="/news"
           >
             {t('news')}
           </Link>
           <Image src={'/ear.svg'} alt="" width={20} height={20} role="presentation" style={{ height: 'auto', width: 'auto' }} />
           <Link
-            className={`link ${pathname === '/contacts' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
+            className={`link ${pathname === '/contacts' ? 'active' : ''} relative px-2 py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200 lg:text-sm xl:text-xl`}
             href="/contacts"
           >
             {t('contact_us')}

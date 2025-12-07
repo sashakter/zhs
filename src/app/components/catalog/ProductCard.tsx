@@ -14,7 +14,7 @@ export default function ProductCard({
   return (
     <li className="rounded-xl border border-neutral-800 bg-black/20 p-3 hover:border-neutral-600">
       <Link href={`/products/${p.slug}` as any}>
-        <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+        <div className="relative aspect-4/5 overflow-hidden rounded-lg">
           {p.cover?.url ? (
             <Image
               src={p.cover.url}
