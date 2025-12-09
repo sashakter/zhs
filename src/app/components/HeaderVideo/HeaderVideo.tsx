@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback, memo } from 'react'
 import css from './HeaderVideo.module.css'
 import Image from 'next/image'
 import { Link } from '@/src/navigation'
@@ -21,19 +21,14 @@ const HeaderVideo: React.FC = () => {
 
     const handleIntersect: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
+        const vid = videoRef.current
         if (entry.isIntersecting) {
           setIsVideoVisible(true)
-          const vid = videoRef.current
-          if (vid) {
-            vid.play().catch((err) => {
-              console.warn('Video autoplay prevented:', err)
-            })
-          }
-        } else {
-          const vid = videoRef.current
-          if (vid && !vid.paused) {
-            vid.pause()
-          }
+          vid?.play().catch((err) => {
+            console.warn('Video autoplay prevented:', err)
+          })
+        } else if (vid && !vid.paused) {
+          vid.pause()
         }
       })
     }
@@ -50,21 +45,18 @@ const HeaderVideo: React.FC = () => {
     }
   }, [])
 
-  const handleCanPlay = () => {
+  const handleCanPlay = useCallback(() => {
     const vid = videoRef.current
-    if (!vid) return
-    if (isVideoVisible) {
+    if (vid && isVideoVisible) {
       vid.play().catch((err) => {
         console.warn('Video play on canplay failed:', err)
       })
     }
-  }
+  }, [isVideoVisible])
 
-  const handleError: React.ReactEventHandler<HTMLVideoElement> = (e) => {
-    const target = e.currentTarget
-    const err = target?.error
-    console.error('Header BG video error:', err)
-  }
+  const handleError = useCallback<React.ReactEventHandler<HTMLVideoElement>>((e) => {
+    console.error('Header BG video error:', e.currentTarget?.error)
+  }, [])
 
   return (
     <div>
@@ -81,7 +73,7 @@ const HeaderVideo: React.FC = () => {
           disableRemotePlayback
           onCanPlay={handleCanPlay}
           onError={handleError}
-          className={`${css.videoBackground}`}
+          className={css.videoBackground}
           aria-hidden="true"
         >
           <source src="/bg-video-header.webm" type="video/webm" />
@@ -117,4 +109,4 @@ const HeaderVideo: React.FC = () => {
   )
 }
 
-export default HeaderVideo
+export default memo(HeaderVideo)

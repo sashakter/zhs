@@ -3,12 +3,16 @@
 import Image from 'next/image'
 import ContactBar from './ContactBar'
 import { Link } from '@/src/navigation'
-import React, { useState } from 'react'
+import React, { useState, memo, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
 
 const Footer: React.FC = () => {
   const t = useTranslations('Footer')
   const [showLicenseInfo, setShowLicenseInfo] = useState<boolean>(false)
+
+  const toggleLicenseInfo = useCallback(() => {
+    setShowLicenseInfo((s) => !s)
+  }, [])
 
   return (
     <footer className="relative flex flex-col gap-10 px-5 pb-3 pt-10">
@@ -18,6 +22,8 @@ const Footer: React.FC = () => {
           alt="background photo"
           fill
           className="object-cover"
+          loading="lazy"
+          quality={75}
         />
       </div>
       <div className="absolute inset-0 z-0 bg-[#000] opacity-80" />
@@ -47,13 +53,13 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col items-center gap-6 text-2xl font-thin uppercase lg:items-start">
           <Link
-            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
             href="/products"
           >
             {t('products')}
           </Link>
           <Link
-            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            className="relative py-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
             href="/partners"
           >
             {t('partnership')}
@@ -61,8 +67,8 @@ const Footer: React.FC = () => {
 
           <button
             type="button"
-            className="relative py-1 uppercase after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
-            onClick={() => setShowLicenseInfo((s) => !s)}
+            className="relative py-1 uppercase after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            onClick={toggleLicenseInfo}
           >
             {t('license')}
           </button>
@@ -73,7 +79,7 @@ const Footer: React.FC = () => {
           )}
 
           <Link
-            className="relative py-1 text-center after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+            className="relative py-1 text-center after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
             href="/policies"
           >
             {t('privacyPolicy')}
@@ -84,16 +90,16 @@ const Footer: React.FC = () => {
           src="/alcotrade-logo.svg"
           className="max-w-300 max-h-200 mx-auto drop-shadow-2xl lg:mx-0"
           alt="logo"
-          priority
           width={300}
           height={300}
+          loading="lazy"
         />
       </div>
 
       <div className="relative z-50 flex flex-col items-center justify-center gap-6">
         <h3 className="text-center text-xl">{t('rightsReserved')}</h3>
         <a
-          className="relative py-1 uppercase text-white after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
+          className="relative py-1 uppercase text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
           href="https://kalynagroup.space"
           target="_blank"
           rel="noreferrer"
@@ -105,4 +111,4 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)

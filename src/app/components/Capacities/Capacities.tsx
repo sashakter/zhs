@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback, useMemo, memo } from 'react'
 import Title from '../Title'
 import clsx from 'clsx'
 import Image from 'next/image'
@@ -13,12 +13,14 @@ interface Section {
   description: string
 }
 
+const MOBILE_BREAKPOINT = 1024
+
 const Capacities: React.FC = () => {
   const t = useTranslations('Capacities')
   const [openSection, setOpenSection] = useState<number | null>(null)
   const contentRefs = useRef<Array<HTMLDivElement | null>>([])
 
-  const sections: Section[] = [
+  const sections: Section[] = useMemo(() => [
     {
       id: 1,
       title: t('manufacturingLines.title'),
@@ -44,45 +46,39 @@ const Capacities: React.FC = () => {
       title: t('humanResources.title'),
       description: t('humanResources.description'),
     },
-  ]
+  ], [t])
 
-  const handleToggle = (id: number) => {
-    setOpenSection(openSection === id ? null : id)
-  }
+  const handleToggle = useCallback((id: number) => {
+    setOpenSection((prev) => (prev === id ? null : id))
+  }, [])
 
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoVisible, setIsVideoVisible] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (window.innerWidth < 1024) {
-      setIsMobile(true)
-    } else {
-      setIsMobile(false)
-    }
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+
+    const videoEl = videoRef.current
+    if (!videoEl) return
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVideoVisible(true)
-            if (videoRef.current) {
-              videoRef.current.play()
-            }
+            videoEl.play()
           }
         })
       },
       { threshold: 0.1 },
     )
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
-    }
+    observer.observe(videoEl)
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current)
-      }
+      observer.unobserve(videoEl)
+      observer.disconnect()
     }
   }, [])
 
@@ -187,4 +183,4 @@ const Capacities: React.FC = () => {
   )
 }
 
-export default Capacities
+export default memo(Capacities)

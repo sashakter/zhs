@@ -18,7 +18,7 @@ export default function News() {
         <div className="mb-10 flex flex-row flex-wrap items-center justify-center gap-12">
           <div className="flex w-[350px] flex-col rounded-xl bg-black">
             <Image
-              src="/first-news.png" // Replace with your brand logo path
+              src="/first-news.png" 
               alt="Hokey News"
               width={816}
               height={819}
@@ -51,7 +51,7 @@ export default function News() {
 
           <div className="flex w-[350px] flex-col rounded-xl bg-black">
             <Image
-              src="/second-news.png" // Replace with your brand logo path
+              src="/second-news.png" 
               alt="Hokey News"
               width={816}
               height={819}
@@ -84,7 +84,7 @@ export default function News() {
 
           <div className="flex w-[350px] flex-col rounded-xl bg-black">
             <Image
-              src="/third-news.png" // Replace with your brand logo path
+              src="/third-news.png" 
               alt="Hokey News"
               width={816}
               height={819}
@@ -117,7 +117,7 @@ export default function News() {
           <div className="flex gap-6">
             <Link href="/products">
               <Image
-                src="/sloza.png" // Replace with your brand logo path
+                src="/sloza.png" 
                 alt="Житня Сльоза"
                 width={500}
                 height={500}
@@ -126,7 +126,7 @@ export default function News() {
             </Link>
             <a href="https://hckremenchuk.com/" target="_blanc">
               <Image
-                src="/hokey-logo.png" // Replace with your brand logo path
+                src="/hokey-logo.png" 
                 alt="Хокейний клуб"
                 width={250}
                 height={224}

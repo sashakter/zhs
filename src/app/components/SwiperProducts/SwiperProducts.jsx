@@ -1,19 +1,53 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
-import 'swiper/css/autoplay' // Імпортуємо стилі для autoplay
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules' // Імпортуємо модуль Autoplay
+import 'swiper/css/autoplay'
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules'
 import Image from 'next/image'
 import css from './SwiperProducts.module.css'
+
+// Константы для изображений слайдера
+const SLIDER_IMAGES = [
+  { src: '/first-partner.jpg', alt: 'First photo gallery' },
+  { src: '/nine.jpg', alt: 'Nine photo gallery' },
+  { src: '/second-partner.jpg', alt: 'Second photo gallery' },
+  { src: '/third-partner.jpg', alt: 'Third photo gallery' },
+  { src: '/fourth-partner.jpg', alt: 'Fourth photo gallery' },
+  { src: '/fifth-partner.jpg', alt: 'Fifth photo gallery' },
+  { src: '/six-partner.jpg', alt: 'Six photo gallery' },
+  { src: '/ten.jpg', alt: 'Ten photo gallery' },
+  { src: '/eleven.jpg', alt: 'Eleven photo gallery' },
+  { src: '/twelve.jpg', alt: 'Twelve photo gallery' },
+  { src: '/thirteen.jpg', alt: 'Thirteen photo gallery' },
+  { src: '/fourteen.jpg', alt: 'Fourteen photo gallery' },
+  { src: '/fifteen.jpg', alt: 'Fifteen photo gallery' },
+]
+
+const IMAGE_DIMENSIONS = { width: 853, height: 1280 }
+
+// Мемоизированный компонент изображения слайда
+const SlideImage = memo(({ src, alt }) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={IMAGE_DIMENSIONS.width}
+    height={IMAGE_DIMENSIONS.height}
+    className={css.imagefirst}
+    loading="lazy"
+    quality={75}
+  />
+))
+SlideImage.displayName = 'SlideImage'
+
 const SwiperProducts = () => {
   return (
     <div className="my-20 flex h-full w-full items-center">
       <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
+        effect="coverflow"
+        grabCursor
+        centeredSlides
         breakpoints={{
           375: {
             slidesPerView: 3,
@@ -23,9 +57,7 @@ const SwiperProducts = () => {
             },
           },
         }}
-        // slidesPerView={5}
-        loop={true}
-        // loopAdditionalSlides={4}
+        loop
         speed={500}
         autoplay={{
           delay: 2000,
@@ -41,127 +73,14 @@ const SwiperProducts = () => {
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <Image
-            src={'/first-partner.jpg'}
-            alt="First photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/nine.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/second-partner.jpg'}
-            alt="Second photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/third-partner.jpg'}
-            alt="Third photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/fourth-partner.jpg'}
-            alt="Fourth photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/fifth-partner.jpg'}
-            alt="Fifth photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/six-partner.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image
-            src={'/ten.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/eleven.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/twelve.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/thirteen.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/fourteen.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={'/fifteen.jpg'}
-            alt="Six photo gallery"
-            width={853}
-            height={1280}
-            className={css.imagefirst}
-          />
-        </SwiperSlide>
+        {SLIDER_IMAGES.map((image, index) => (
+          <SwiperSlide key={index}>
+            <SlideImage src={image.src} alt={image.alt} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   )
 }
 
-export default SwiperProducts
+export default memo(SwiperProducts)
