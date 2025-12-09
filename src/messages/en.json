@@ -163,14 +163,14 @@
   },
   "News": {
     "title": "News",
-    "date1": "28 Sep. 2024",
-    "date2": "27 Sep. 2024",
-    "date3": "22 Sep. 2024",
-    "descr1": "The semifinal match ended in a disappointing defeat for our team.",
-    "descr2": "HC Kremenchuk unveiled their new uniform!",
-    "descr3": "The congress of the Ukrainian Hockey Federation took place in Kremenchuk: Serhiy Mazur is the new president of the federation.",
+    "seoTitle": "News | Alcotrade",
+    "seoDescription": "Latest news and events from Alcotrade company",
     "button": "Read More",
-    "text": "TM 'Zhytnya Slyoza' - General Sponsor of HC Kremenchuk"
+    "text": "TM 'Zhytnya Slyoza' - General Sponsor of HC Kremenchuk",
+    "noNews": "No news yet",
+    "backToNews": "Back to news",
+    "readMore": "Read more",
+    "otherNews": "Other news"
   },
   "AgeModal": {
     "title": "THIS CONTENT IS AVAILABLE ONLY TO ADULT USERS.<br/>HAVE YOU REACHED THE LEGAL DRINKING AGE?",

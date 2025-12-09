@@ -15,6 +15,7 @@ export const pathnames = {
   '/contacts': '/contacts',
   '/dashboard': '/dashboard',
   '/news': '/news',
+  '/news/[slug]': '/news/[slug]',
   '/partners': '/partners',
   '/policies': '/policies',
   '/reset-password': '/reset-password',

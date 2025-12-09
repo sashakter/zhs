@@ -1,137 +1,104 @@
-'use client'
 import Image from 'next/image'
-import Title from '../../components/Title'
-import { IoCalendarOutline } from 'react-icons/io5'
-import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from '@/src/navigation'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
+import Title from '../../components/Title'
+import { fetchArticles } from '@/src/lib/cms'
+import NewsCard from '../../components/news/NewsCard'
+import Pagination from '../../components/catalog/Pagination'
 
-export default function News() {
-  const t = useTranslations('News')
+export const revalidate = 600
+
+export async function generateMetadata(props: any) {
+  const { params } = props
+  const { locale } = (await params) as { locale: string }
+  const t = await getTranslations({ locale, namespace: 'News' })
+  
+  return {
+    title: t('seoTitle') || t('title'),
+    description: t('seoDescription') || undefined,
+  }
+}
+
+export default async function NewsPage(props: any) {
+  const { params, searchParams } = props
+  const resolvedParams = await params
+  const locale = resolvedParams.locale ?? 'uk'
+  const t = await getTranslations({ locale, namespace: 'News' })
+  
+  const sp = (await searchParams) as {
+    page?: string
+    pageSize?: string
+  }
+  const page = Math.max(1, Number(sp?.page || 1))
+  const pageSize = Math.min(24, Math.max(6, Number(sp?.pageSize || 12)))
+
+  const data = await fetchArticles({ 
+    page, 
+    pageSize, 
+    status: 'ACTIVE',
+    locale,
+    sort: 'date_desc'
+  })
+
   return (
-    <div className="relative flex h-full w-full flex-col justify-center bg-newsMobile bg-cover bg-no-repeat px-3 lg:bg-news lg:bg-contain xl:bg-cover">
-      <div className="absolute inset-0 z-10 bg-black/70"></div>
-      <div className="relative z-20 my-32">
+    <div className="relative flex h-full w-full flex-col justify-center px-3">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/diamond.jpg"
+          alt="Background"
+          fill={true}
+          className="object-cover"
+          quality={100}
+        />
+      </div>
+      <div className="absolute inset-0 z-0 bg-[#022]/50" />
+      <div className="relative z-20 my-32 max-w-6xl mx-auto">
         <div className="mb-14">
           <Title title={t('title')} earColor="#fff" />
         </div>
-        <div className="mb-10 flex flex-row flex-wrap items-center justify-center gap-12">
-          <div className="flex w-[350px] flex-col rounded-xl bg-black">
-            <Image
-              src="/first-news.png" 
-              alt="Hokey News"
-              width={816}
-              height={819}
-              className="w-full rounded-xl"
-            />
-            <div className="flex flex-col px-4 py-2">
-              <div className="mb-3 mt-2 flex w-36 items-center justify-center gap-2 rounded-2xl bg-custom-calendar p-1">
-                <span>
-                  <IoCalendarOutline size={20} />
-                </span>
-                <p className="roboto">{t('date1')}</p>
-              </div>
-              <p className="mb-5 min-h-28 text-xl font-semibold">
-                {t('descr1')}
-              </p>
-              <a
-                href="https://www.instagram.com/p/DAdpeYHtlSy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                target="_blanc"
-                className="mb-4 flex cursor-pointer justify-end"
-              >
-                <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
-                  <p className="roboto">{t('button')}</p>
-                  <span>
-                    <IoIosArrowForward size={15} />
-                  </span>
-                </div>
-              </a>
+        
+        {data.items.length === 0 ? (
+          <p className="text-center text-neutral-400">{t('noNews') || 'Новин поки немає'}</p>
+        ) : (
+          <>
+            <div className="mb-10 flex flex-row flex-wrap items-center justify-center gap-12">
+              {data.items.map((article) => (
+                <NewsCard key={article.id} article={article} buttonText={t('button')} />
+              ))}
             </div>
-          </div>
-
-          <div className="flex w-[350px] flex-col rounded-xl bg-black">
-            <Image
-              src="/second-news.png" 
-              alt="Hokey News"
-              width={816}
-              height={819}
-              className="w-full rounded-xl"
-            />
-            <div className="flex flex-col px-4 py-2">
-              <div className="mb-3 mt-2 flex w-36 items-center justify-center gap-2 rounded-2xl bg-custom-calendar p-1">
-                <span>
-                  <IoCalendarOutline size={20} />
-                </span>
-                <p className="roboto">{t('date2')}</p>
+            
+            {data.total > pageSize && (
+              <div className="flex justify-center">
+                <Pagination
+                  basePath="/news"
+                  page={page}
+                  limit={pageSize}
+                  total={data.total}
+                />
               </div>
-              <p className="mb-5 min-h-28 text-xl font-semibold">
-                {t('descr2')}
-              </p>
-              <a
-                href="https://www.instagram.com/reel/DAbDe6cNjhH/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                target="_blanc"
-                className="mb-4 flex cursor-pointer justify-end"
-              >
-                <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
-                  <p className="roboto">{t('button')}</p>
-                  <span>
-                    <IoIosArrowForward size={15} />
-                  </span>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className="flex w-[350px] flex-col rounded-xl bg-black">
-            <Image
-              src="/third-news.png" 
-              alt="Hokey News"
-              width={816}
-              height={819}
-              className="w-full rounded-xl"
-            />
-            <div className="flex flex-col px-4 py-2">
-              <div className="mb-3 mt-2 flex w-36 items-center justify-center gap-2 rounded-2xl bg-custom-calendar p-1">
-                <span>
-                  <IoCalendarOutline size={20} />
-                </span>
-                <p className="roboto">{t('date3')}</p>
-              </div>
-              <p className="mb-5 text-xl font-semibold">{t('descr3')}</p>
-              <a
-                href="https://www.instagram.com/p/DAOvT_dN7WL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                target="_blank"
-                className="mb-4 flex cursor-pointer justify-end"
-              >
-                <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center">
-                  <p className="roboto">{t('button')}</p>
-                  <span>
-                    <IoIosArrowForward size={15} />
-                  </span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-3">
+            )}
+          </>
+        )}
+        
+        <div className="mt-10 flex flex-col items-center gap-3">
           <div className="flex gap-6">
             <Link href="/products">
               <Image
-                src="/sloza.png" 
+                src="/sloza.png"
                 alt="Житня Сльоза"
                 width={500}
                 height={500}
                 className="mb-6 w-24 drop-shadow-2xl hover:drop-shadow-[0_15px_15px_rgba(194,153,113,0.25)] hover:duration-150 lg:w-44"
-              />{' '}
+              />
             </Link>
-            <a href="https://hckremenchuk.com/" target="_blanc">
+            <a href="https://hckremenchuk.com/" target="_blank" rel="noopener noreferrer">
               <Image
-                src="/hokey-logo.png" 
+                src="/hokey-logo.png"
                 alt="Хокейний клуб"
                 width={250}
                 height={224}
                 className="mb-6 w-24 drop-shadow-2xl hover:drop-shadow-[0_15px_15px_rgba(135,217,255,0.25)] hover:duration-150 lg:w-44"
-              />{' '}
+              />
             </a>
           </div>
           <h2 className="text-center text-3xl leading-10">{t('text')}</h2>

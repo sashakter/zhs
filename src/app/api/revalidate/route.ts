@@ -3,7 +3,7 @@ import { revalidateTag } from 'next/cache'
 
 type WebhookBody = {
   secret: string
-  type: 'brand' | 'product' | 'brands' | 'products'
+  type: 'brand' | 'product' | 'brands' | 'products' | 'articles' | 'article'
   slug?: string
   brandSlug?: string
   productSlugs?: string[]
@@ -80,6 +80,14 @@ export async function POST(req: NextRequest) {
     if (productSlugs?.length) {
       await Promise.all(productSlugs.map((s) => revalidate(`product:${s}`)))
     }
+  } else if (body.type === 'articles') {
+    await revalidate('articles')
+  } else if (body.type === 'article') {
+    if (!body.slug) {
+      return NextResponse.json({ ok: false, error: 'Missing article slug' }, { status: 400 })
+    }
+    await revalidate('articles')
+    await revalidate(`article:${body.slug}`)
   } else {
     return NextResponse.json({ ok: false, error: 'Unknown type' }, { status: 400 })
   }
