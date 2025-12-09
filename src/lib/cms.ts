@@ -175,3 +175,61 @@ export async function fetchProductBySlug(slug: string, locale: string) {
     { tags: ['products', `product:${slug}`] },
   )
 }
+
+// ============ ARTICLES (NEWS) ============
+
+export type ArticleLite = {
+  id: string
+  title: string
+  slug: string
+  locale: string
+  excerpt?: string | null
+  cover?: Media | null
+  date?: string | null
+  publishedAt?: string | null
+  status: 'DRAFT' | 'ACTIVE' | 'ARCHIVE'
+}
+
+export type ArticleDetail = ArticleLite & {
+  content?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
+  images?: { position: number; media: Media }[]
+  createdAt: string
+  updatedAt: string
+}
+
+export type ArticlesList = {
+  items: ArticleLite[]
+  total: number
+}
+
+export async function fetchArticles(params?: {
+  query?: string
+  page?: number
+  pageSize?: number
+  status?: 'ACTIVE' | 'DRAFT' | 'ARCHIVE'
+  locale?: string
+  sort?: string
+}) {
+  return getJSON<ArticlesList>(
+    '/api/articles',
+    {
+      status: params?.status ?? 'ACTIVE',
+      query: params?.query,
+      page: params?.page,
+      pageSize: params?.pageSize,
+      locale: params?.locale,
+      sort: params?.sort ?? 'date_desc',
+    },
+    { tags: ['articles'] },
+  )
+}
+
+export async function fetchArticleBySlug(slug: string, locale: string) {
+  return getJSON<ArticleDetail>(
+    `/api/articles/${slug}`,
+    { locale },
+    { tags: ['articles', `article:${slug}`] },
+  )
+}
