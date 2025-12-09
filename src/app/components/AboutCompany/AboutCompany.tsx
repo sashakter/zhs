@@ -1,20 +1,27 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo, memo } from 'react'
 import Title from '../Title'
 import css from '../AboutCompany/AboutCompany.module.css'
 import { useTranslations } from 'next-intl'
 import { SlCursor, SlChart, SlGraph, SlGrid, SlBadge } from 'react-icons/sl'
 
+// Константы размеров иконок
+const ICON_SIZE_MOBILE = 25
+const ICON_SIZE_DESKTOP = 40
+const MOBILE_BREAKPOINT = 768
+
 const AboutCompany: React.FC = () => {
   const t = useTranslations('AboutCompany')
-  const [swidth, setSwidth] = useState(0)
+  const [swidth, setSwidth] = useState(ICON_SIZE_DESKTOP)
 
   useEffect(() => {
-    if (screen.width < 768) {
-      setSwidth(25)
-    } else {
-      setSwidth(40)
+    const handleResize = () => {
+      setSwidth(window.innerWidth < MOBILE_BREAKPOINT ? ICON_SIZE_MOBILE : ICON_SIZE_DESKTOP)
     }
+    handleResize()
+    // Опционально: слушать ресайз для адаптивности
+    // window.addEventListener('resize', handleResize)
+    // return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (
@@ -114,4 +121,4 @@ const AboutCompany: React.FC = () => {
   )
 }
 
-export default AboutCompany
+export default memo(AboutCompany)
