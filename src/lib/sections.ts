@@ -7,7 +7,7 @@ export interface Section {
 
 export async function getSections(): Promise<Section[]> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+    const baseUrl = process.env.CMS_PUBLIC_BASE_URL || 'http://localhost:3000'
     const res = await fetch(`${baseUrl}/api/translate/main-page/reorder`, {
       next: { tags: ['sections'] }, 
     })
