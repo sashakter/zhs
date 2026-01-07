@@ -63,7 +63,7 @@ export default async function NewsPage(props: any) {
           <>
             <div className="mb-10 flex flex-row flex-wrap items-center justify-center gap-12">
               {data.items.map((article) => (
-                <NewsCard key={article.id} article={article} buttonText={t('button')} />
+                <NewsCard key={article.id} article={article} buttonText={t('button')} locale={locale} />
               ))}
             </div>
             

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: alcotrade-website-dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      # Mount source code for live updates
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./db:/app/db
+      - ./middleware.ts:/app/middleware.ts
+      - ./next.config.mjs:/app/next.config.mjs
+      - ./tailwind.config.ts:/app/tailwind.config.ts
+      - ./postcss.config.mjs:/app/postcss.config.mjs
+      - ./tsconfig.json:/app/tsconfig.json
+      # Prevent overwriting node_modules
+      - /app/node_modules
+      - /app/.next
+    restart: unless-stopped

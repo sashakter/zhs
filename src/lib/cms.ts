@@ -15,6 +15,9 @@ async function getJSON<T>(
   if (search)
     for (const [k, v] of Object.entries(search))
       if (v != null) url.searchParams.set(k, String(v))
+  
+  console.log('[CMS] Fetching:', url.toString())
+  
   const res = await fetch(url.toString(), {
     headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : undefined,
     next: { revalidate: revalidateSeconds, tags: nextOpts?.tags },
@@ -222,7 +225,7 @@ export async function fetchArticles(params?: {
       locale: params?.locale,
       sort: params?.sort ?? 'date_desc',
     },
-    { tags: ['articles'] },
+    { tags: ['articles', `articles:${params?.locale ?? 'uk'}`] },
   )
 }
 

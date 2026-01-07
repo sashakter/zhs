@@ -28,12 +28,21 @@ export async function generateMetadata(props: any) {
 export default async function NewsSlugPage(props: any) {
   const { params } = props
   const { slug, locale } = (await params) as { slug: string; locale: string }
+  
+  console.log('=== NewsSlugPage Debug ===')
+  console.log('Params:', { slug, locale })
+  
   const t = await getTranslations({ locale, namespace: 'News' })
   
-  const article = await fetchArticleBySlug(slug, locale).catch(() => null)
+  const article = await fetchArticleBySlug(slug, locale).catch((e) => {
+    console.log('Fetch error:', e.message)
+    return null
+  })
+  
+  console.log('Article found:', article ? `${article.title} (locale: ${article.locale})` : 'NOT FOUND')
+  
   if (!article) return notFound()
 
-  // Приоритет: date → publishedAt
   const displayDate = article.date || article.publishedAt
   const formattedDate = displayDate
     ? new Date(displayDate).toLocaleDateString(locale === 'en' ? 'en-US' : 'uk-UA', {
@@ -71,15 +80,14 @@ export default async function NewsSlugPage(props: any) {
         {/* Back link */}
         <Link
           href="/news"
+          locale={locale as 'uk' | 'en'}
           className="mb-8 inline-flex items-center gap-2 text-neutral-300 transition-colors hover:text-white"
         >
           <IoArrowBack size={20} />
           <span>{t('backToNews') || 'Назад до новин'}</span>
         </Link>
 
-        {/* Article header */}
         <article className="rounded-xl bg-black/50 p-6 backdrop-blur-sm lg:p-10">
-          {/* Date */}
           {formattedDate && (
             <div className="mb-4 flex items-center gap-2 text-neutral-400">
               <IoCalendarOutline size={18} />
@@ -87,7 +95,6 @@ export default async function NewsSlugPage(props: any) {
             </div>
           )}
 
-          {/* Title */}
           <h1 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl">
             {article.title}
           </h1>
@@ -145,7 +152,7 @@ export default async function NewsSlugPage(props: any) {
             <Title title={t('otherNews') || 'Інші новини'} earColor="#fff" />
             <div className="mt-8 flex flex-wrap justify-center gap-8">
               {otherArticles.map((a) => (
-                <NewsCard key={a.id} article={a} buttonText={t('button')} />
+                <NewsCard key={a.id} article={a} buttonText={t('button')} locale={locale} />
               ))}
             </div>
           </section>

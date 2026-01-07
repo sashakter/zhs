@@ -1,0 +1,26 @@
+FROM node:20-alpine AS base
+
+# Install dependencies
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json* ./
+# Copy scripts folder because it is needed for postinstall script
+COPY scripts ./scripts
+
+# Install all dependencies
+RUN npm install
+
+# Copy all project files
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+ENV WATCHPACK_POLLING=true
+
+# Run development server
+CMD ["npm", "run", "dev"]

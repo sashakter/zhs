@@ -8,9 +8,18 @@ const nextConfig = {
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/**' },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve = config.resolve || {}
     config.resolve.alias = { ...(config.resolve.alias || {}), canvas: false }
+    
+    // Enable polling for file watching in Docker
+    if (!isServer) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      }
+    }
+    
     return config
   },
   async redirects() {

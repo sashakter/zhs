@@ -7,13 +7,13 @@ import type { ArticleLite } from '@/src/lib/cms'
 type Props = {
   article: ArticleLite
   buttonText: string
+  locale?: string
 }
 
-export default function NewsCard({ article, buttonText }: Props) {
-  // Приоритет: date → publishedAt
+export default function NewsCard({ article, buttonText, locale }: Props) {
   const displayDate = article.date || article.publishedAt
   const formattedDate = displayDate
-    ? new Date(displayDate).toLocaleDateString('uk-UA', {
+    ? new Date(displayDate).toLocaleDateString(locale === 'en' ? 'en-US' : 'uk-UA', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
@@ -52,6 +52,7 @@ export default function NewsCard({ article, buttonText }: Props) {
         )}
         <Link
           href={{ pathname: '/news/[slug]', params: { slug: article.slug } }}
+          locale={locale as 'uk' | 'en' | undefined}
           className="mb-4 flex cursor-pointer justify-end"
         >
           <div className="flex w-36 items-center justify-center gap-1 rounded-2xl bg-custom-calendar px-2 py-2 text-center transition-colors hover:bg-custom-calendar/80">
