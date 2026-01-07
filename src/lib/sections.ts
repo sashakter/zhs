@@ -9,7 +9,7 @@ export async function getSections(): Promise<Section[]> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
     const res = await fetch(`${baseUrl}/api/translate/main-page/reorder`, {
-      cache: 'no-store',
+      next: { tags: ['sections'] }, 
     })
 
     if (!res.ok) {
