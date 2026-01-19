@@ -8,15 +8,23 @@ export async function GET(request: NextRequest) {
     const page = Math.max(1, Number(searchParams.get('page') || 1))
     const limit = Math.min(48, Math.max(12, Number(searchParams.get('limit') || 24)))
     const q = searchParams.get('q') || undefined
+    const locale = searchParams.get('locale') || 'uk'
 
-    const data = await fetchProducts({ q, page, limit, status: 'ACTIVE' })
+    const data = await fetchProducts({ q, page, limit, status: 'ACTIVE', locale })
 
-    return NextResponse.json({
-      items: data.items,
-      total: data.total,
-      page,
-      limit,
-    })
+    return NextResponse.json(
+      {
+        items: data.items,
+        total: data.total,
+        page,
+        limit,
+      },
+      {
+        headers: {
+          'Cache-Control': 'public, max-age=0, stale-while-revalidate=3600',
+        },
+      }
+    )
   } catch (error) {
     console.error('Error fetching products:', error)
     return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 })

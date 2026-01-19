@@ -17,12 +17,19 @@ export async function GET(request: NextRequest) {
       sort: 'date_desc',
     })
 
-    return NextResponse.json({
-      items: data.items,
-      total: data.total,
-      page,
-      pageSize,
-    })
+    return NextResponse.json(
+      {
+        items: data.items,
+        total: data.total,
+        page,
+        pageSize,
+      },
+      {
+        headers: {
+          'Cache-Control': 'public, max-age=0, stale-while-revalidate=3600',
+        },
+      }
+    )
   } catch (error) {
     console.error('Error fetching articles:', error)
     return NextResponse.json({ error: 'Failed to fetch articles' }, { status: 500 })

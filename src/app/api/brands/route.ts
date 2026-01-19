@@ -4,9 +4,14 @@ import { fetchBrands } from '@/src/lib/cms'
 
 export async function GET(request: NextRequest) {
   try {
-    const data = await fetchBrands({ limit: 120, status: 'ACTIVE' })
+    const locale = new URL(request.url).searchParams.get('locale') || 'uk'
+    const data = await fetchBrands({ limit: 120, status: 'ACTIVE', locale })
 
-    return NextResponse.json(data.items || [])
+    return NextResponse.json(data.items || [], {
+      headers: {
+        'Cache-Control': 'public, max-age=0, stale-while-revalidate=3600',
+      },
+    })
   } catch (error) {
     console.error('Error fetching brands:', error)
     return NextResponse.json({ error: 'Failed to fetch brands' }, { status: 500 })

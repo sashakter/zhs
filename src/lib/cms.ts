@@ -105,6 +105,7 @@ export async function fetchBrands(params?: {
   page?: number
   limit?: number
   status?: 'ACTIVE'
+  locale?: string
 }) {
   return getJSON<BrandsList>(
     '/api/brands',
@@ -113,8 +114,9 @@ export async function fetchBrands(params?: {
       q: params?.q,
       page: params?.page,
       limit: params?.limit,
+      locale: params?.locale ?? 'uk',
     },
-    { tags: ['brands'] },
+    { tags: ['brands', `brands:${params?.locale ?? 'uk'}`] },
   )
 }
 export async function fetchBrandBySlug(slug: string, locale: string) {
@@ -131,9 +133,11 @@ export async function fetchProducts(params?: {
   page?: number
   limit?: number
   status?: 'ACTIVE'
+  locale?: string
 }) {
   const tags = [
     'products',
+    `products:${params?.locale ?? 'uk'}`,
     ...(params?.brand ? [`products:brand:${params.brand}`] : []),
   ]
   return getJSON<ProductsList>(
@@ -144,6 +148,7 @@ export async function fetchProducts(params?: {
       q: params?.q,
       page: params?.page,
       limit: params?.limit,
+      locale: params?.locale ?? 'uk',
     },
     { tags },
   )
