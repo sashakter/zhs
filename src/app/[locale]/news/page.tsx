@@ -6,7 +6,9 @@ import { fetchArticles } from '@/src/lib/cms'
 import NewsCard from '../../components/news/NewsCard'
 import Pagination from '../../components/catalog/Pagination'
 
-export const revalidate = 600
+// Динамическая страница с перевалидацией через теги
+export const revalidate = false
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(props: any) {
   const { params } = props

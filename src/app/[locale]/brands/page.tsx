@@ -3,7 +3,9 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import BrandCard from '../../components/catalog/BrandCard'
 
-export const revalidate = 600
+// Динамическая страница с перевалидацией через теги
+export const revalidate = false
+export const dynamic = 'force-dynamic'
 
 export default async function BrandsPage() {
   const data = await fetchBrands({ limit: 120, status: 'ACTIVE' })

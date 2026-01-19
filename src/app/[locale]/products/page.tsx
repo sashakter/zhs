@@ -5,7 +5,9 @@ import Pagination from '@/src/app/components/catalog/Pagination'
 import ProductCard from '@/src/app/components/catalog/ProductCard'
 import Image from 'next/image'
 
-export const revalidate = 600
+// Динамическая страница с перевалидацией через теги
+export const revalidate = false
+export const dynamic = 'force-dynamic'
 
 export default async function ProductsAllPage(props: any) {
   const { params, searchParams } = props

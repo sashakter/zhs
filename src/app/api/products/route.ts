@@ -33,16 +33,17 @@ export async function GET(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    // Проверка авторизации (если нужна)
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // После обновления продуктов в БД
+    // Очищаем кэш для продуктов на всех локалях
     revalidateTag('products')
+    revalidateTag('products:uk')
+    revalidateTag('products:en')
 
-    return NextResponse.json({ revalidated: true })
+    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
   } catch (error) {
     console.error('Error updating products:', error)
     return NextResponse.json({ error: 'Failed to update products' }, { status: 500 })

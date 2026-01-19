@@ -20,16 +20,17 @@ export async function GET(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    // Проверка авторизации (если нужна)
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // После обновления брендов в БД
+    // Очищаем кэш для брендов на всех локалях
     revalidateTag('brands')
+    revalidateTag('brands:uk')
+    revalidateTag('brands:en')
 
-    return NextResponse.json({ revalidated: true })
+    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
   } catch (error) {
     console.error('Error updating brands:', error)
     return NextResponse.json({ error: 'Failed to update brands' }, { status: 500 })

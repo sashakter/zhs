@@ -25,16 +25,15 @@ export async function GET(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    // Проверка авторизации
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // После обновления секций в CMS
+    // Очищаем кэш для секций
     revalidateTag('sections')
 
-    return NextResponse.json({ revalidated: true, success: true })
+    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
   } catch (error) {
     console.error('Error updating sections:', error)
     return NextResponse.json({ error: 'Failed to update sections' }, { status: 500 })

@@ -18,6 +18,9 @@ const sectionComponents: Record<string, React.FC> = {
 // Секции которые рендерятся в header
 const headerSections = ['hero']
 
+// Динамическая страница с перевалидацией через теги
+export const dynamic = 'force-dynamic'
+
 export default async function Page() {
   const sections = await getSections()
 

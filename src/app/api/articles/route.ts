@@ -38,16 +38,18 @@ export async function GET(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    // Проверка авторизации (если нужна)
+    // Проверка авторизации
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // После обновления новостей в БД
+    // Очищаем кэш для статей на всех локалях
     revalidateTag('articles')
+    revalidateTag('articles:uk')
+    revalidateTag('articles:en')
 
-    return NextResponse.json({ revalidated: true })
+    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
   } catch (error) {
     console.error('Error updating articles:', error)
     return NextResponse.json({ error: 'Failed to update articles' }, { status: 500 })

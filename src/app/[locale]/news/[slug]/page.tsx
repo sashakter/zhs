@@ -112,13 +112,6 @@ export default async function NewsSlugPage(props: any) {
             </div>
           )}
 
-          {/* Excerpt */}
-          {article.excerpt && (
-            <p className="mb-6 text-lg leading-relaxed text-neutral-300">
-              {article.excerpt}
-            </p>
-          )}
-
           {/* Content */}
           {article.content && (
             <div
