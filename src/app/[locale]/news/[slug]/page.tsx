@@ -5,10 +5,12 @@ import { getTranslations } from 'next-intl/server'
 import { IoCalendarOutline } from 'react-icons/io5'
 import { IoArrowBack } from 'react-icons/io5'
 import { fetchArticleBySlug, fetchArticles } from '@/src/lib/cms'
+import { renderRichText } from '@/src/lib/richtext'
 import Title from '../../../components/Title'
 import NewsCard from '../../../components/news/NewsCard'
 
-export const revalidate = 600
+export const revalidate = false
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(props: any) {
   const { params } = props
@@ -116,7 +118,7 @@ export default async function NewsSlugPage(props: any) {
           {article.content && (
             <div
               className="prose prose-invert prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: article.content }}
+              dangerouslySetInnerHTML={{ __html: renderRichText(article.content) }}
             />
           )}
 
