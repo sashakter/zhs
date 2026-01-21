@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidateTag } from 'next/cache'
+import { revalidateTag, revalidatePath } from 'next/cache'
 import { fetchArticles } from '@/src/lib/cms'
 
 export async function GET(request: NextRequest) {
@@ -38,20 +38,33 @@ export async function GET(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    // Проверка авторизации
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
+      console.warn('[Articles API] Unauthorized PUT request')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
+
+    console.log('[Articles API] Revalidating articles cache')
 
     // Очищаем кэш для статей на всех локалях
     revalidateTag('articles')
     revalidateTag('articles:uk')
     revalidateTag('articles:en')
 
-    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
+    // Также очищаем кэш для страниц
+    revalidatePath('/uk/news')
+    revalidatePath('/en/news')
+    revalidatePath('/news')
+
+    console.log('[Articles API] ✓ Revalidation complete')
+
+    return NextResponse.json({
+      revalidated: true,
+      message: 'Articles cache cleared successfully',
+      timestamp: new Date().toISOString(),
+    })
   } catch (error) {
-    console.error('Error updating articles:', error)
+    console.error('[Articles API] Error during revalidation:', error)
     return NextResponse.json({ error: 'Failed to update articles' }, { status: 500 })
   }
 }

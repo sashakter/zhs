@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidateTag } from 'next/cache'
+import { revalidateTag, revalidatePath } from 'next/cache'
 import { fetchProducts } from '@/src/lib/cms'
 
 export async function GET(request: NextRequest) {
@@ -35,17 +35,29 @@ export async function PUT(request: NextRequest) {
   try {
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
+      console.warn('[Products API] Unauthorized PUT request')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Очищаем кэш для продуктов на всех локалях
+    console.log('[Products API] Revalidating products cache')
+
     revalidateTag('products')
     revalidateTag('products:uk')
     revalidateTag('products:en')
 
-    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
+    revalidatePath('/uk/products')
+    revalidatePath('/en/products')
+    revalidatePath('/products')
+
+    console.log('[Products API] ✓ Revalidation complete')
+
+    return NextResponse.json({
+      revalidated: true,
+      message: 'Products cache cleared successfully',
+      timestamp: new Date().toISOString(),
+    })
   } catch (error) {
-    console.error('Error updating products:', error)
+    console.error('[Products API] Error during revalidation:', error)
     return NextResponse.json({ error: 'Failed to update products' }, { status: 500 })
   }
 }

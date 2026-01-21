@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidateTag } from 'next/cache'
+import { revalidateTag, revalidatePath } from 'next/cache'
 import { fetchBrands } from '@/src/lib/cms'
 
 export async function GET(request: NextRequest) {
@@ -22,17 +22,29 @@ export async function PUT(request: NextRequest) {
   try {
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
+      console.warn('[Brands API] Unauthorized PUT request')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Очищаем кэш для брендов на всех локалях
+    console.log('[Brands API] Revalidating brands cache')
+
     revalidateTag('brands')
     revalidateTag('brands:uk')
     revalidateTag('brands:en')
 
-    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
+    revalidatePath('/uk/brands')
+    revalidatePath('/en/brands')
+    revalidatePath('/brands')
+
+    console.log('[Brands API] ✓ Revalidation complete')
+
+    return NextResponse.json({
+      revalidated: true,
+      message: 'Brands cache cleared successfully',
+      timestamp: new Date().toISOString(),
+    })
   } catch (error) {
-    console.error('Error updating brands:', error)
+    console.error('[Brands API] Error during revalidation:', error)
     return NextResponse.json({ error: 'Failed to update brands' }, { status: 500 })
   }
 }

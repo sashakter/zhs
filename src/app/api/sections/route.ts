@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidateTag } from 'next/cache'
+import { revalidateTag, revalidatePath } from 'next/cache'
 
 export async function GET(request: NextRequest) {
   try {
@@ -27,15 +27,27 @@ export async function PUT(request: NextRequest) {
   try {
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
+      console.warn('[Sections API] Unauthorized PUT request')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Очищаем кэш для секций
+    console.log('[Sections API] Revalidating sections cache')
+
     revalidateTag('sections')
 
-    return NextResponse.json({ revalidated: true, timestamp: new Date().toISOString() })
+    revalidatePath('/uk', 'layout')
+    revalidatePath('/en', 'layout')
+    revalidatePath('/', 'layout')
+
+    console.log('[Sections API] ✓ Revalidation complete')
+
+    return NextResponse.json({
+      revalidated: true,
+      message: 'Sections cache cleared successfully',
+      timestamp: new Date().toISOString(),
+    })
   } catch (error) {
-    console.error('Error updating sections:', error)
+    console.error('[Sections API] Error during revalidation:', error)
     return NextResponse.json({ error: 'Failed to update sections' }, { status: 500 })
   }
 }

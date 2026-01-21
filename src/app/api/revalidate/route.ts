@@ -1,4 +1,4 @@
-import { revalidateTag } from 'next/cache'
+import { revalidateTag, revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
 /**
@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
   try {
     const secret = request.headers.get('x-api-secret')
     if (secret !== process.env.API_SECRET) {
+      console.warn('[Revalidate] Unauthorized: Invalid secret')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -35,15 +36,52 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    console.log(`[Revalidate] Starting revalidation for tags:`, tagsToRevalidate)
+
     // Очищаем кэш для каждого тега
     tagsToRevalidate.forEach((t: string) => {
       revalidateTag(t)
       console.log(`[Revalidate] Tag cleared: ${t}`)
     })
 
+    // Также очищаем кэш для страниц которые используют эти теги
+    // Это необходимо для немедленного обновления в production
+    const pathsToRevalidate: string[] = []
+
+    if (tagsToRevalidate.includes('articles')) {
+      pathsToRevalidate.push('/uk/news', '/en/news', '/news')
+      revalidatePath('/uk/news')
+      revalidatePath('/en/news')
+      revalidatePath('/news')
+    }
+
+    if (tagsToRevalidate.includes('products')) {
+      pathsToRevalidate.push('/uk/products', '/en/products', '/products')
+      revalidatePath('/uk/products')
+      revalidatePath('/en/products')
+      revalidatePath('/products')
+    }
+
+    if (tagsToRevalidate.includes('brands')) {
+      pathsToRevalidate.push('/uk/brands', '/en/brands', '/brands')
+      revalidatePath('/uk/brands')
+      revalidatePath('/en/brands')
+      revalidatePath('/brands')
+    }
+
+    if (tagsToRevalidate.includes('sections')) {
+      pathsToRevalidate.push('/uk', '/en', '/')
+      revalidatePath('/uk', 'layout')
+      revalidatePath('/en', 'layout')
+      revalidatePath('/', 'layout')
+    }
+
+    console.log(`[Revalidate] Paths revalidated:`, pathsToRevalidate)
+
     return NextResponse.json({
       revalidated: true,
       tags: tagsToRevalidate,
+      paths: pathsToRevalidate,
       timestamp: new Date().toISOString(),
     })
   } catch (error) {
