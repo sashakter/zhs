@@ -56,7 +56,8 @@ export async function getArticles(
     })
 
     const res = await fetch(`${BASE_URL}/api/articles?${params}`, {
-      next: { tags: options.tags || ['articles'] },
+      next: { tags: options.tags || ['articles'], revalidate: false },
+      cache: 'no-store',
     })
 
     if (!res.ok) {
@@ -78,7 +79,8 @@ export async function getBrands(
 ): Promise<Brand[]> {
   try {
     const res = await fetch(`${BASE_URL}/api/brands`, {
-      next: { tags: options.tags || ['brands'] },
+      next: { tags: options.tags || ['brands'], revalidate: false },
+      cache: 'no-store',
     })
 
     if (!res.ok) {
@@ -112,7 +114,8 @@ export async function getProducts(
     }
 
     const res = await fetch(`${BASE_URL}/api/products?${params}`, {
-      next: { tags: options.tags || ['products'] },
+      next: { tags: options.tags || ['products'], revalidate: false },
+      cache: 'no-store',
     })
 
     if (!res.ok) {

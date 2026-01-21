@@ -1,6 +1,7 @@
 const BASE = process.env.CMS_PUBLIC_BASE_URL!
 const TOKEN = process.env.CMS_READONLY_TOKEN
-export const revalidateSeconds = 600
+// Используем минимальное значение для ISR - основной контроль через теги и revalidate endpoints
+export const revalidateSeconds = 0 // Отключаем interval-based revalidation
 
 type NextOpts = {
   tags?: string[]
@@ -20,7 +21,11 @@ async function getJSON<T>(
   
   const res = await fetch(url.toString(), {
     headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : undefined,
-    next: { revalidate: revalidateSeconds, tags: nextOpts?.tags },
+    // Используем tag-based revalidation без interval-based кэширования
+    next: {
+      tags: nextOpts?.tags || [],
+      revalidate: false, // Полагаемся на теги для очистки кэша
+    },
   })
   if (!res.ok) throw new Error(`CMS ${res.status} for ${url}`)
   return (await res.json()) as T
