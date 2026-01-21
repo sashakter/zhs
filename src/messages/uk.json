@@ -98,7 +98,7 @@
     "license": "Ліцензія",
     "licenseInfo": "№ 990108201900005",
     "privacyPolicy": "Політика конфіденційності",
-    "rightsReserved": "ТОВ 'АлкоТрейд Україна' ©2024 УСІ ПРАВА ЗАХИЩЕНО",
+    "rightsReserved": "ТОВ 'АлкоТрейд Україна' ©{year} УСІ ПРАВА ЗАХИЩЕНО",
     "poweredBy": "Powered by Kalyna group"
   },
   "ContactUsBar": {

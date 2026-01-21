@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl'
 const Footer: React.FC = () => {
   const t = useTranslations('Footer')
   const [showLicenseInfo, setShowLicenseInfo] = useState<boolean>(false)
+  const currentYear = new Date().getFullYear()
 
   const toggleLicenseInfo = useCallback(() => {
     setShowLicenseInfo((s) => !s)
@@ -97,7 +98,9 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="relative z-50 flex flex-col items-center justify-center gap-6">
-        <h3 className="text-center text-xl">{t('rightsReserved')}</h3>
+        <h3 className="text-center text-xl">
+          {t('rightsReserved', { year: currentYear })}
+        </h3>
         <a
           className="relative py-1 uppercase text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white hover:after:w-full hover:after:duration-200"
           href="https://kalynagroup.space"
