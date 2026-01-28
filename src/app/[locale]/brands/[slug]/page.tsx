@@ -28,9 +28,16 @@ export default async function BrandPage(props: any) {
   if (!brand) return notFound()
 
   const q = (searchParams?.q || '').trim().toLowerCase()
-  const products = q
+  const filteredProducts = q
     ? brand.products.filter((p) => p.name.toLowerCase().includes(q))
     : brand.products
+  
+  // Сортируем по sortOrder
+  const products = [...filteredProducts].sort((a, b) => {
+    const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
+    const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
+    return aSort - bSort
+  })
 
   const b = brand!
   const coverUrl = b.cover?.url

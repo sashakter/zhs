@@ -10,12 +10,19 @@ export default async function BrandSidebar({
   locale?: string
 }) {
   const data = await fetchBrands({ limit: 100, status: 'ACTIVE' })
+  
+  // Сортируем по sortOrder
+  const sortedItems = [...data.items].sort((a, b) => {
+    const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
+    const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
+    return aSort - bSort
+  })
 
   return (
     <aside className="hidden w-72 shrink-0 self-start rounded-xl border border-neutral-800 bg-black/20 p-4 md:block">
       <h3 className="mb-4 text-sm font-medium uppercase tracking-wide text-white">{title}</h3>
       <ul className="flex flex-col gap-3">
-        {data.items.map((b) => (
+        {sortedItems.map((b) => (
           <li
             key={b.id}
             className="rounded-lg border border-neutral-800 p-2 hover:border-neutral-600"

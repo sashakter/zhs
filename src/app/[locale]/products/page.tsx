@@ -23,6 +23,13 @@ export default async function ProductsAllPage(props: any) {
   const q = sp?.q
 
   const data = await fetchProducts({ q, page, limit, status: 'ACTIVE' })
+  
+  // Сортируем по sortOrder
+  const sortedItems = [...data.items].sort((a, b) => {
+    const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
+    const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
+    return aSort - bSort
+  })
 
   return (
     <main className="relative flex flex-col items-center bg-black px-4 py-8 text-white">
@@ -51,7 +58,7 @@ export default async function ProductsAllPage(props: any) {
             ) : (
               <>
                 <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {data.items.map((p) => (
+                  {sortedItems.map((p) => (
                     <ProductCard key={p.id} p={p} />
                   ))}
                 </ul>

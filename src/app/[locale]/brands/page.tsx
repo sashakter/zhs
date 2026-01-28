@@ -10,6 +10,13 @@ export const dynamic = 'force-dynamic'
 export default async function BrandsPage() {
   const data = await fetchBrands({ limit: 120, status: 'ACTIVE' })
   if (!data) return notFound()
+  
+  // Сортируем по sortOrder
+  const sortedItems = [...data.items].sort((a, b) => {
+    const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
+    const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
+    return aSort - bSort
+  })
 
   return (
     <main className="relative flex flex-col items-center bg-black px-4 py-8 text-white">
@@ -27,7 +34,7 @@ export default async function BrandsPage() {
       <div className="relative z-20 mt-28 w-full max-w-6xl">
         <h1 className="mb-8 text-3xl font-semibold">Бренди</h1>
         <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-          {data.items.map((b) => (
+          {sortedItems.map((b) => (
             <BrandCard key={b.id} b={b} />
           ))}
         </ul>

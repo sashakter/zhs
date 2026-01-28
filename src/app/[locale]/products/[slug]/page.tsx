@@ -52,7 +52,14 @@ export default async function ProductPage(props: any) {
 
   // Fetch other products of the same brand (exclude current product)
   const othersList = await fetchProducts({ brand: p.brand.slug, limit: 12, status: 'ACTIVE' })
-  const otherProducts = othersList.items.filter((x) => x.slug !== p.slug).slice(0, 8)
+  const otherProducts = othersList.items
+    .filter((x) => x.slug !== p.slug)
+    .sort((a, b) => {
+      const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
+      const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
+      return aSort - bSort
+    })
+    .slice(0, 8)
 
   return (
     <main className="relative flex flex-col items-center bg-black px-4 py-8 text-white">

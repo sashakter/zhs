@@ -74,6 +74,7 @@ export type BrandLite = {
   seoTitle?: string | null
   seoDescription?: string | null
   cover?: Media | null
+  sortOrder?: number | null
   _count?: { products: number }
 }
 
@@ -89,6 +90,7 @@ export type ProductLite = {
   slug: string
   cover?: Media | null
   brand?: { id: string; name: string; slug: string } | null
+  sortOrder?: number | null
   variants?: ProductVariantLite[]
 }
 
