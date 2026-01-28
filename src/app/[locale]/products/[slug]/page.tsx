@@ -5,7 +5,7 @@ import Breadcrumbs from '@/src/app/components/catalog/Breadcrumbs'
 import ProductGalleryVariants from '@/src/app/components/catalog/ProductGalleryVariants'
 import ProductCard from '@/src/app/components/catalog/ProductCard'
 
-export const revalidate = 600
+export const revalidate = 300
 
 export async function generateMetadata(props: any) {
   const { params } = props

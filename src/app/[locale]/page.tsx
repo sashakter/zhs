@@ -20,6 +20,7 @@ const headerSections = ['hero']
 
 // Динамическая страница с перевалидацией через теги
 export const dynamic = 'force-dynamic'
+export const revalidate = false
 
 export default async function Page() {
   const sections = await getSections()

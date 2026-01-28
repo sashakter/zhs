@@ -76,7 +76,34 @@ export async function POST(request: NextRequest) {
       revalidatePath('/', 'layout')
     }
 
-    console.log(`[Revalidate] Paths revalidated:`, pathsToRevalidate)
+    // Инвалидируем пути при изменении порядка брендов/продуктов
+    if (tagsToRevalidate.includes('sort-order')) {
+      // Все пути с брендами
+      pathsToRevalidate.push('/uk/brands', '/en/brands', '/brands')
+      revalidatePath('/uk/brands')
+      revalidatePath('/en/brands')
+      revalidatePath('/brands')
+      
+      // Динамические пути брендов
+      revalidatePath('/uk/brands/[slug]', 'page')
+      revalidatePath('/en/brands/[slug]', 'page')
+      
+      // Все пути с продуктами
+      pathsToRevalidate.push('/uk/products', '/en/products', '/products')
+      revalidatePath('/uk/products')
+      revalidatePath('/en/products')
+      revalidatePath('/products')
+      
+      // Динамические пути продуктов
+      revalidatePath('/uk/products/[slug]', 'page')
+      revalidatePath('/en/products/[slug]', 'page')
+      
+      // Главная страница (где карусель брендов)
+      pathsToRevalidate.push('/uk', '/en', '/')
+      revalidatePath('/uk', 'layout')
+      revalidatePath('/en', 'layout')
+      revalidatePath('/', 'layout')
+    }
 
     return NextResponse.json({
       revalidated: true,

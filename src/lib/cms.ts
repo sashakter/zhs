@@ -123,7 +123,7 @@ export async function fetchBrands(params?: {
       limit: params?.limit,
       locale: params?.locale ?? 'uk',
     },
-    { tags: ['brands', `brands:${params?.locale ?? 'uk'}`] },
+    { tags: ['brands', 'sort-order', `brands:${params?.locale ?? 'uk'}`] },
   )
 }
 export async function fetchBrandBySlug(slug: string, locale: string) {
@@ -131,7 +131,7 @@ export async function fetchBrandBySlug(slug: string, locale: string) {
     `/api/brands/${slug}`,
     locale,
     undefined,
-    { tags: ['brands', `brand:${slug}`, `products:brand:${slug}`] },
+    { tags: ['brands', 'sort-order', `brand:${slug}`, `products:brand:${slug}`] },
   )
 }
 export async function fetchProducts(params?: {
@@ -144,6 +144,7 @@ export async function fetchProducts(params?: {
 }) {
   const tags = [
     'products',
+    'sort-order',
     `products:${params?.locale ?? 'uk'}`,
     ...(params?.brand ? [`products:brand:${params.brand}`] : []),
   ]
