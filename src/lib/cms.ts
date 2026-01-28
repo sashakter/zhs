@@ -21,10 +21,11 @@ async function getJSON<T>(
   
   const res = await fetch(url.toString(), {
     headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : undefined,
-    // Используем tag-based revalidation без interval-based кэширования
+    cache: 'no-store',
+    // Используем tag-based revalidation. cache: 'no-store' отключает кэширование,
+    // но next.tags все равно используются для инвалидации на уровне страниц
     next: {
       tags: nextOpts?.tags || [],
-      revalidate: false, // Полагаемся на теги для очистки кэша
     },
   })
   if (!res.ok) throw new Error(`CMS ${res.status} for ${url}`)

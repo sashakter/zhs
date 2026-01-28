@@ -63,10 +63,17 @@ export async function POST(request: NextRequest) {
     }
 
     if (tagsToRevalidate.includes('brands')) {
+      console.log('[Revalidate] Processing brands tag...')
       pathsToRevalidate.push('/uk/brands', '/en/brands', '/brands')
       revalidatePath('/uk/brands')
       revalidatePath('/en/brands')
       revalidatePath('/brands')
+      
+      // Также инвалидируем главную страницу где есть карусель брендов
+      console.log('[Revalidate] Revalidating main page for brands carousel...')
+      revalidatePath('/')
+      revalidatePath('/uk', 'layout')
+      revalidatePath('/en', 'layout')
     }
 
     if (tagsToRevalidate.includes('sections')) {
@@ -78,7 +85,16 @@ export async function POST(request: NextRequest) {
 
     // Инвалидируем пути при изменении порядка брендов/продуктов
     if (tagsToRevalidate.includes('sort-order')) {
+      console.log('[Revalidate] Clearing sort-order cache')
+      
+      // Главная страница (самое важное - где карусель брендов)
+      console.log('[Revalidate] Revalidating main page...')
+      revalidatePath('/')
+      revalidatePath('/uk', 'layout')
+      revalidatePath('/en', 'layout')
+      
       // Все пути с брендами
+      console.log('[Revalidate] Revalidating brands...')
       pathsToRevalidate.push('/uk/brands', '/en/brands', '/brands')
       revalidatePath('/uk/brands')
       revalidatePath('/en/brands')
@@ -89,6 +105,7 @@ export async function POST(request: NextRequest) {
       revalidatePath('/en/brands/[slug]', 'page')
       
       // Все пути с продуктами
+      console.log('[Revalidate] Revalidating products...')
       pathsToRevalidate.push('/uk/products', '/en/products', '/products')
       revalidatePath('/uk/products')
       revalidatePath('/en/products')
@@ -97,12 +114,6 @@ export async function POST(request: NextRequest) {
       // Динамические пути продуктов
       revalidatePath('/uk/products/[slug]', 'page')
       revalidatePath('/en/products/[slug]', 'page')
-      
-      // Главная страница (где карусель брендов)
-      pathsToRevalidate.push('/uk', '/en', '/')
-      revalidatePath('/uk', 'layout')
-      revalidatePath('/en', 'layout')
-      revalidatePath('/', 'layout')
     }
 
     return NextResponse.json({
