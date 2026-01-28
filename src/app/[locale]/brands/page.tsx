@@ -11,11 +11,23 @@ export default async function BrandsPage() {
   const data = await fetchBrands({ limit: 120, status: 'ACTIVE' })
   if (!data) return notFound()
   
+  // Логируем исходный порядок из CMS
+  console.log('[BrandsPage] Raw brands from CMS:')
+  data.items.slice(0, 3).forEach((b, i) => {
+    console.log(`  ${i}. ${b.name} (id: ${b.id}, sortOrder: ${b.sortOrder})`)
+  })
+  
   // Сортируем по sortOrder
   const sortedItems = [...data.items].sort((a, b) => {
     const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
     const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
     return aSort - bSort
+  })
+  
+  // Логируем отсортированный порядок
+  console.log('[BrandsPage] Sorted brands:')
+  sortedItems.slice(0, 3).forEach((b, i) => {
+    console.log(`  ${i}. ${b.name} (id: ${b.id}, sortOrder: ${b.sortOrder})`)
   })
 
   return (

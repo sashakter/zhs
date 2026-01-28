@@ -15,11 +15,17 @@ export default function OurBrandsCarousel({ brands }: Props) {
   const visibleBrands = useMemo(() => {
     const filtered = brands.filter((b) => !!b.cover?.url)
     // Сортируем по sortOrder, null значения идут в конец
-    return filtered.sort((a, b) => {
+    const sorted = filtered.sort((a, b) => {
       const aSort = a.sortOrder ?? Number.MAX_SAFE_INTEGER
       const bSort = b.sortOrder ?? Number.MAX_SAFE_INTEGER
       return aSort - bSort
     })
+    
+    // Отладка
+    console.log('[OurBrandsCarousel] Brands order:')
+    sorted.forEach((b, i) => console.log(`  ${i}. ${b.name} (sortOrder: ${b.sortOrder})`))
+    
+    return sorted
   }, [brands])
 
   const autoplay = useRef(

@@ -1,23 +1,6 @@
 import { revalidateTag, revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
-/**
- * Универсальный endpoint для revalidation
- * Используется для очистки кэша при обновлении данных в CMS
- * 
- * Пример использования в CMS:
- * await fetch('/api/revalidate', {
- *   method: 'POST',
- *   headers: {
- *     'Content-Type': 'application/json',
- *     'x-api-secret': process.env.API_SECRET,
- *   },
- *   body: JSON.stringify({
- *     tags: ['articles', 'products', 'brands', 'sections']
- *   })
- * })
- */
-
 export async function POST(request: NextRequest) {
   try {
     const secret = request.headers.get('x-api-secret')

@@ -29,7 +29,15 @@ async function getJSON<T>(
     },
   })
   if (!res.ok) throw new Error(`CMS ${res.status} for ${url}`)
-  return (await res.json()) as T
+  const data = (await res.json()) as T
+  
+  // Отладка: если это список брендов, показываем sortOrder
+  if (path === '/api/brands' && typeof data === 'object' && data !== null && 'items' in data) {
+    const items = (data as any).items
+    console.log('[CMS] Brands data:', JSON.stringify(items.slice(0, 3).map((b: any) => ({ id: b.id, name: b.name, sortOrder: b.sortOrder })), null, 2))
+  }
+  
+  return data
 }
 
 type Translation<T> = T & {
