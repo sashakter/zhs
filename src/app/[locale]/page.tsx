@@ -7,7 +7,7 @@ import React from 'react'
 import { getSections, Section } from '@/src/lib/sections'
 
 // Маппинг ключей секций на компоненты
-const sectionComponents: Record<string, React.FC> = {
+const sectionComponents: Record<string, React.FC<{ videoUrl?: string | null }>> = {
   hero: HeaderVideo,
   about: AboutCompany,
   brands: OurBrands,
@@ -34,14 +34,14 @@ export default async function Page() {
     .filter((s) => headerSections.includes(s.key))
     .map((section) => {
       const Component = sectionComponents[section.key]
-      return Component ? <Component key={section.id} /> : null
+      return Component ? <Component key={section.id} videoUrl={section.videoUrl} /> : null
     })
 
   const mainContent = visibleSections
     .filter((s) => !headerSections.includes(s.key))
     .map((section) => {
       const Component = sectionComponents[section.key]
-      return Component ? <Component key={section.id} /> : null
+      return Component ? <Component key={section.id} videoUrl={section.videoUrl} /> : null
     })
 
   return (

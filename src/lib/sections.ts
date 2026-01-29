@@ -3,6 +3,7 @@ export interface Section {
   key: string
   position: number
   isVisible: boolean
+  videoUrl?: string | null
 }
 
 export async function getSections(): Promise<Section[]> {

@@ -87,7 +87,7 @@ const PartnerLink = memo<{ href: string; src: string; alt: string }>(
 )
 PartnerLink.displayName = 'PartnerLink'
 
-const Partners: React.FC = () => {
+const Partners: React.FC<{ videoUrl?: string | null }> = ({ videoUrl }) => {
   const t = useTranslations('Partners')
 
   const clients = useMemo(
@@ -164,7 +164,7 @@ const Partners: React.FC = () => {
             {t('contactUs')}
           </Link>
         </div>
-        <PartnersVideo />
+        <PartnersVideo videoUrl={videoUrl} />
       </div>
     </div>
   )

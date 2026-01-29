@@ -17,7 +17,7 @@ const VIDEO_SOURCES = {
   ],
 } as const
 
-const PartnersVideo: React.FC = () => {
+const PartnersVideo: React.FC<{ videoUrl?: string | null }> = ({ videoUrl }) => {
   const t = useTranslations('PatnersVideo')
   const playerRef = useRef(null)
   const locale = useLocale()
@@ -27,8 +27,10 @@ const PartnersVideo: React.FC = () => {
     controls: true,
     responsive: true,
     fluid: true,
-    sources: locale === 'en' ? VIDEO_SOURCES.en : VIDEO_SOURCES.uk,
-  }), [locale])
+    sources: videoUrl 
+      ? [{ src: videoUrl, type: 'video/mp4' }]
+      : (locale === 'en' ? VIDEO_SOURCES.en : VIDEO_SOURCES.uk),
+  }), [locale, videoUrl])
 
   return (
     <div className="relative flex flex-col items-center justify-center gap-14 py-10">

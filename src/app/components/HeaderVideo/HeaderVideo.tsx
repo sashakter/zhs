@@ -7,7 +7,7 @@ import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
 import { renderWithBreaks } from '../renderWithBreaks'
 
-const HeaderVideo: React.FC = () => {
+const HeaderVideo: React.FC<{ videoUrl?: string | null }> = ({ videoUrl }) => {
   const t = useTranslations('HeaderVideo')
 
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -76,8 +76,14 @@ const HeaderVideo: React.FC = () => {
           className={css.videoBackground}
           aria-hidden="true"
         >
-          <source src="/bg-video-header.webm" type="video/webm" />
-          <source src="/bg-video-header.mp4" type="video/mp4" />
+          {videoUrl ? (
+            <source src={videoUrl} type="video/mp4" />
+          ) : (
+            <>
+              <source src="/bg-video-header.webm" type="video/webm" />
+              <source src="/bg-video-header.mp4" type="video/mp4" />
+            </>
+          )}
         </video>
 
         <Image
