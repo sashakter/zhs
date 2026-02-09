@@ -15,7 +15,7 @@ interface Section {
 
 const MOBILE_BREAKPOINT = 1024
 
-const Capacities: React.FC = () => {
+const Capacities: React.FC<{videoUrl?: string | null}> = ({videoUrl}) => {
   const t = useTranslations('Capacities')
   const [openSection, setOpenSection] = useState<number | null>(null)
   const contentRefs = useRef<Array<HTMLDivElement | null>>([])
@@ -93,8 +93,12 @@ const Capacities: React.FC = () => {
           autoPlay
           className={`${css.videoBackground} grayscale`}
         >
-          <source src="/capacities.mp4" type="video/mp4" />
-          <source src="/capacities.webm" type="video/webm" />
+          {videoUrl ? <source src={videoUrl} type="video/mp4" /> :
+                <>
+                  <source src="/capacities.mp4" type="video/mp4" />
+                  <source src="/bg-video-header.webm" type="video/webm" />
+                </> 
+                }
         </video>
       </div>
       <div className="absolute inset-0 z-10 bg-black opacity-65 lg:bg-white"></div>
@@ -111,8 +115,13 @@ const Capacities: React.FC = () => {
           >
             {isVideoVisible && (
               <>
-                <source src="/capacities.mp4" type="video/mp4" />
-                <source src="/bg-video-header.webm" type="video/webm" />
+                {videoUrl ? <source src={videoUrl} type="video/mp4" /> :
+                <>
+                  <source src="/capacities.mp4" type="video/mp4" />
+                  <source src="/bg-video-header.webm" type="video/webm" />
+                </> 
+                }
+                
               </>
             )}
           </video>
